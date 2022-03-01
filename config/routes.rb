@@ -14,5 +14,4 @@ Rails.application.routes.draw do
 
   # ==================== Route Profile ====================
   get 'profile/:id', to: 'dashboards#profile', as: :profile
-
 end
