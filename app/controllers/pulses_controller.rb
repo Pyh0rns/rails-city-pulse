@@ -1,0 +1,2 @@
+class PulsesController < ApplicationController
+end
