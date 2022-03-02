@@ -1,18 +1,41 @@
+
+// ---------- PAGE PROFIL & Dashboard -------------
+
 .profile-card {
+  // position: relative;
   color: white;
   background-color: $black;
   border-radius: 8px;
+  h1 {
+    font-size: 32px;
+  }
+  h2 {
+    font-size: 20px;
+  }
+  p{
+    font-size: 14px;
+  }
 }
 
 .profile-card-bottom {
   color: $black;
   background-color: $white;
   border-radius: 8px;
+  h2 {
+    font-size: 20px;
+  }
+  h3 {
+    font-size: 16px;
+  }
+  p{
+    font-size: 14px;
+  }
 }
 
 
 
 
+// ---------- MANU -------------
 
 // :root{
 //   --background-dark: #2d3548;

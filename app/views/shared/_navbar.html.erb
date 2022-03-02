@@ -15,7 +15,11 @@
             <%= link_to "Home", "#", class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
+          <% if current_user.pro %>
+            <%= link_to "PROFILE", dashboard_path(current_user.city) %>
+          <% else %>
+            <%= link_to "PROFILE", profile_path(current_user) %>
+          <% end %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
