@@ -6,11 +6,11 @@ Rails.application.routes.draw do
 
   # ==================== Routes App ====================
   resources :cities, except: [:index, :show, :new, :create, :edit, :update, :destroy] do
-    resources :pulses, only: [:index, :show, :new, :create] do
-      resources :favorites, only: [:new, :update]
-    end
+    resources :pulses, only: [:index, :show, :new, :create]
   end
-  resources :pulses, only: [:destroy]
+  resources :pulses, only: [:destroy] do
+    resources :favorites, only: [:create]
+  end
 
   # ==================== Route Profile ====================
   get 'profile/:id', to: 'dashboards#profile', as: :profile
