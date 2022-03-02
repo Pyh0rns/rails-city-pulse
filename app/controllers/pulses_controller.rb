@@ -14,6 +14,7 @@ class PulsesController < ApplicationController
   end
 
   def new
+    @city = City.find(params[:city_id])
     @pulse = Pulse.new
   end
 

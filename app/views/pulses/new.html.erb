@@ -1,1 +1,12 @@
 <h1>Je suis le new de Pulses</h1>
+
+<%= simple_form_for([@city, @pulse]) do |f| %>
+  <%= f.input :problem %>
+  <%= f.input :solution %>
+  <%= f.input :address,
+      input_html: { data: { geocoder_target: "address" } },
+      wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } } %>
+  <%= f.input :title %>
+<%# f.input :photos, as:file %>
+  <%= f.submit %>
+<% end %>
