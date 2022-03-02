@@ -1,4 +1,3 @@
-
 <div class="container">
   <%# ================= GEOCODER ================= %>
   <div id="map">
@@ -8,7 +7,6 @@
       data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
   </div>
-
 <%# ================= NAVIGATION ================= %>
 <div class="navigation">
 <%# ================= SEARCHBAR ================= %>
@@ -24,22 +22,24 @@
 </div>
 
   <%# ================= CARDS ================= %>
-  <div class='card-container row'>
-    <% @pulses.each do |pulse| %>
-      <div class="card col mt-5 mx-5">
-        <img src= '<%= pulse.photo_url%>'/>
-        <div class="card-infos d-flex">
-          <div>
-            <h2><%= pulse.title %></h2>
-            <p> <%= pulse.problem %></p>
-            <p><%= pulse.user.nickname %></p>
-            <img class="avatar" src="<%= pulse.user.photo_url %>" alt="">
+  <div class='card-pulse-container'>
+      <% @pulses.each do |pulse| %>
+        <div class="card-pulse">
+          <img class="avatar" src="<%= pulse.user.photo_url %>" alt="">
+          <img id= "card-pulse-img" src= '<%= pulse.photo_url%>'/>
+          <div class="card-pulse-infos">
+            <div>
+              <h2><%= pulse.title %></h2>
+              <p> <%= pulse.problem %></p>
+              <p><%= pulse.user.nickname %></p>
+            </div>
+            <h2 class="card-pulse-votes">72 votes</h2>
+            <%= link_to 'like', pulse_favorites_path(pulse), method: :post %>
+            <%# <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> %>
           </div>
-          <h2 class="card-votes">72 votes</h2>
-          <%= link_to 'like', pulse_favorites_path(pulse), method: :post %>
-          <%# <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> %>
         </div>
-      </div>
-    <% end %>
-    <%= link_to 'Pulse ton idée', new_city_pulse_path%>
-  </div>
+        <% end %>
+   </div>
+    
+  <%= link_to 'Pulse ton idée', new_city_pulse_path%>
+</div>
