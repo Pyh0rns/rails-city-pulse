@@ -25,8 +25,10 @@ manu = User.create!(email: "mm@gmail.com", password: "azerty", bio: Faker::Lorem
 marin = User.create!(email: "m@gmail.com", password: "azerty", bio: Faker::Lorem.paragraphs, nickname: "Marin", city_id: rennes.id, grade: "Challenger", xp: 100, photo_url:"https://images.unsplash.com/photo-1487573884658-a5d3c667584e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c3F1YXJlJTIwcG9ydHJhaXR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60")
 py = User.create!(email: "py@gmail.com", password: "azerty", bio: Faker::Lorem.paragraphs, nickname: "Py", city_id: lille.id, grade: "Novice", xp: 10, photo_url: "https://images.unsplash.com/photo-1523477914898-f467a88201d9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c3F1YXJlJTIwcG9ydHJhaXR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60")
 simon = User.create!(email: "s@gmail.com", password: "azerty", bio: Faker::Lorem.paragraphs, nickname: "Simon", pro: true, city_id: lille.id, grade: "Novice", xp: 0, photo_url: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHBvcnRyYWl0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60")
-jordane = User.create!(email: "j@gmail.com", password: "azerty", bio: Faker::Lorem.paragraphs, nickname: "jordane", pro: true, city_id: marseille.id, grade: "Novice", xp: 0, photo_url: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHBvcnRyYWl0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60")
-remi = User.create!(email: "r@gmail.com", password: "azerty", bio: Faker::Lorem.paragraphs, nickname: "remi", pro: true, city_id: bordeaux.id, grade: "Novice", xp: 0, photo_url: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHBvcnRyYWl0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60")
+jordane = User.create!(email: "j@gmail.com", password: "azerty", bio: Faker::Lorem.paragraphs, nickname: "Jordane", pro: true, city_id: marseille.id, grade: "Novice", xp: 0, photo_url: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHBvcnRyYWl0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60")
+remi = User.create!(email: "r@gmail.com", password: "azerty", bio: Faker::Lorem.paragraphs, nickname: "Remi", pro: true, city_id: bordeaux.id, grade: "Novice", xp: 0, photo_url: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHBvcnRyYWl0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60")
+camille = User.create!(email: "c@gmail.com", password: "azerty", bio: Faker::Lorem.paragraphs, nickname: "Camille", city_id: bordeaux.id, grade: "Championne", xp: 0, photo_url: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHBvcnRyYWl0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60")
+
 puts "User ok..."
 
 puts "Create Categories"
@@ -53,7 +55,8 @@ Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.parag
 Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'validé', photo_url: 'https://source.unsplash.com/random', address: '23 rue Gosselet, 59000 lille', city_id: lille.id , user_id: py.id)
 Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'vote en cours', photo_url: 'https://source.unsplash.com/random', address: '23 rue Jean Bart, 59000 lille', city_id: lille.id , user_id: simon.id)
 Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'vote en cours', photo_url: 'https://source.unsplash.com/random', address: '23 rue Jean Bart, 59000 lille', city_id: marseille.id , user_id: jordane.id)
-Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'vote en cours', photo_url: 'https://source.unsplash.com/random', address: '23 rue Jean Bart, 59000 lille', city_id: bordeaux.id , user_id: remi.id)
+Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'vote en cours', photo_url: 'https://source.unsplash.com/random', address: '23 rue saint jean, 33000 bordeaux', city_id: bordeaux.id , user_id: camille.id)
+
 puts "Pulse ok..."
 
 puts "All is GooooOOOooooOOOod..."
