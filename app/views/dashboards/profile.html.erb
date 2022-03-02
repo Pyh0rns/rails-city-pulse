@@ -10,7 +10,7 @@
   <div class="d-flex justify-content-between border p-3 m-5">
 
   <%# 3 div a gauche avec nom grade et ville %>
-    <div>
+    <div class="w-50">
       <h1><%= current_user.nickname %></h1>
       <h2>Ville: <%= current_user.city.name %></h2>
       <h2>Grade: <%= current_user.grade %></h2>
@@ -18,11 +18,10 @@
     </div>
 
   <%# 4 div a droite avec nom thématiques et bio %>
-    <div>
-      <h2>Principales thématiques: current_user.pulses.???</h2>
-      <h2>Bio: current_user.bio</h2>
-      <h2>Bio: <%= current_user.bio %> </h2>
-
+    <div class="w-50">
+      <h2>Principales thématiques: <i class="fas fa-leaf"></i> <i class="fas fa-biking"></i></h2>
+      <h2>Bio: </h2>
+      <p><%= current_user.bio %> </p>
     </div>
   <%# fin div 2 %>
   </div>

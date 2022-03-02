@@ -7,16 +7,25 @@
 <%# 2 div du recap en haut de la page  %>
   <div class="d-flex justify-content-between border p-3 m-5">
     <div>
-      <h2>Thématiques</h2>
+      <div>
+        <h2>Thématiques</h2>
+        <p><i class="fas fa-leaf"></i> <i class="fas fa-biking"></i></p>
+      </div>
+          <div>
+        <h2>Nombre d'idées proposées</h2>
+        <p><%= current_user.city.pulses.count %></p>
+        <p>1290</p>
+      </div>
     </div>
-        <div>
-      <h2>Nombre d'idées proposées</h2>
-    </div>
-        <div>
-      <h2>Nombre d'idées réalisées</h2>
-    </div>
-        <div>
-      <h2>Top Contributeur</h2>
+      <div>
+          <div>
+        <h2>Nombre d'idées réalisées</h2>
+        <p>12</p>
+      </div>
+          <div>
+        <h2>Top Contributeur</h2>
+        <p>Martine</p>
+      </div>
     </div>
   <%# fin div 2 %>
   </div>
