@@ -1,7 +1,16 @@
 
 <%# ================= GEOCODER ================= %>
 
-<%# ================= SEARBAR ================= %>
+<%# ================= SEARCHBAR ================= %>
+
+<%= form_tag city_pulses_path(current_user.city), method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Trouve un Pulse ou un utilisateur"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
 
 
 <%# ================= CARDS ================= %>
