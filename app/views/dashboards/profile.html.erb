@@ -1,0 +1,71 @@
+
+
+<%# 1 div container pour toute la page  %>
+
+<div class="container">
+
+<%# 2 div du profil en haut de la page  %>
+  <div class="d-flex justify-content-between border p-3 m-5">
+
+  <%# 3 div a gauche avec nom grade et ville %>
+    <div>
+      <h1><%= current_user.nickname %></h1>
+      <%# a changer par le nom de la ville %>
+      <h2>Ville: <%= current_user.city_id %></h2>
+      <h2>Grade: <%= current_user.grade %></h2>
+      <h2>XP: <%= current_user.xp %></h2>
+    </div>
+
+  <%# 4 div a droite avec nom thématiques et bio %>
+    <div>
+      <h2>Principales thématiques: current_user.pulses.???</h2>
+      <h2>Bio: current_user.bio</h2>
+    </div>
+  <%# fin div 2 %>
+  </div>
+
+
+<%# 5 div échanges mairie et meilleurs pulses %>
+  <div class="d-flex justify-content-between border p-3 m-5">
+
+<%# 6 div meilleurs pulses %>
+    <div>
+      <h2>Tes meilleurs Pulses</h2>
+      <p>current_user.pulses.???</p>
+      <p>current_user.pulses.???</p>
+      <p>current_user.pulses.???</p>
+    </div>
+
+<%# 7 div échanges mairie %>
+    <div>
+      <h2>Tes échanges avec la Mairie</h2>
+      <p>current_user.pulses.???</p>
+      <p>current_user.pulses.???</p>
+      <p>current_user.pulses.???</p>
+    </div>
+<%# fin div 5 %>
+  </div>
+
+<%# 7 div derniers pulses postés et aimés %>
+  <div class="d-flex justify-content-between border p-3 m-5">
+
+<%# 8 div derniers pulses postés %>
+    <div>
+      <h2>Tes derniers Pulses postés</h2>
+      <p>current_user.pulses.???</p>
+      <p>current_user.pulses.???</p>
+      <p>current_user.pulses.???</p>
+    </div>
+
+<%# 9 div derniers pulses aimés %>
+    <div>
+      <h2>Tes derniers Pulses aimés</h2>
+      <p>current_user.pulses.???</p>
+      <p>current_user.pulses.???</p>
+      <p>current_user.pulses.???</p>
+    </div>
+<%# fin div 7 %>
+  </div>
+
+<%# fin div 1 %>
+</div>
