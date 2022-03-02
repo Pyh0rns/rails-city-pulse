@@ -1,9 +1,5 @@
 
-<h2> This is your dashboard for <%= current_user.city_id %> </h2>
-<%# <h2> This is your dashboard for <%= current_user.city %> </h2> %>
-
-
-
+<h2> This is your dashboard for <%= current_user.city.name %> </h2>
 
 <%# 1 div container pour toute la page  %>
 <div class="container">
@@ -30,13 +26,16 @@
   <div class="d-flex justify-content-between border p-3 m-5">
 
 <%# 4 div meilleurs pulses %>
-    <div>
+    <div class="w-50">
       <h2>Les Meilleures idées de la semaine</h2>
-      <p><%= current_user.city.pulses.last %></p>
+      <h3><%= current_user.city.pulses.last.title %></h3>
+      <p><%= current_user.city.pulses.last.problem %></p>
+      <p><%= current_user.city.pulses.last.solution %></p>
+
     </div>
 
 <%# 5 div échanges mairie %>
-    <div>
+    <div class="w-50">
       <h2>Les derniers messages</h2>
       <p>coucou</p>
     </div>

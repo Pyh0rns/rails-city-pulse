@@ -9,8 +9,7 @@
   <%# 3 div a gauche avec nom grade et ville %>
     <div>
       <h1><%= current_user.nickname %></h1>
-      <%# a changer par le nom de la ville %>
-      <h2>Ville: <%= current_user.city_id %></h2>
+      <h2>Ville: <%= current_user.city.name %></h2>
       <h2>Grade: <%= current_user.grade %></h2>
       <h2>XP: <%= current_user.xp %></h2>
     </div>
@@ -19,6 +18,8 @@
     <div>
       <h2>Principales thématiques: current_user.pulses.???</h2>
       <h2>Bio: current_user.bio</h2>
+      <h2>Bio: <%#= current_user.bio %> </h2>
+
     </div>
   <%# fin div 2 %>
   </div>
@@ -28,15 +29,15 @@
   <div class="d-flex justify-content-between border p-3 m-5">
 
 <%# 6 div meilleurs pulses %>
-    <div>
+    <div class="w-50 m-3">
       <h2>Tes meilleurs Pulses</h2>
-      <p>current_user.pulses.???</p>
-      <p>current_user.pulses.???</p>
-      <p>current_user.pulses.???</p>
+      <h3><%= current_user.pulses[-1].title %></h3>
+      <p><%= current_user.pulses[-1].solution %></p>
+      <p>a modifier avec les vrais favoris</p>
     </div>
 
 <%# 7 div échanges mairie %>
-    <div>
+    <div class="w-50 m-3">
       <h2>Tes échanges avec la Mairie</h2>
       <p>current_user.pulses.???</p>
       <p>current_user.pulses.???</p>
@@ -49,15 +50,19 @@
   <div class="d-flex justify-content-between border p-3 m-5">
 
 <%# 8 div derniers pulses postés %>
-    <div>
+    <div class="w-50 m-3">
       <h2>Tes derniers Pulses postés</h2>
-      <%# <%= current_user.pulses.last %> %>
-      <%# <p> <%= current_user.pulses[-2] %> </p> %>
-      <%# <p> <%= current_user.pulses[-3] %> </p> %>
+      <h3><%= current_user.pulses[-1].title %></h3>
+      <p><%= current_user.pulses[-1].solution %></p>
+      <h3> <%= current_user.pulses[-2].title %> </h3>
+      <p><%= current_user.pulses[-2].solution %></p>
+      <h3> <%= current_user.pulses[-3].title %> </h3>
+      <p><%= current_user.pulses[-3].solution %></p>
+
     </div>
 
 <%# 9 div derniers pulses aimés %>
-    <div>
+    <div class="w-50 m-3">
       <h2>Tes derniers Pulses aimés</h2>
       <p>current_user.pulses.???</p>
       <p>current_user.pulses.???</p>
