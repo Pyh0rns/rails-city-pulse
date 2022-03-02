@@ -3,7 +3,7 @@ class Pulse < ApplicationRecord
   belongs_to :user
   has_many :pulse_categories
   has_many :favorites
-  has_many :categories, through: pulse_categories
+  has_many :categories, through: :pulse_categories
 
   validates :title, length: { minimum: 6 }
   validates :solution, length: { minimum: 300 }
