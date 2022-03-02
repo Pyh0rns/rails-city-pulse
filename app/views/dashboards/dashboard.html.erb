@@ -1,0 +1,47 @@
+
+<h2> This is your dashboard for <%= current_user.city_id %> </h2>
+<%# <h2> This is your dashboard for <%= current_user.city %> </h2> %>
+
+
+
+
+<%# 1 div container pour toute la page  %>
+<div class="container">
+
+<%# 2 div du recap en haut de la page  %>
+  <div class="d-flex justify-content-between border p-3 m-5">
+    <div>
+      <h2>Thématiques</h2>
+    </div>
+        <div>
+      <h2>Nombre d'idées proposées</h2>
+    </div>
+        <div>
+      <h2>Nombre d'idées réalisées</h2>
+    </div>
+        <div>
+      <h2>Top Contributeur</h2>
+    </div>
+  <%# fin div 2 %>
+  </div>
+
+
+<%# 3 div échanges mairie et meilleurs pulses %>
+  <div class="d-flex justify-content-between border p-3 m-5">
+
+<%# 4 div meilleurs pulses %>
+    <div>
+      <h2>Les Meilleures idées de la semaine</h2>
+      <p><%= current_user.city.pulses.last %></p>
+    </div>
+
+<%# 5 div échanges mairie %>
+    <div>
+      <h2>Les derniers messages</h2>
+      <p>coucou</p>
+    </div>
+<%# fin div 3 %>
+  </div>
+
+<%# fin div 1 %>
+</div>
