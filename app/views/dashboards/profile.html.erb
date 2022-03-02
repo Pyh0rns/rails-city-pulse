@@ -1,7 +1,13 @@
 
 
 <%# 1 div container pour toute la page  %>
-<div class="container">
+<div class="container mt-5">
+
+<%= link_to city_pulses_path(current_user.city) do %>
+  <p><i class="fas fa-arrow-left"> </i> Pulses de ta ville</p>
+<% end %>
+
+
 <img class="avatar-large" src="<%= current_user.photo_url %>" alt="">
 
 
