@@ -38,16 +38,19 @@
   <div class="profile-card-bottom d-flex justify-content-between border p-3 m-5">
 
 <%# 4 div meilleurs pulses %>
-    <div class="w-50">
+    <div class="w-50 border m-2">
       <h2>Les Meilleures idées de la semaine</h2>
-      <h3><%= current_user.city.pulses.last.title %></h3>
-      <p><%= current_user.city.pulses.last.problem %></p>
-      <p><%= current_user.city.pulses.last.solution %></p>
+      <h3><%= current_user.city.pulses[-1].title %></h3>
+      <p><%= current_user.city.pulses[-1].problem %></p>
+      <p><%= current_user.city.pulses[-1].solution %></p>
+      <h3><%= current_user.city.pulses[-2].title %></h3>
+      <p><%= current_user.city.pulses[-2].problem %></p>
+      <p><%= current_user.city.pulses[-2].solution %></p>
 
     </div>
 
 <%# 5 div échanges mairie %>
-    <div class="w-50">
+    <div class="w-50 border m-2">
       <h2>Les derniers messages</h2>
       <p>coucou</p>
     </div>
