@@ -2,11 +2,10 @@
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
 
-
-puts "Destroy old cities"
-City.destroy_all
 puts "Destroy old users"
 User.destroy_all
+puts "Destroy old cities"
+City.destroy_all
 
 puts "Create new cities"
 lille = City.create!(name: 'Lille', photo_url: 'https://jeveuxaider.fra1.digitaloceanspaces.com/public/production/6781/conversions/5KgQeXfWckoDgaiaRj1FTysksnY6h6-large.jpg')
