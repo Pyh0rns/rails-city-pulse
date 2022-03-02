@@ -24,6 +24,7 @@ felix = User.create!(email: "f@gmail.com", password: "azerty", bio: Faker::Lorem
 manu = User.create!(email: "mm@gmail.com", password: "azerty", bio: Faker::Lorem.paragraphs, nickname: "Manu", city_id: stmalo.id, grade: "Champion", xp: 1200, photo_url: "https://images.unsplash.com/photo-1542995719-06bfa52c0e11?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8c3F1YXJlJTIwcG9ydHJhaXR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60")
 marin = User.create!(email: "m@gmail.com", password: "azerty", bio: Faker::Lorem.paragraphs, nickname: "Marin", city_id: rennes.id, grade: "Challenger", xp: 100, photo_url:"https://images.unsplash.com/photo-1487573884658-a5d3c667584e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c3F1YXJlJTIwcG9ydHJhaXR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60")
 py = User.create!(email: "py@gmail.com", password: "azerty", bio: Faker::Lorem.paragraphs, nickname: "Py", city_id: lille.id, grade: "Novice", xp: 10, pro: true, photo_url: "https://images.unsplash.com/photo-1523477914898-f467a88201d9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c3F1YXJlJTIwcG9ydHJhaXR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60")
+simon = User.create!(email: "s@gmail.com", password: "azerty", bio: Faker::Lorem.paragraphs, nickname: "Simon", city_id: lille.id, grade: "Novice", xp: 0, photo_url: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHBvcnRyYWl0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60")
 puts "User ok..."
 
 puts "create pulses"
@@ -39,6 +40,8 @@ Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.parag
 Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'posté', photo_url: 'https://source.unsplash.com/random', address: '39 boulevard Vauban, 59800 lille', city_id: lille.id , user_id: py.id)
 Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'vote en cours', photo_url: 'https://source.unsplash.com/random', address: '40 rue de Béthune, 59800 lille', city_id: lille.id , user_id: py.id)
 Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'validé', photo_url: 'https://source.unsplash.com/random', address: '23 rue Gosselet, 59000 lille', city_id: lille.id , user_id: py.id)
+Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'vote en cours', photo_url: 'https://source.unsplash.com/random', address: '23 rue Jean Bart, 59000 lille', city_id: lille.id , user_id: simon.id)
+
 puts "Pulse ok..."
 
 puts "All is GooooOOOooooOOOod..."

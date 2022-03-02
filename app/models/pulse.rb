@@ -12,6 +12,8 @@ class Pulse < ApplicationRecord
   validates :address, presence: true
 
   include PgSearch::Model
-  pg_search_scope :global_search, against: [ :title, :solution, :problem ],
-    associated_against: { user: [ :nickname ] }, using: { tsearch: { prefix: true } }
+  pg_search_scope :global_search, against: [ :title, :solution, :problem], using: { tsearch: { prefix: true } }
+
+  # NE PEUX PAS TESTER CAR 1 SEUL USER A LILLE
+  #   associated_against: { user: [ :nickname ] }
 end
