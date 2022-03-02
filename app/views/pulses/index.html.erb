@@ -1,23 +1,31 @@
-
-<%# ================= GEOCODER ================= %>
-
-<%# ================= SEARCH-BAR ================= %>
-
-
-<%# ================= CARDS ================= %>
-<div class='card-container row'>
-  <% @pulses.each do |pulse| %>
-    <div class="card col mt-5 mx-5">
-      <img src= '<%= pulse.photo_url%>'/>
-      <div class="card-infos d-flex">
-        <div>
-          <h2><%= pulse.title %></h2>
-          <p> <%= pulse.problem %></p>
-        </div>
-        <h2 class="card-votes">72 votes</h2>
-        <%= link_to 'like', pulse_favorites_path(pulse), method: :post %>
-        <%# <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> %>
+<div class="container">
+  <%# ================= GEOCODER ================= %>
+  <div id="map">
+    <div style="width: 100%; height: 600px;"
+      data-controller="mapbox"
+      data-mapbox-markers-value="<%= @markers.to_json %>"
+      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
-    </div>
-  <% end %>
+  </div>
+
+  <%# ================= SEARCH-BAR ================= %>
+
+
+  <%# ================= CARDS ================= %>
+  <div class='card-container row'>
+    <% @pulses.each do |pulse| %>
+      <div class="card col mt-5 mx-5">
+        <img src= '<%= pulse.photo_url%>'/>
+        <div class="card-infos d-flex">
+          <div>
+            <h2><%= pulse.title %></h2>
+            <p> <%= pulse.problem %></p>
+          </div>
+          <h2 class="card-votes">72 votes</h2>
+          <%= link_to 'like', pulse_favorites_path(pulse), method: :post %>
+          <%# <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
