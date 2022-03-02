@@ -2,6 +2,7 @@ class PulsesController < ApplicationController
   def index
     @city = City.find(params[:city_id])
     @pulses = @city.pulses.all
+    # <-------------------------- MAPBOX -------------------------->
     @markers = @pulses.geocoded.map do |pulse|
       {
         lat: pulse.latitude,
@@ -10,7 +11,6 @@ class PulsesController < ApplicationController
         image_url: helpers.asset_url("/logo.svg")
       }
     end
-  end
     # <-------------------------- SEARCHBAR -------------------------->
     if params[:query].present?
       @pulses = Pulse.global_search("#{params[:query]}")
