@@ -8,5 +8,5 @@ class Pulse < ApplicationRecord
   validates :title, length: { minimum: 6 }
   validates :solution, length: { minimum: 300 }
   validates :problem, length: { minimum: 150 }
-  validatates :address, presence: true
+  validates :address, presence: true
 end
