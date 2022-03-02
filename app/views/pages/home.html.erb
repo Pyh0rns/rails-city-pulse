@@ -2,38 +2,40 @@
 <%= link_to "index", city_pulses_path(current_user.city.id) %>
 <% end %>
 
+
 <%# ------------------------------- div title---------------------------------- %>
-
-
 
 <%# ------------------------------- div title fin---------------------------------- %>
 
-
-
-
-
 <%# ------------------------------- How it Works---------------------------------- %>
+
+
+<div id="why">
+  <h2>Là où ca pulse !</h2>
+</div>
+
+
 <div class="container-home">
   <div class="card__container">
     <div class="card">
       <div class="card__content">
-        <h3 class="card__header">Concretise</h3>
+        <button class="card__button"><i class="fas fa-heartbeat"></i></button>
+        <h3  id="fonction" class="card__header">Pulse</h3>
         <p class="card__info">Propose une idée pour pulser ta ville</p>
-        <button class="card__button">Read now</button>
       </div>
     </div>
     <div class="card">
       <div class="card__content">
-        <h3 class="card__header">Vote</h3>
+        <button class="card__button"><i class="fas fa-heart"></i></button>
+        <h3 id="fonction" class="card__header">Vote</h3>
         <p class="card__info">Soutiens les pulses qui te tiennent à coeur !</p>
-        <button class="card__button">Read now</button>
       </div>
     </div>
     <div class="card">
       <div class="card__content">
-        <h3 class="card__header">Concretise</h3>
+        <button id=btn-fonction class="card__button"><i class="fas fa-thumbs-up"></i></button>
+        <h3 id="fonction" class="card__header">Concretise</h3>
         <p class="card__info">Donne vie au pulse de ta ville avec les décideurs locaux</p>
-        <button class="card__button">Read now</button>
       </div>
     </div>
   </div>
