@@ -3,7 +3,7 @@
 
 <%# ================= SEARCHBAR ================= %>
 
-<%= form_tag city_pulses_path(current_user.city), method: :get do %>
+<%= form_tag city_pulses_path(current_user.city.id), method: :get do %>
   <%= text_field_tag :query,
     params[:query],
     class: "form-control",
