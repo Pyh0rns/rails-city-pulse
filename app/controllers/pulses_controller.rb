@@ -23,7 +23,7 @@ class PulsesController < ApplicationController
     @pulse.user = current_user
     @pulse.city= current_user.city
     if @pulse.save
-      redirect_to pulses_path
+      redirect_to city_pulses_path
     else
       render :new
     end
@@ -32,7 +32,7 @@ class PulsesController < ApplicationController
   def destroy
     @pulse = find_pulse
     @pulse.destroy
-    redirect_to pulses_path
+    redirect_to city_pulses_path
   end
 
   private
