@@ -1,32 +1,4 @@
 
-<%# ================= GEOCODER ================= %>
-
-<%# ================= SEARCHBAR ================= %>
-
-<%= form_tag city_pulses_path(current_user.city.id), method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Trouve un Pulse ou un utilisateur"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
-
-<%# ================= CARDS ================= %>
-<div class='card-container row'>
-  <% @pulses.each do |pulse| %>
-    <div class="card col mt-5 mx-5">
-      <img src= '<%= pulse.photo_url%>'/>
-      <div class="card-infos d-flex">
-        <div>
-          <h2><%= pulse.title %></h2>
-          <p><%= pulse.user.nickname %></p>
-          <img class="avatar" src="<%= pulse.user.photo_url %>" alt="">
-          <p> <%= pulse.problem %></p>
-        </div>
-        <h2 class="card-votes">72 votes</h2>
-        <%= link_to 'like', pulse_favorites_path(pulse), method: :post %>
-        <%# <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> %>
 
 <div class="container">
   <%# ================= GEOCODER ================= %>
@@ -35,7 +7,6 @@
       data-controller="mapbox"
       data-mapbox-markers-value="<%= @markers.to_json %>"
       data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
->>>>>>> ed6d1d94d8ec421f64caffe1b1bcdbde99a6562d
       </div>
   </div>
 
@@ -62,6 +33,8 @@
           <div>
             <h2><%= pulse.title %></h2>
             <p> <%= pulse.problem %></p>
+            <p><%= pulse.user.nickname %></p>
+            <img class="avatar" src="<%= pulse.user.photo_url %>" alt="">
           </div>
           <h2 class="card-votes">72 votes</h2>
           <%= link_to 'like', pulse_favorites_path(pulse), method: :post %>
