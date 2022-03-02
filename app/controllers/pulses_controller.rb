@@ -13,7 +13,7 @@ class PulsesController < ApplicationController
     end
     # <-------------------------- SEARCHBAR -------------------------->
     if params[:query].present?
-      @pulses = Pulse.global_search("#{params[:query]}")
+      @pulses = Pulse.global_search("#{params[:query]}").where(city: @city)
     else
       @pulses = @city.pulses.all
     end
