@@ -8,6 +8,8 @@ puts "Destroy old pulses"
 Pulse.destroy_all
 puts "Destroy old users"
 User.destroy_all
+puts "Destroy old categories"
+Category.destroy_all
 puts "Destroy old cities"
 City.destroy_all
 
@@ -38,7 +40,7 @@ Category.create!(name: "Sécurité")
 Category.create!(name: "Santé")
 Category.create!(name: "Culture")
 Category.create!(name: "Sport")
-puts "Categories ok"
+puts "Categories ok..."
 
 puts "create pulses"
 Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'posté', photo_url: 'https://source.unsplash.com/random', address: '18 rue Charlemagne, 75004 paris', city_id: paris.id , user_id: felix.id)
