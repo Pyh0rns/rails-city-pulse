@@ -2,8 +2,11 @@
 
 <%# 1 div container pour toute la page  %>
 <div class="container">
+<img class="avatar-large" src="<%= current_user.photo_url %>" alt="">
 
-<%# 2 div du profil en haut de la page  %>
+
+
+  <%# 2 div du profil en haut de la page  %>
   <div class="d-flex justify-content-between border p-3 m-5">
 
   <%# 3 div a gauche avec nom grade et ville %>
@@ -18,7 +21,7 @@
     <div>
       <h2>Principales thématiques: current_user.pulses.???</h2>
       <h2>Bio: current_user.bio</h2>
-      <h2>Bio: <%#= current_user.bio %> </h2>
+      <h2>Bio: <%= current_user.bio %> </h2>
 
     </div>
   <%# fin div 2 %>
