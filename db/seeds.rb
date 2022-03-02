@@ -29,6 +29,15 @@ jordane = User.create!(email: "j@gmail.com", password: "azerty", bio: Faker::Lor
 remi = User.create!(email: "r@gmail.com", password: "azerty", bio: Faker::Lorem.paragraphs, nickname: "remi", pro: true, city_id: bordeaux.id, grade: "Novice", xp: 0, photo_url: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHBvcnRyYWl0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60")
 puts "User ok..."
 
+puts "Create Categories"
+Category.create!(name: "Ecologie")
+Category.create!(name: "Transports")
+Category.create!(name: "Sécurité")
+Category.create!(name: "Santé")
+Category.create!(name: "Culture")
+Category.create!(name: "Sport")
+puts "Categories ok"
+
 puts "create pulses"
 Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'posté', photo_url: 'https://source.unsplash.com/random', address: '18 rue Charlemagne, 75004 paris', city_id: paris.id , user_id: felix.id)
 Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'vote en cours', photo_url: 'https://source.unsplash.com/random', address: '10 faubourg Strasbourg Saint-Denis, 75010 paris', city_id: paris.id , user_id: felix.id)

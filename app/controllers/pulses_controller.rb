@@ -8,7 +8,7 @@ class PulsesController < ApplicationController
         lat: pulse.latitude,
         lng: pulse.longitude,
         info_window: render_to_string(partial: "info_window", locals: { pulse: pulse }),
-        image_url: helpers.asset_url("/logo.svg")
+        image_url: helpers.asset_url("logo.svg")
       }
     end
     # <-------------------------- SEARCHBAR -------------------------->
@@ -32,7 +32,14 @@ class PulsesController < ApplicationController
     @pulse = Pulse.new(pulse_params)
     @pulse.user = current_user
     @pulse.city= current_user.city
+    @city = current_user.city
     if @pulse.save
+      params[:pulse][:category_ids].each do |id|
+        @pulse_categories = PulseCategory.new
+        @pulse_categories.category = Category.find(id)
+        @pulse_categories.pulse = @pulse
+        @pulse_categories.save
+      end
       redirect_to city_pulses_path
     else
       render :new
