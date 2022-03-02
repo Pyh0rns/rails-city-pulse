@@ -25,11 +25,13 @@
     <div class='card-container row'>
       <% @pulses.each do |pulse| %>
         <div class="card col mt-5 mx-5">
+          <img class="avatar" src="<%= pulse.user.photo_url %>" alt="">
           <img src= '<%= pulse.photo_url%>'/>
           <div class="card-infos d-flex">
             <div>
               <h2><%= pulse.title %></h2>
               <p> <%= pulse.problem %></p>
+              <p><%= pulse.user.nickname %></p>
             </div>
             <h2 class="card-votes">72 votes</h2>
             <%= link_to 'like', pulse_favorites_path(pulse), method: :post %>
