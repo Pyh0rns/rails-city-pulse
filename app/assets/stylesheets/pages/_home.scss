@@ -14,10 +14,11 @@
 
 #why {
   color: black;
-  font-size: 64px;
+  font-size: 80px;
   font-family: 'Urbanist', sans-serif;
   text-align: center;
-  // position: absolute;
+  position: relative;
+  top: 25px;
 }
 
 #fonction {
@@ -26,9 +27,6 @@
   font-family: 'Urbanist', sans-serif;
   text-align: center;
 }
-
-btn-fonction
-
 
 #btn-fonction {
   color: white;
