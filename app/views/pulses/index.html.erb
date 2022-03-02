@@ -12,7 +12,6 @@
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
 
-
 <%# ================= CARDS ================= %>
 <div class='card-container row'>
   <% @pulses.each do |pulse| %>
@@ -22,6 +21,7 @@
         <div>
           <h2><%= pulse.title %></h2>
           <p><%= pulse.user.nickname %></p>
+          <img class="avatar" src="<%= pulse.user.photo_url %>" alt="">
           <p> <%= pulse.problem %></p>
         </div>
         <h2 class="card-votes">72 votes</h2>
