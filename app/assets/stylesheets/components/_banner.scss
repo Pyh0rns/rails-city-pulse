@@ -1,0 +1,20 @@
+.banner-dashboard {
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    color: $white;
+    font-family: $headers-font;
+    font-size: 48px;
+  }
+  h2 {
+    color: $white;
+    font-family: $headers-font;
+    font-size: 32px;
+    font-style: italic;
+   }
+}

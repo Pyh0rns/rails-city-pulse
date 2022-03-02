@@ -1,5 +1,5 @@
 
-// ---------- PAGE PROFIL -------------
+// ---------- PAGE PROFIL & Dashboard -------------
 
 .profile-card {
   // position: relative;
@@ -9,7 +9,6 @@
   h1 {
     font-size: 32px;
   }
-
   h2 {
     font-size: 20px;
   }
@@ -22,6 +21,15 @@
   color: $black;
   background-color: $white;
   border-radius: 8px;
+  h2 {
+    font-size: 20px;
+  }
+  h3 {
+    font-size: 16px;
+  }
+  p{
+    font-size: 14px;
+  }
 }
 
 
