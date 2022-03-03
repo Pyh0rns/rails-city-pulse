@@ -1,5 +1,8 @@
 class PulsesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
+    @pulses = policy_scope(Pulse).order(created_at: :desc)
     @city = City.find(params[:city_id])
     @pulses = @city.pulses.all
     # <-------------------------- MAPBOX -------------------------->
@@ -30,6 +33,7 @@ class PulsesController < ApplicationController
 
   def create
     @pulse = Pulse.new(pulse_params)
+    authorize @pulse
     @pulse.user = current_user
     @pulse.city= current_user.city
     @city = current_user.city
@@ -47,6 +51,7 @@ class PulsesController < ApplicationController
   end
 
   def destroy
+    # TODO: when btn to delete => do not forget to put 'policy' in the HTML file for validation with pundit
     @pulse = find_pulse
     @pulse.destroy
     redirect_to city_pulses_path
