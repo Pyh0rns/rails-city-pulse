@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :pulses, only: [:destroy] do
     resources :favorites, only: [:create]
   end
+  resources :favorites, only: [:destroy]
 
   # ==================== Route Profile ====================
   get 'profile/:id', to: 'dashboards#profile', as: :profile
