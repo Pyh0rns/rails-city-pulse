@@ -4,7 +4,7 @@ class PulsesController < ApplicationController
   def index
     @pulses = policy_scope(Pulse).order(created_at: :desc)
     @city = City.find(params[:city_id])
-    # @pulses = @city.pulses.all
+    @pulses = @city.pulses.all
 
     # <-------------------------- MAPBOX -------------------------->
     @markers = @pulses.geocoded.map do |pulse|
@@ -30,6 +30,7 @@ class PulsesController < ApplicationController
   def new
     @city = City.find(params[:city_id])
     @pulse = Pulse.new
+    authorize @pulse
   end
 
   def create
