@@ -28,9 +28,12 @@ class Pulse < ApplicationRecord
     return false
   end
 
-  # def best_favorites
-  #   return Favorite.where(pulse: )
-  #   Pulse.find_by()
+  # def best_favorites(user)
+  #   @best_pulses = []
+  #   Pulse.where(user_id: user).each do |pulse|
+  #     @best_pulses << pulse.favorites
+  #   end
+  #   return @best_pulses
   # end
 
 end
