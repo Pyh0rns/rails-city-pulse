@@ -1,7 +1,3 @@
-<% if current_user %>
-<%= link_to "index", city_pulses_path(current_user.city.id) %>
-<% end %>
-
 
 <%# ------------------------------- div title---------------------------------- %>
 <div class="home-logo">
@@ -57,7 +53,9 @@
     </button>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
       <%# faire une itération pour toutes nos villes plutot que de les écrire à la main %>
-      <%= link_to 'Ta Ville', city_pulses_path(current_user.city), class: "dropdown-item"  %>
+      <% unless current_user.nil? %>
+        <%= link_to 'Ta Ville', city_pulses_path(current_user.city), class: "dropdown-item"  %>
+      <% end %>
       <%= link_to 'Lille', city_pulses_path(City.find_by(name: "Lille").id), class: "dropdown-item"  %>
       <%= link_to 'Paris', city_pulses_path(City.find_by(name: "Paris").id), class: "dropdown-item"  %>
       <%= link_to 'Marseille', city_pulses_path(City.find_by(name: "Marseille").id), class: "dropdown-item"  %>
@@ -73,7 +71,7 @@
 
 
 <%# ------------------------------- Là où ca pulse !---------------------------------- %>
-<div id="why" class="container" style="margin-bottom:200px;">
+<div id="why" class="container" style="margin-bottom:400px;">
   <h2>Là où ca pulse !</h2>
 </div>
 <%# ------------------------------- Là où ca pulse ! fin---------------------------------- %>
