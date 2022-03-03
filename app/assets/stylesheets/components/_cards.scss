@@ -225,26 +225,26 @@
 
 
 .pulse-card-why {
-  width: 50%;
-  position: relative;
-  color: white;
-  background-color: $black;
-  border-radius: 8px;
-  display: flex;
-  margin-top: 50px;
-  // flex-direction: column-reverse;
-  justify-content: center;
-  h1 {
-    font-size: 32px;
-  }
-  h2 {
-    font-size: 20px;
-  }
-  p{
-    padding: 20px;
-    font-size: 14px;
-    opacity: .7;
-
+    width: 50%;
+    position: relative;
+    color: white;
+    background-color: $black;
+    border-radius: 8px;
+    display: flex;
+    margin-top: 50px;
+    // flex-direction: column-reverse;
+    justify-content: center;
+    h1 {
+      font-size: 32px;
+    }
+    h2 {
+      font-size: 20px;
+    }
+    p{
+      padding: 20px;
+      font-size: 14px;
+      opacity: .7;
+    }
   }
 
   .button-like-red {
