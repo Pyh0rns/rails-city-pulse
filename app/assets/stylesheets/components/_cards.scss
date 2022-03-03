@@ -2,7 +2,7 @@
 // ---------- PAGE PROFIL & Dashboard -------------
 
 .profile-card {
-  // position: relative;
+  position: relative;
   color: white;
   background-color: $black;
   border-radius: 8px;
@@ -14,7 +14,13 @@
   }
   p{
     font-size: 14px;
+    opacity: .7;
+
   }
+}
+
+.profile-card-left {
+  margin-left: 120px;
 }
 
 .profile-card-bottom {
@@ -29,6 +35,8 @@
   }
   p{
     font-size: 14px;
+    opacity: .7;
+
   }
 }
 
