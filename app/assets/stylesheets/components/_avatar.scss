@@ -41,3 +41,20 @@
   top: -50px;
   left: -40px;
 }
+
+// ------------ PAGE NEW PULSE --------------
+.avatar-input {
+  position: absolute;
+  right: -25px;
+  bottom: 10px;
+}
+
+.avatar-input .avatar {
+height: 60px;
+width: 60px;
+border-radius: 50%;
+background-size: cover;
+background-position: center;
+object-fit: cover;
+border: white 3px solid;
+}
