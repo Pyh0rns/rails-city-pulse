@@ -28,4 +28,9 @@ class Pulse < ApplicationRecord
     return false
   end
 
+  # def best_favorites
+  #   return Favorite.where(pulse: )
+  #   Pulse.find_by()
+  # end
+
 end

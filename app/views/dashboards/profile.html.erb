@@ -38,6 +38,8 @@
         <h3><%= current_user.pulses[-1].title %></h3>
         <p><%= current_user.pulses[-1].solution %></p>
         <p>a modifier avec les vrais favoris</p>
+        <p><%= current_user %></p>
+        <%= console %>
       <% end %>
     </div>
 
@@ -74,9 +76,27 @@
 <%# 9 div derniers pulses aimés %>
     <div class="w-50 m-3">
       <h2>Tes derniers Pulses aimés</h2>
-      <p>current_user.pulses.???</p>
-      <p>current_user.pulses.???</p>
-      <p>current_user.pulses.???</p>
+      <% unless current_user.favorites[-1].pulse.blank? %>
+        <h3><%= current_user.favorites[-1].pulse.title %>
+          par <%= current_user.favorites[-1].pulse.user.nickname %>
+          de <%= current_user.favorites[-1].pulse.user.city.name %></h3>
+        <p><%= current_user.favorites[-1].pulse.solution %></p>
+      <% end %>
+
+      <% unless current_user.favorites[-2].pulse.blank? %>
+        <h3><%= current_user.favorites[-2].pulse.title %>
+          par <%= current_user.favorites[-2].pulse.user.nickname %>
+          de <%= current_user.favorites[-2].pulse.user.city.name %></h3>
+        <p><%= current_user.favorites[-2].pulse.solution %></p>
+      <% end %>
+
+      <% unless current_user.favorites[-3].pulse.blank? %>
+        <h3><%= current_user.favorites[-3].pulse.title %>
+          par <%= current_user.favorites[-3].pulse.user.nickname %>
+          de <%= current_user.favorites[-3].pulse.user.city.name %></h3>
+        <p><%= current_user.favorites[-3].pulse.solution %></p>
+      <% end %>
+
     </div>
 <%# fin div 7 %>
   </div>
