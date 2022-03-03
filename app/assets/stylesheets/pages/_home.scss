@@ -12,9 +12,30 @@
   position: relative;
 }
 
+.home-logo {
+  color: black;
+  font-size: 164px;
+  font-family: 'Righteous', cursive;
+  text-align: center;
+  position: relative;
+  top: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+  #logo {
+    color: black;
+    font-size: 65px;
+    text-align: center;
+    position: relative;
+    top: 50px;
+    display: flex;
+    justify-content: center;
+  }
+
 #why {
   color: black;
-  font-size: 80px;
+  font-size: 100px;
   font-family: 'Urbanist', sans-serif;
   text-align: center;
   position: relative;
