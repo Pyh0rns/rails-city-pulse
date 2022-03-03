@@ -7,6 +7,10 @@
 <%# 1 div container pour toute la page  %>
 <div class="container">
 
+<%= link_to city_pulses_path(current_user.city) do %>
+  <p><i class="fas fa-arrow-left mb-3"> </i> Pulses de ta ville</p>
+<% end %>
+
 <%# 2 div du recap en haut de la page  %>
   <div class="profile-card d-flex justify-content-between border p-3 m-5">
     <div>

@@ -1,7 +1,11 @@
 class PulsesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
+    @pulses = policy_scope(Pulse).order(created_at: :desc)
     @city = City.find(params[:city_id])
     @pulses = @city.pulses.all
+
     # <-------------------------- MAPBOX -------------------------->
     @markers = @pulses.geocoded.map do |pulse|
       {
@@ -26,12 +30,14 @@ class PulsesController < ApplicationController
   def new
     @city = City.find(params[:city_id])
     @pulse = Pulse.new
+    authorize @pulse
   end
 
   def create
     @pulse = Pulse.new(pulse_params)
+    authorize @pulse
     @pulse.user = current_user
-    @pulse.city= current_user.city
+    @pulse.city = current_user.city
     @city = current_user.city
     if @pulse.save
       params[:pulse][:category_ids].each do |id|
@@ -47,6 +53,7 @@ class PulsesController < ApplicationController
   end
 
   def destroy
+    # TODO: when btn to delete => do not forget to put 'policy' in the HTML file for validation with pundit
     @pulse = find_pulse
     @pulse.destroy
     redirect_to city_pulses_path

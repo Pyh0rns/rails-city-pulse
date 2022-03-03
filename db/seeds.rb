@@ -4,6 +4,8 @@
 
 require 'faker'
 
+puts "Destroy old favorites"
+Favorite.destroy_all
 puts "Destroy old pulses"
 Pulse.destroy_all
 puts "Destroy old users"
@@ -30,7 +32,7 @@ simon = User.create!(email: "s@gmail.com", password: "azerty", bio: Faker::Lorem
 jordane = User.create!(email: "j@gmail.com", password: "azerty", bio: Faker::Lorem.paragraphs, nickname: "Jordane", pro: true, city_id: marseille.id, grade: "Novice", xp: 0, photo_url: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHBvcnRyYWl0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60")
 remi = User.create!(email: "r@gmail.com", password: "azerty", bio: Faker::Lorem.paragraphs, nickname: "Remi", pro: true, city_id: bordeaux.id, grade: "Novice", xp: 0, photo_url: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHBvcnRyYWl0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60")
 camille = User.create!(email: "c@gmail.com", password: "azerty", bio: Faker::Lorem.paragraphs, nickname: "Camille", city_id: bordeaux.id, grade: "Championne", xp: 0, photo_url: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHBvcnRyYWl0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60")
-
+marie = User.create!(email: "mar@gmail.com", password: "azerty", bio: Faker::Lorem.paragraphs, nickname: "Marie", pro: true, city_id: lille.id, grade: "Novice", xp: 0, photo_url: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHBvcnRyYWl0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60")
 puts "User ok..."
 
 puts "Create Categories"
@@ -52,14 +54,20 @@ Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.parag
 Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'posté', photo_url: 'https://source.unsplash.com/random', address:'2 rue Robert Arbrissel, 35000 rennes', city_id: rennes.id , user_id: marin.id)
 Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'vote en cours', photo_url: 'https://source.unsplash.com/random', address:'20 quai Emile Zola, 35000 rennes', city_id: rennes.id , user_id: marin.id)
 Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'vote en cours', photo_url: 'https://source.unsplash.com/random', address:'place du Parlement de Bretagne, 35000 rennes', city_id: rennes.id , user_id: marin.id)
-Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'posté', photo_url: 'https://source.unsplash.com/random', address: '39 boulevard Vauban, 59800 lille', city_id: lille.id , user_id: py.id)
-Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'vote en cours', photo_url: 'https://source.unsplash.com/random', address: '40 rue de Béthune, 59800 lille', city_id: lille.id , user_id: py.id)
+pulsepy1 = Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'posté', photo_url: 'https://source.unsplash.com/random', address: '39 boulevard Vauban, 59800 lille', city_id: lille.id , user_id: py.id)
+pulsepy2 = Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'vote en cours', photo_url: 'https://source.unsplash.com/random', address: '40 rue de Béthune, 59800 lille', city_id: lille.id , user_id: py.id)
 Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'validé', photo_url: 'https://source.unsplash.com/random', address: '23 rue Gosselet, 59000 lille', city_id: lille.id , user_id: py.id)
-Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'vote en cours', photo_url: 'https://source.unsplash.com/random', address: '23 rue Jean Bart, 59000 lille', city_id: lille.id , user_id: simon.id)
+pulses1 = Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'vote en cours', photo_url: 'https://source.unsplash.com/random', address: '23 rue Jean Bart, 59000 lille', city_id: lille.id , user_id: simon.id)
+Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'vote en cours', photo_url: 'https://source.unsplash.com/random', address: '25 rue Jean Bart, 59000 lille', city_id: lille.id , user_id: simon.id)
 Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'vote en cours', photo_url: 'https://source.unsplash.com/random', address: '3 rue du rouet, 13000 Marseille', city_id: marseille.id , user_id: jordane.id)
 Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'vote en cours', photo_url: 'https://source.unsplash.com/random', address: '23 rue saint jean, 33000 bordeaux', city_id: bordeaux.id , user_id: remi.id)
 Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'vote en cours', photo_url: 'https://source.unsplash.com/random', address: '23 rue saint jean, 33000 bordeaux', city_id: bordeaux.id , user_id: camille.id)
-
 puts "Pulse ok..."
 
+puts "create favorites"
+Favorite.create!(pulse_id: pulsepy1.id, user_id: py.id)
+Favorite.create!(pulse_id: pulsepy2.id, user_id: py.id)
+Favorite.create!(pulse_id: pulsepy1.id, user_id: simon.id)
+Favorite.create!(pulse_id: pulsepy1.id, user_id: marie.id)
+Favorite.create!(pulse_id: pulses1.id, user_id: marie.id)
 puts "All is GooooOOOooooOOOod..."
