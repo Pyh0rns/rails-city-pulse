@@ -36,9 +36,7 @@
           <h2 class="card-pulse-votes"> <%= pulse.favorites.length %> votes</h2>
           <%# ajouter des faux votes pour faire grossir les chiffres %>
 
-
-<%# ----------------------- favorites ----------------------------------- %>
-
+          <%# ------- favorites ----------- %>
           <% if pulse.liked?(current_user)%>
             <%= link_to favorite_path(pulse.favorites.find_by(user_id: current_user).id, city_id: current_user.city), method: :delete do %>
               <button class="button-like-red"><i class="fas fa-heartbeat"></i></button>
@@ -56,5 +54,3 @@
 
   <%= link_to 'Pulse ton idée', new_city_pulse_path%>
 </div>
-
-<%# favorite DELETE /favorites/:id(.:format)         favorites#destroy %>
