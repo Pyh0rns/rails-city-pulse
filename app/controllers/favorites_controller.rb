@@ -8,7 +8,6 @@ class FavoritesController < ApplicationController
     @favorite.user = current_user
     @favorite.save
     redirect_to city_pulses_path(@city)
-
   end
 
   def destroy
