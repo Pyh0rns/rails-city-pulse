@@ -113,8 +113,6 @@
 
 }
 
-
-
 // =============== CARDS LANDING PULSE ===============
 
 .container-home {
@@ -183,13 +181,15 @@
   border-radius: 50%;
   color: white;
   font-weight: bold;
-  cursor: pointer;
   border: none;
   margin: 25px auto;
   font-size: 20px;
   position: absolute;
   top: -50px;
   right: 10px;
+  &:hover {
+  // no idea
+  }
 }
 
 .button-like-blue {
@@ -200,7 +200,6 @@
   border-radius: 50%;
   color: white;
   font-weight: bold;
-  cursor: pointer;
   border: none;
   margin: 25px auto;
   font-size: 20px;

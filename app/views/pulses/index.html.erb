@@ -35,21 +35,24 @@
               <div>
                 <p> <%= pulse.problem %></p>
               </div>
-              <div class="card-pulse-votes">72 votes</div>
+              <div class="card-pulse-votes"> <%= pulse.favorites.length %> votes </div>
             </div>
-<%# ----------------------- favorites ----------------------------------- %>
 
-            <% if pulse.liked?(current_user)%>
+          <%# ------- favorites ----------- %>
+          <% if pulse.liked?(current_user)%>
+            <%= link_to favorite_path(pulse.favorites.find_by(user_id: current_user).id, city_id: current_user.city), method: :delete do %>
               <button class="button-like-red"><i class="fas fa-heartbeat"></i></button>
-            <% else %>
-              <button class="button-like-blue"><i class="fas fa-heartbeat"></i></button>
-              <%= link_to 'like', pulse_favorites_path(pulse), method: :post %>
             <% end %>
-            <%# <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> %>
-          </div>
+          <% else %>
+            <%= link_to pulse_favorites_path(pulse, city_id: current_user.city), remote: true, method: :post do %>
+              <button class="button-like-blue"><i class="fas fa-heartbeat"></i></button>
+            <% end %>
+          <% end %>
+          <%# <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> %>
         </div>
-        <% end %>
-   </div>
+      </div>
+    <% end %>
+  </div>
 
   <%= link_to 'Pulse ton idée', new_city_pulse_path%>
 </div>
