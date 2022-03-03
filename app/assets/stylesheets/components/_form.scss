@@ -1,0 +1,68 @@
+.problem {
+  width: 100%;
+}
+
+.label {
+width: 250px;
+border-radius: 10px;
+box-shadow: 0 0 0 0 #F4F4F4, 0.1rem 0.1rem 6px #272932;
+font-family: $body-font;
+text-align: center;
+height: 30px;
+align-self: flex-start;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.input {
+  background-color: $black;
+}
+
+.avatar-input {
+  position: absolute;
+  right: -8px;
+  bottom: 5px;
+}
+
+.avatar-input .avatar {
+height: 60px;
+width: 60px;
+border-radius: 50%;
+background-size: cover;
+background-position: center;
+object-fit: cover;
+}
+
+.group-input-avatar {
+  width: 75%;
+  border-radius: 10px;
+  position: relative;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-title {
+  justify-content: center;
+  display: flex;
+}
+
+.city-form-group {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: flex-end;
+  height: 200px;
+}
+
+.fix-form {
+  width: 75%;
+}
+
+.form-custom {
+  border-radius: 10px;
+}
