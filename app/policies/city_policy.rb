@@ -6,10 +6,6 @@ class DashboardsPolicy < ApplicationPolicy
     # end
   end
 
-  def profile?
-    true
-  end
-
   def dashboard?
     true
   end

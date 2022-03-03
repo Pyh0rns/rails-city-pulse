@@ -36,7 +36,7 @@ class PulsesController < ApplicationController
     @pulse = Pulse.new(pulse_params)
     authorize @pulse
     @pulse.user = current_user
-    @pulse.city= current_user.city
+    @pulse.city = current_user.city
     @city = current_user.city
     if @pulse.save
       params[:pulse][:category_ids].each do |id|
