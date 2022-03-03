@@ -18,4 +18,14 @@ class Pulse < ApplicationRecord
   pg_search_scope :global_search, against: [ :title, :solution, :problem],
   using: { tsearch: { prefix: true } },
   associated_against: { user: [ :nickname ] }
+
+
+
+
+
+  def liked?(user)
+    return true if Favorite.find_by(user: user, pulse: self)
+    return false
+  end
+
 end

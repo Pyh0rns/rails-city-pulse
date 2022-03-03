@@ -34,12 +34,20 @@
               <p><%= pulse.user.nickname %></p>
             </div>
             <h2 class="card-pulse-votes">72 votes</h2>
-            <%= link_to 'like', pulse_favorites_path(pulse), method: :post %>
+
+<%# ----------------------- favorites ----------------------------------- %>
+
+            <% if pulse.liked?(current_user)%>
+              <button class="button-like-red"><i class="fas fa-heartbeat"></i></button>
+            <% else %>
+              <button class="button-like-blue"><i class="fas fa-heartbeat"></i></button>
+              <%= link_to 'like', pulse_favorites_path(pulse), method: :post %>
+            <% end %>
             <%# <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> %>
           </div>
         </div>
         <% end %>
    </div>
-    
+
   <%= link_to 'Pulse ton idée', new_city_pulse_path%>
 </div>
