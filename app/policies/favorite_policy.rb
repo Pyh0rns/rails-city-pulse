@@ -1,4 +1,4 @@
-class PulsesPolicy < ApplicationPolicy
+class FavoritePolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
     def resolve
@@ -7,18 +7,18 @@ class PulsesPolicy < ApplicationPolicy
   end
 
   def show?
-    true
-  end
-
-  def new?
-    true
+    false
   end
 
   def create?
     true
   end
 
-  def destroy?
-    record.user == user
+  def edit?
+    user == record.user
+  end
+
+  def update?
+    user == record.user
   end
 end
