@@ -65,7 +65,7 @@
   object-fit: cover;
 }
 
-// ---------- MANU -------------
+// ---------- MANU HOME -------------
 
 
 .card-pulse h2 {
@@ -156,5 +156,77 @@
     border: none;
     margin: 25px auto;
     font-size: 50px;
+  }
+}
+
+
+// ---------- MANU HOME -------------
+
+
+
+.card-counter-pulse{
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+  text-align: right;
+  color: white;
+  position:sticky;
+	top:0;
+  width: 342px;
+  height: 139px;
+  left: 662px;
+  top: -89px;
+  background: linear-gradient(207.67deg, #FDAE8F 3.43%, #FD1C68 104.7%);
+  border: 1px solid #EBEEF2;
+  box-sizing: border-box;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  p{
+    padding: 20px;
+    font-size: 35px;
+  }
+}
+
+
+
+
+.box-pulse-show {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+.box-pulse-show>*:first-child {
+    align-self: stretch;
+}
+.box-pulse-show .selected {
+    align-self: end;
+}
+
+
+
+
+.pulse-card-why {
+  width: 50%;
+  position: relative;
+  color: white;
+  background-color: $black;
+  border-radius: 8px;
+  display: flex;
+  margin-top: 50px;
+  // flex-direction: column-reverse;
+  justify-content: center;
+  h1 {
+    font-size: 32px;
+  }
+  h2 {
+    font-size: 20px;
+  }
+  p{
+    padding: 20px;
+    font-size: 14px;
+    opacity: .7;
+
   }
 }
