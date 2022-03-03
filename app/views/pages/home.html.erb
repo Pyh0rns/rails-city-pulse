@@ -48,14 +48,32 @@
 
 
 
-<%# ------------------------------- search ---------------------------------- %>
+<%# ===================================== SEARCH =========================== %>
+<%# ------ a modifier later par une vraie barre de recherche (compliqué) ---- %>
+<div class="container d-flex justify-content-center">
+  <div class="dropdown">
+    <button class=" searchbarhome btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      Cherche ta Ville
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <%# faire une itération pour toutes nos villes plutot que de les écrire à la main %>
+      <%= link_to 'Ta Ville', city_pulses_path(current_user.city), class: "dropdown-item"  %>
+      <%= link_to 'Lille', city_pulses_path(City.find_by(name: "Lille").id), class: "dropdown-item"  %>
+      <%= link_to 'Paris', city_pulses_path(City.find_by(name: "Paris").id), class: "dropdown-item"  %>
+      <%= link_to 'Marseille', city_pulses_path(City.find_by(name: "Marseille").id), class: "dropdown-item"  %>
+      <%= link_to 'Rennes', city_pulses_path(City.find_by(name: "Rennes").id), class: "dropdown-item"  %>
+      <%= link_to 'Bordeaux', city_pulses_path(City.find_by(name: "Bordeaux").id), class: "dropdown-item"  %>
+      <%= link_to 'St Malo', city_pulses_path(City.find_by(name: "St Malo").id), class: "dropdown-item"  %>
+    </ul>
+  </div>
+</div>
 
 
 <%# ------------------------------- search fin---------------------------------- %>
 
 
 <%# ------------------------------- Là où ca pulse !---------------------------------- %>
-<div id="why" class="container">
+<div id="why" class="container" style="margin-bottom:200px;">
   <h2>Là où ca pulse !</h2>
 </div>
 <%# ------------------------------- Là où ca pulse ! fin---------------------------------- %>
