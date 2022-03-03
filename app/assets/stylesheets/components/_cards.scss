@@ -40,7 +40,7 @@
   }
 }
 
-
+// =============== CARDS INDEX PULSE ===============
 .card-pulse-container {
     flex-grow: 1;
     margin-top: 10px;
@@ -58,49 +58,64 @@
   position: relative;
   // width: 900px ;
   border-radius: 20px;
+  padding: 4%;
 }
 
 #card-pulse-img {
   max-height: 500px;
   width: 100%;
   object-fit: cover;
-}
-
-// ---------- MANU -------------
-
-
-.card-pulse h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-  color: white;
-}
-
-.card-pulse p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
-  color: white;
-}
-
-.card-pulse .card-pulse-infos {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
+  border-radius: 20px;
 }
 
 .card-pulse .avatar {
   position: absolute;
-  right: 50%;
-  top: -20px;
-  width: 40px;
+  right: 44%;
+  top: -32px;
+  width: 70px;
+  height: 70px;
   border-style: solid;
   border-width: 3px;
   border-color: white;
 }
 
+.card-pulse .card-pulse-infos {
+  padding: 16px;
+  display: grid;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.card-pulse h2 {
+  font-size: 16px;
+  font-weight: bold;
+  font-family: open sans-serif;
+  margin: 0;
+  color: white;
+}
+
+.card-pulse p {
+  font-size: 13px;
+  font-family: open sans-serif;
+  margin: 0;
+  color: white;
+  max-width: 90%;
+  text-align: justify;
+}
+
+.card-pulse-votes {
+  font-weight: lighter;
+  font-size: 18px;
+  color: white;
+  padding-top: 4%;
+  text-align: center;
+
+}
+
+
+
+// =============== CARDS LANDING PULSE ===============
 
 .container-home {
   width: 100%;

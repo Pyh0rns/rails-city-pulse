@@ -28,13 +28,15 @@
           <img class="avatar" src="<%= pulse.user.photo_url %>" alt="">
           <img id= "card-pulse-img" src= '<%= pulse.photo_url%>'/>
           <div class="card-pulse-infos">
-            <div>
-              <h2><%= pulse.title %></h2>
-              <p> <%= pulse.problem %></p>
-              <p><%= pulse.user.nickname %></p>
+            <div class='mb-3'>
+              <h2><%= pulse.title %> <i class="fas fa-theater-masks"></i> </h2>
             </div>
-            <h2 class="card-pulse-votes">72 votes</h2>
-
+            <div class='d-flex'>
+              <div>
+                <p> <%= pulse.problem %></p>
+              </div>
+              <div class="card-pulse-votes">72 votes</div>
+            </div>
 <%# ----------------------- favorites ----------------------------------- %>
 
             <% if pulse.liked?(current_user)%>
