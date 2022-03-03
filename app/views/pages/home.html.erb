@@ -1,7 +1,7 @@
 
 <%# ------------------------------- div title---------------------------------- %>
 <div class="home-logo">
-    <p>city pulse</p><i id="logo"class="fas fa-heartbeat"></i>
+    <p>City Pulse</p><i id="logo"class="fas fa-heartbeat"></i>
 </div>
 <%# ------------------------------- div title fin---------------------------------- %>
 
@@ -54,14 +54,14 @@
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
       <%# faire une itération pour toutes nos villes plutot que de les écrire à la main %>
       <% unless current_user.nil? %>
-        <%= link_to 'Ta Ville', city_pulses_path(current_user.city), class: "dropdown-item"  %>
+        <%= link_to 'Ta Ville', city_pulses_path(current_user.city), class: "dropdown-item searchbarhome-drop"  %>
       <% end %>
-      <%= link_to 'Lille', city_pulses_path(City.find_by(name: "Lille").id), class: "dropdown-item"  %>
-      <%= link_to 'Paris', city_pulses_path(City.find_by(name: "Paris").id), class: "dropdown-item"  %>
-      <%= link_to 'Marseille', city_pulses_path(City.find_by(name: "Marseille").id), class: "dropdown-item"  %>
-      <%= link_to 'Rennes', city_pulses_path(City.find_by(name: "Rennes").id), class: "dropdown-item"  %>
-      <%= link_to 'Bordeaux', city_pulses_path(City.find_by(name: "Bordeaux").id), class: "dropdown-item"  %>
-      <%= link_to 'St Malo', city_pulses_path(City.find_by(name: "St Malo").id), class: "dropdown-item"  %>
+      <%= link_to 'Lille', city_pulses_path(City.find_by(name: "Lille").id), class: "dropdown-item searchbarhome-drop"  %>
+      <%= link_to 'Paris', city_pulses_path(City.find_by(name: "Paris").id), class: "dropdown-item searchbarhome-drop"  %>
+      <%= link_to 'Marseille', city_pulses_path(City.find_by(name: "Marseille").id), class: "dropdown-item searchbarhome-drop"  %>
+      <%= link_to 'Rennes', city_pulses_path(City.find_by(name: "Rennes").id), class: "dropdown-item searchbarhome-drop"  %>
+      <%= link_to 'Bordeaux', city_pulses_path(City.find_by(name: "Bordeaux").id), class: "dropdown-item searchbarhome-drop"  %>
+      <%= link_to 'St Malo', city_pulses_path(City.find_by(name: "St Malo").id), class: "dropdown-item searchbarhome-drop"  %>
     </ul>
   </div>
 </div>

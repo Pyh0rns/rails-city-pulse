@@ -3,3 +3,13 @@
   border-radius: 8px;
   background: $button;
 }
+
+.searchbarhome-drop {
+  width: 500px;
+  display: flex;
+  justify-content: center;
+}
+
+.dropdown-menu {
+  background-color: $light-gray;
+}
