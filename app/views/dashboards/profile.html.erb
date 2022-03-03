@@ -61,25 +61,20 @@
       <h2>Tes derniers Pulses postés</h2>
       <div class="pulses-profile border p-2 mb-2">
         <% unless current_user.pulses[-1].blank? %>
-          <h3><%= current_user.pulses[-1].title %></h3>
+          <h3><%= current_user.pulses[-1].title %>, le <%= current_user.pulses[-1].created_at.strftime("%m/%d/%Y") %> </h3>
           <p><%= current_user.pulses[-1].solution %></p>
-          <p><%= current_user.pulses[-1].created_at.strftime("Pulsé le %m/%d/%Y") %></p>
-
         <% end %>
       </div>
       <div class="pulses-profile border p-2 mb-2">
         <% unless current_user.pulses[-2].blank? %>
-          <h3> <%= current_user.pulses[-2].title %> </h3>
+          <h3> <%= current_user.pulses[-2].title %>, le <%= current_user.pulses[-2].created_at.strftime("%m/%d/%Y") %> </h3>
           <p><%= current_user.pulses[-2].solution %></p>
-          <p><%= current_user.pulses[-2].created_at.strftime("Pulsé le %m/%d/%Y") %></p>
-
         <% end %>
       </div>
       <div class="pulses-profile border p-2 mb-2">
         <% unless current_user.pulses[-3].blank? %>
-          <h3> <%= current_user.pulses[-3].title %> </h3>
+          <h3> <%= current_user.pulses[-3].title %>, le <%= current_user.pulses[-3].created_at.strftime("Pulsé le %m/%d/%Y") %></h3>
           <p><%= current_user.pulses[-3].solution %></p>
-          <p><%= current_user.pulses[-3].created_at.strftime("Pulsé le %m/%d/%Y") %></p>
         <% end %>
       </div>
     </div>
