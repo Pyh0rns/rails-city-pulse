@@ -23,18 +23,20 @@
 
   <%# ================= CARDS ================= %>
   <div class='card-pulse-container'>
-    <% @pulses.each do |pulse| %>
-      <div class="card-pulse">
-        <img class="avatar" src="<%= pulse.user.photo_url %>" alt="">
-        <img id= "card-pulse-img" src= '<%= pulse.photo_url%>'/>
-        <div class="card-pulse-infos">
-          <div>
-            <h2><%= pulse.title %></h2>
-            <p> <%= pulse.problem %></p>
-            <p><%= pulse.user.nickname %></p>
-          </div>
-          <h2 class="card-pulse-votes"> <%= pulse.favorites.length %> votes</h2>
-          <%# ajouter des faux votes pour faire grossir les chiffres %>
+      <% @pulses.each do |pulse| %>
+        <div class="card-pulse">
+          <img class="avatar" src="<%= pulse.user.photo_url %>" alt="">
+          <img id= "card-pulse-img" src= '<%= pulse.photo_url%>'/>
+          <div class="card-pulse-infos">
+            <div class='mb-3'>
+              <h2><%= pulse.title %> <i class="fas fa-theater-masks"></i> </h2>
+            </div>
+            <div class='d-flex'>
+              <div>
+                <p> <%= pulse.problem %></p>
+              </div>
+              <div class="card-pulse-votes"> <%= pulse.favorites.length %> votes </div>
+            </div>
 
           <%# ------- favorites ----------- %>
           <% if pulse.liked?(current_user)%>
