@@ -15,7 +15,7 @@
   <% end %>
   <%# ================= SEARCHBAR ================= %>
     <div class = 'search-bar-index'>
-      <%= form_tag city_pulses_path(current_user.city.id), method: :get do %>
+      <%= form_tag city_pulses_path(@city), method: :get do %>
         <%= text_field_tag :query,
           params[:query],
           class: "form-control",
@@ -24,6 +24,8 @@
         <%= submit_tag "Search", class: "btn btn-primary" %>
       <% end %>
     </div>
+
+
     <%= link_to 'Pulse ton idée', new_city_pulse_path, class:"button-pulse-red"%>
   </div>
 </div>
@@ -52,7 +54,7 @@
               <button class="button-like-red"><i class="fas fa-heartbeat"></i></button>
             <% end %>
           <% else %>
-            <%= link_to pulse_favorites_path(pulse, city_id: current_user.city), remote: true, method: :post do %>
+            <%= link_to pulse_favorites_path(pulse, city_id: @city), remote: true, method: :post do %>
               <button class="button-like-blue"><i class="fas fa-heartbeat"></i></button>
             <% end %>
           <% end %>

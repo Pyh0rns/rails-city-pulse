@@ -46,6 +46,7 @@ class PulsesController < ApplicationController
         @pulse_categories.category = Category.find(id)
         @pulse_categories.pulse = @pulse
         @pulse_categories.save
+        Favorite.create(user_id: current_user.id, pulse_id: @pulse.id)
       end
       redirect_to city_pulses_path
     else

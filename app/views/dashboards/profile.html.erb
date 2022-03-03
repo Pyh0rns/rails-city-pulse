@@ -38,6 +38,8 @@
         <h3><%= current_user.pulses[-1].title %></h3>
         <p><%= current_user.pulses[-1].solution %></p>
         <p>a modifier avec les vrais favoris</p>
+        <%#= @best_pulses %>
+        <%#= best_favorites(current_user) %>
       <% end %>
     </div>
 
@@ -57,26 +59,61 @@
 <%# 8 div derniers pulses postés %>
     <div class="w-50 m-3">
       <h2>Tes derniers Pulses postés</h2>
-      <% unless current_user.pulses[-1].blank? %>
-        <h3><%= current_user.pulses[-1].title %></h3>
-        <p><%= current_user.pulses[-1].solution %></p>
-      <% end %>
-      <% unless current_user.pulses[-2].blank? %>
-        <h3> <%= current_user.pulses[-2].title %> </h3>
-        <p><%= current_user.pulses[-2].solution %></p>
-      <% end %>
-      <% unless current_user.pulses[-3].blank? %>
-        <h3> <%= current_user.pulses[-3].title %> </h3>
-        <p><%= current_user.pulses[-3].solution %></p>
-      <% end %>
+      <div class="pulses-profile border p-2 mb-2">
+        <% unless current_user.pulses[-1].blank? %>
+          <h3><%= current_user.pulses[-1].title %></h3>
+          <p><%= current_user.pulses[-1].solution %></p>
+          <p><%= current_user.pulses[-1].created_at.strftime("Pulsé le %m/%d/%Y") %></p>
+
+        <% end %>
+      </div>
+      <div class="pulses-profile border p-2 mb-2">
+        <% unless current_user.pulses[-2].blank? %>
+          <h3> <%= current_user.pulses[-2].title %> </h3>
+          <p><%= current_user.pulses[-2].solution %></p>
+          <p><%= current_user.pulses[-2].created_at.strftime("Pulsé le %m/%d/%Y") %></p>
+
+        <% end %>
+      </div>
+      <div class="pulses-profile border p-2 mb-2">
+        <% unless current_user.pulses[-3].blank? %>
+          <h3> <%= current_user.pulses[-3].title %> </h3>
+          <p><%= current_user.pulses[-3].solution %></p>
+          <p><%= current_user.pulses[-3].created_at.strftime("Pulsé le %m/%d/%Y") %></p>
+        <% end %>
+      </div>
     </div>
 
 <%# 9 div derniers pulses aimés %>
     <div class="w-50 m-3">
       <h2>Tes derniers Pulses aimés</h2>
-      <p>current_user.pulses.???</p>
-      <p>current_user.pulses.???</p>
-      <p>current_user.pulses.???</p>
+      <div class="pulses-profile border p-2 mb-2">
+        <% unless current_user.favorites[-1].pulse.blank? %>
+          <h3><%= current_user.favorites[-1].pulse.title %>,
+            par <%= current_user.favorites[-1].pulse.user.nickname %>
+            de <%= current_user.favorites[-1].pulse.user.city.name %>,
+            le <%= current_user.favorites[-1].pulse.created_at.strftime("%m/%d/%Y") %></h3>
+          <p><%= current_user.favorites[-1].pulse.solution %></p>
+        <% end %>
+      </div>
+      <div class="pulses-profile border p-2 mb-2">
+        <% unless current_user.favorites[-2].pulse.blank? %>
+          <h3><%= current_user.favorites[-2].pulse.title %>,
+            par <%= current_user.favorites[-2].pulse.user.nickname %>
+            de <%= current_user.favorites[-2].pulse.user.city.name %>,
+            le <%= current_user.favorites[-1].pulse.created_at.strftime("%m/%d/%Y") %></h3>
+          <p><%= current_user.favorites[-2].pulse.solution %></p>
+        <% end %>
+      </div>
+      <div class="pulses-profile border p-2 mb-2">
+        <% unless current_user.favorites[-3].pulse.blank? %>
+          <h3><%= current_user.favorites[-3].pulse.title %>,
+            par <%= current_user.favorites[-3].pulse.user.nickname %>
+            de <%= current_user.favorites[-3].pulse.user.city.name %>,
+            le <%= current_user.favorites[-1].pulse.created_at.strftime("%m/%d/%Y") %></h3>
+          <p><%= current_user.favorites[-3].pulse.solution %></p>
+        <% end %>
+      </div>
     </div>
 <%# fin div 7 %>
   </div>
