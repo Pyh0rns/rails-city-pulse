@@ -1,5 +1,10 @@
 .search-form-control {
   position: relative;
+  display: flex;
+  justify-content: center;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-top: 5%;
 }
 
 .search-form-control .btn {
@@ -12,7 +17,8 @@
 .search-form-control .form-control {
   height: 3.5rem;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  border: 1px solid #E7E7E7;
+  background: $button;
+  border-radius: 20px;
 }
 
 .search-form-control .form-control:focus {
@@ -20,3 +26,40 @@
   outline: none !important;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
+
+// ==================== SEARCH BAR INDEX ====================
+
+.search-bar-index {
+  width: 88%;
+  padding: 3%;
+  margin-left: 7%;
+}
+.form-control{
+
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #0E0000;
+  background-color: #F4F4F4;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 30px;
+}
+
+// position: absolute;
+//     top: 50%;
+//     left: 0;
+//     right: 0;
+//     width: 550px;
+//     padding: 35px;
+//     margin: -83px auto 0 auto;
+//     background-color: #ff7575;
+//     border-radius: 20px;
+//     box-shadow: 0 10px 40px #ff7c7c, 0 0 0 20px #ffffffeb;
+//     transform: scale(0.6);

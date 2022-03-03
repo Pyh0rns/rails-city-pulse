@@ -1,26 +1,22 @@
-
-
 <%# 1 div container pour toute la page  %>
 <div class="container mt-5">
 
 <%= link_to city_pulses_path(current_user.city) do %>
-  <p><i class="fas fa-arrow-left"> </i> Pulses de ta ville</p>
+  <p><i class="fas fa-arrow-left mb-3"> </i> Pulses de ta ville</p>
 <% end %>
-
-
-<img class="avatar-large" src="<%= current_user.photo_url %>" alt="">
-
-
 
   <%# 2 div du profil en haut de la page  %>
   <div class="profile-card d-flex justify-content-between border p-3 m-5">
 
   <%# 3 div a gauche avec nom grade et ville %>
     <div class="w-50">
-      <h1><%= current_user.nickname %></h1>
-      <h2>Ville: <%= current_user.city.name %></h2>
-      <h2>Grade: <%= current_user.grade %></h2>
-      <h2>XP: <%= current_user.xp %></h2>
+      <img class="avatar-large-profile" src="<%= current_user.photo_url %>" alt="">
+      <div class="profile-card-left">
+        <h1><%= current_user.nickname %></h1>
+        <h2>Ville: <%= current_user.city.name %></h2>
+        <h2>Grade: <%= current_user.grade %></h2>
+        <h2>XP: <%= current_user.xp %></h2>
+      </div>
     </div>
 
   <%# 4 div a droite avec nom thématiques et bio %>
@@ -32,16 +28,17 @@
   <%# fin div 2 %>
   </div>
 
-
 <%# 5 div échanges mairie et meilleurs pulses %>
   <div class="profile-card-bottom d-flex justify-content-between border p-3 m-5">
 
 <%# 6 div meilleurs pulses %>
     <div class="w-50 m-3">
       <h2>Tes meilleurs Pulses</h2>
-      <h3><%= current_user.pulses[-1].title %></h3>
-      <p><%= current_user.pulses[-1].solution %></p>
-      <p>a modifier avec les vrais favoris</p>
+      <% unless current_user.pulses[-1].blank? %>
+        <h3><%= current_user.pulses[-1].title %></h3>
+        <p><%= current_user.pulses[-1].solution %></p>
+        <p>a modifier avec les vrais favoris</p>
+      <% end %>
     </div>
 
 <%# 7 div échanges mairie %>
@@ -60,13 +57,18 @@
 <%# 8 div derniers pulses postés %>
     <div class="w-50 m-3">
       <h2>Tes derniers Pulses postés</h2>
-      <h3><%= current_user.pulses[-1].title %></h3>
-      <p><%= current_user.pulses[-1].solution %></p>
-      <h3> <%= current_user.pulses[-2].title %> </h3>
-      <p><%= current_user.pulses[-2].solution %></p>
-      <h3> <%= current_user.pulses[-3].title %> </h3>
-      <p><%= current_user.pulses[-3].solution %></p>
-
+      <% unless current_user.pulses[-1].blank? %>
+        <h3><%= current_user.pulses[-1].title %></h3>
+        <p><%= current_user.pulses[-1].solution %></p>
+      <% end %>
+      <% unless current_user.pulses[-2].blank? %>
+        <h3> <%= current_user.pulses[-2].title %> </h3>
+        <p><%= current_user.pulses[-2].solution %></p>
+      <% end %>
+      <% unless current_user.pulses[-3].blank? %>
+        <h3> <%= current_user.pulses[-3].title %> </h3>
+        <p><%= current_user.pulses[-3].solution %></p>
+      <% end %>
     </div>
 
 <%# 9 div derniers pulses aimés %>

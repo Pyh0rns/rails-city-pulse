@@ -1,1 +1,84 @@
-<h1>Je suis la show des pulses</h1>
+<div class="card-counter-pulse">
+  <div><%= @pulse.favorites.length %></div>
+  <div><p>votes</p></div>
+</div>
+
+
+<%= link_to city_pulses_path(current_user.city) do %>
+  <p><i class="fas fa-arrow-left mb-3"> </i> Pulses de ta ville</p>
+<% end %>
+
+
+<%# PROGRESS STEP BAR %>
+
+<ul class="steps">
+  <li class="step step-success">
+    <div class="step-content">
+      <span class="step-circle"><i class="fas fa-lightbulb"></i></span>
+      <span class="step-text">Postée</span>
+    </div>
+  </li>
+  <li class="step step-success">
+    <div class="step-content">
+      <span class="step-circle"><i class="fas fa-heart"></i></span>
+      <span class="step-text">Vote</span>
+    </div>
+  </li>
+  <li class="step step-active">
+    <div class="step-content">
+      <span class="step-circle"><i class="fas fa-check"></i></span>
+      <span class="step-text">Validée</span>
+    </div>
+  </li>
+  <li class="step">
+    <div class="step-content">
+      <span class="step-circle"><i class="fas fa-thumbs-up"></i></span>
+      <span class="step-text">En discussion</span>
+    </div>
+  </li>
+</ul>
+
+    <%# div pulses title%>
+
+  <h1 div class="title-head"><%= @pulse.title %></h1>
+
+
+<div class="container">
+
+
+  <div class="box-pulse-show">
+    <div></div>
+    <div class="pulse-card-why">
+
+      <img class="avatar-large-profile" src="<%= @pulse.user.photo_url %>" alt="">
+
+      <h2>Mon probleme </h2>
+
+      <div>
+      <p><%= @pulse.problem %></p>
+      </div>
+      <%= console %>
+
+    </div>
+
+
+
+
+      <div class="pulse-card-why selected">
+
+        <h2>Ma Solution</h2>
+
+        <div>
+          <p><%= @pulse.solution %></p>
+        </div>
+
+      </div>
+
+
+
+    <div>Call to Action</div>
+  </div>
+
+
+
+</div>

@@ -1,11 +1,18 @@
 
-<h2> This is your dashboard for <%= current_user.city.name %> </h2>
+<div class="banner-dashboard" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= current_user.city.photo_url %>);">
+  <h1> <%= current_user.city.name %> </h1>
+  <h2> Votre tableau de Bord </h2>
+</div>
 
 <%# 1 div container pour toute la page  %>
 <div class="container">
 
+<%= link_to city_pulses_path(current_user.city) do %>
+  <p><i class="fas fa-arrow-left mb-3"> </i> Pulses de ta ville</p>
+<% end %>
+
 <%# 2 div du recap en haut de la page  %>
-  <div class="d-flex justify-content-between border p-3 m-5">
+  <div class="profile-card d-flex justify-content-between border p-3 m-5">
     <div>
       <div>
         <h2>Thématiques</h2>
@@ -32,19 +39,22 @@
 
 
 <%# 3 div échanges mairie et meilleurs pulses %>
-  <div class="d-flex justify-content-between border p-3 m-5">
+  <div class="profile-card-bottom d-flex justify-content-between border p-3 m-5">
 
 <%# 4 div meilleurs pulses %>
-    <div class="w-50">
+    <div class="w-50 border m-2">
       <h2>Les Meilleures idées de la semaine</h2>
-      <h3><%= current_user.city.pulses.last.title %></h3>
-      <p><%= current_user.city.pulses.last.problem %></p>
-      <p><%= current_user.city.pulses.last.solution %></p>
+      <h3><%= current_user.city.pulses[-1].title %></h3>
+      <p><%= current_user.city.pulses[-1].problem %></p>
+      <p><%= current_user.city.pulses[-1].solution %></p>
+      <h3><%= current_user.city.pulses[-2].title %></h3>
+      <p><%= current_user.city.pulses[-2].problem %></p>
+      <p><%= current_user.city.pulses[-2].solution %></p>
 
     </div>
 
 <%# 5 div échanges mairie %>
-    <div class="w-50">
+    <div class="w-50 border m-2">
       <h2>Les derniers messages</h2>
       <p>coucou</p>
     </div>
