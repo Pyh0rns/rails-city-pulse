@@ -35,10 +35,19 @@
     <div class="w-50 m-3">
       <h2>Tes meilleurs Pulses</h2>
       <% unless current_user.pulses.nil? %>
-        <% top2 = current_user.pulses.limit(1).sort_by { |pulse| pulse.favorites.count } %>
+        <% if current_user.pulses.length == 1 %>
+          <% limit = 1 %>
+        <% elsif current_user.pulses.length == 2 %>
+          <% limit = 2 %>
+        <% else %>
+          <% limit = 3 %>
+        <% end %>
+        <% top2 = current_user.pulses.limit(limit).sort_by { |pulse| pulse.favorites.count } %>
         <% top2.reverse.each do |top| %>
-        <h3><%= top.title %>: <%= top.favorites.length %></h3>
-        <p><%= top.solution %></p>
+          <div class="pulses-profile border p-2 mb-2">
+            <h3><%= top.title %>: <%= top.favorites.length %></h3>
+            <p><%= top.solution %></p>
+          </div>
         <% end %>
       <% end %>
     </div>
@@ -49,8 +58,10 @@
     <div class="w-50 m-3">
       <h2>Tes échanges avec la Mairie</h2>
       <% unless current_user.pulses[-1].blank? %>
-        <h3><%= current_user.pulses[-1].title %></h3>
-        <p><%= current_user.pulses[-1].solution %></p>
+        <div class="pulses-profile border p-2 mb-2">
+          <h3><%= current_user.pulses[-1].title %></h3>
+          <p><%= current_user.pulses[-1].solution %></p>
+        </div>
       <% end %>
       <div class="ms-5 border rounded p-3">
         <h3>Très bonne idée !</h3>
