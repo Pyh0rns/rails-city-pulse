@@ -36,15 +36,15 @@
 <div class="container" data-controller="filter">
   <div class="d-flex justify-content-between mb-5">
   <button data-action="click->filter#order">Plus likés</button>
-  <button data-action="click->filter#order">Catégories</button>
-  <button data-action="click->filter#order">Réalisés</button>
+  <button data-action="click->filter#categ">Catégories</button>
+  <button data-action="click->filter#done">Réalisés</button>
 </div>
 
 
   <%# ================= CARDS ================= %>
   <div class='card-pulse-container mb-5'data-filter-target='container'>
       <% @pulses.each do |pulse| %>
-        <div class="card-pulse" data-filter-target='card' data-votes=<%= pulse.favorites.length %>>
+        <div class="card-pulse" data-filter-target='card' data-votes=<%= pulse.favorites.length %> data-done=<%= pulse.status%>>
         <img class="avatar" src="<%= pulse.user.photo_url %>" alt="">
             <img id= "card-pulse-img" src= <%=pulse.photo_url.nil? ? 'https://source.unsplash.com/random' : pulse.photo_url%>/>
           <div class="card-pulse-infos">
