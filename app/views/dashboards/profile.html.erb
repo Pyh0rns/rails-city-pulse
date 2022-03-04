@@ -35,7 +35,14 @@
     <div class="w-50 m-3">
       <h2>Tes meilleurs Pulses</h2>
       <% unless current_user.pulses.nil? %>
-        <% top2 = current_user.pulses.limit(1).sort_by { |pulse| pulse.favorites.count } %>
+        <% if current_user.pulses.length == 1 %>
+          <% limit = 1 %>
+        <% elsif current_user.pulses.length == 2 %>
+          <% limit = 2 %>
+        <% else %>
+          <% limit = 3 %>
+        <% end %>
+        <% top2 = current_user.pulses.limit(limit).sort_by { |pulse| pulse.favorites.count } %>
         <% top2.reverse.each do |top| %>
         <h3><%= top.title %>: <%= top.favorites.length %></h3>
         <p><%= top.solution %></p>
