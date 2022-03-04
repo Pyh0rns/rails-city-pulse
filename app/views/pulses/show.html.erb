@@ -42,43 +42,23 @@
 
   <h1 div class="title-head"><%= @pulse.title %></h1>
 
-
 <div class="container">
-
-
   <div class="box-pulse-show">
-    <div></div>
     <div class="pulse-card-why">
-
       <img class="avatar-large-profile" src="<%= @pulse.user.photo_url %>" alt="">
-
       <h2>Mon probleme </h2>
-
       <div>
-      <p><%= @pulse.problem %></p>
+        <p><%= @pulse.problem %></p>
       </div>
-      <%= console %>
-
     </div>
-
-
-
-
-      <div class="pulse-card-why selected">
-
-        <h2>Ma Solution</h2>
-
-        <div>
-          <p><%= @pulse.solution %></p>
-        </div>
-
+    <div class="pulse-card-why selected">
+      <h2>Ma Solution</h2>
+      <div>
+        <p><%= @pulse.solution %></p>
       </div>
-
-
-
-    <div>Call to Action</div>
+    </div>
+    <div>
+      <p>Call to Action</p>
+    </div>
   </div>
-
-
-
 </div>

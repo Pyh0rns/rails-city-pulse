@@ -43,10 +43,10 @@
       <% @pulses.each do |pulse| %>
         <div class="card-pulse">
         <img class="avatar" src="<%= pulse.user.photo_url %>" alt="">
-            <img id= "card-pulse-img" src= '<%= pulse.photo_url%>'/>
+            <img id= "card-pulse-img" src= <%=pulse.photo_url.nil? ? 'https://source.unsplash.com/random' : pulse.photo_url%>/>
           <div class="card-pulse-infos">
-            <div class='mb-3'>
-              <%= link_to city_pulse_path(pulse, @city) do %>
+            <div class='mb-3 mt-2'>
+              <%= link_to city_pulse_path(@city, pulse), class:"text-decoration-none" do %>
                <h2><%= pulse.title %> <i class="fas fa-theater-masks"></i> </h2>
               <% end %>
             </div>
@@ -56,7 +56,6 @@
               </div>
               <div class="card-pulse-votes" data-filter-target='votes'> <%= pulse.favorites.length %> votes </div>
             </div>
-
           <%# ------- favorites ----------- %>
           <% if pulse.liked?(current_user)%>
             <%= link_to favorite_path(pulse.favorites.find_by(user_id: current_user).id, city_id: current_user.city), method: :delete do %>
