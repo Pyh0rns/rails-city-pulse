@@ -1,10 +1,9 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["votes", "card", "container"]
+  static targets = ["votes", "card", "container", "categ"]
 
   connect() {
-    console.log("Hello from our first Stimulus controller")
   }
 
   order(){
@@ -32,7 +31,16 @@ export default class extends Controller {
     })
   }
 
-  categ(){
-
+  categ(event){
+    const array = []
+    console.log('Hello')
+    this.cardTargets.forEach((element) => {
+      array.push(element);
+    });
+    const cardsarray = array.filter(element =>  element.dataset.category === event.currentTarget.innerHTML)
+    this.containerTarget.innerHTML = ""
+    cardsarray.forEach((element) => {
+      this.containerTarget.insertAdjacentHTML('beforeend', `${element.outerHTML}`)
+    })
   }
 }
