@@ -33,7 +33,7 @@
   <li class="step">
     <div class="step-content">
       <span class="step-circle"><i class="fas fa-thumbs-up"></i></span>
-      <span class="step-text">En discussion</span>
+      <span class="step-text">Réalisée</span>
     </div>
   </li>
 </ul>
@@ -50,8 +50,6 @@
         <h2 class="ms-5">Mon probleme </h2>
         <p><%= @pulse.problem %></p>
       </div>
-
-
     </div>
     <div class="pulse-card-why selected">
       <div class="p-3">
@@ -59,8 +57,9 @@
         <p><%= @pulse.solution %></p>
       </div>
     </div>
-    <div>
-      <p>Call to Action</p>
+    <div style="margin-left:350px;">
+      <button class="card__button"><i class="fas fa-heart"></i></button>
+      <p class="ms-5">Like !</p>
     </div>
   </div>
 </div>

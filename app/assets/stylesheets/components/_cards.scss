@@ -192,26 +192,25 @@
 .card-counter-pulse{
   display: flex;
   flex-direction: column;
-  justify-content:center;
+  justify-content: center;
   align-items: center;
   text-align: right;
   color: white;
-  position:sticky;
+  // position:sticky;
 	top:0;
   width: 342px;
   height: 139px;
-  left: 662px;
-  top: -89px;
+  // left: 662px;
+  // top: -89px;
   background: linear-gradient(207.67deg, #FDAE8F 3.43%, #FD1C68 104.7%);
-  border: 1px solid #EBEEF2;
+  // border: 1px solid #EBEEF2;
   box-sizing: border-box;
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
 
+  // cache misere
+  margin: 0 auto;
 }
-
-
-
 
 .box-pulse-show {
   display: flex;
