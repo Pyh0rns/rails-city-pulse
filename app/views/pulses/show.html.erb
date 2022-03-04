@@ -1,65 +1,69 @@
-<div class="card-counter-pulse">
-  <div><h1><%= @pulse.favorites.length %></h1></div>
-  <div><p>votes</p></div>
-</div>
+  <div class="card-counter-pulse">
+    <div><h1><%= @pulse.favorites.length %></h1></div>
+    <div><p>votes</p></div>
+  </div>
 
 
-<%= link_to city_pulses_path(current_user.city), class:"button-back" do %>
-  <p><i class="fas fa-arrow-left ms-5 mb-3"> </i> Pulses de ta ville</p>
-<% end %>
-
-
-<%# PROGRESS STEP BAR %>
-
-<ul class="steps">
-  <li class="step step-success">
-    <div class="step-content">
-      <span class="step-circle"><i class="fas fa-lightbulb"></i></span>
-      <span class="step-text">Postée</span>
-    </div>
-  </li>
-  <li class="step step-success">
-    <div class="step-content">
-      <span class="step-circle"><i class="fas fa-heart"></i></span>
-      <span class="step-text">Vote</span>
-    </div>
-  </li>
-  <li class="step step-active">
-    <div class="step-content">
-      <span class="step-circle"><i class="fas fa-check"></i></span>
-      <span class="step-text">Validée</span>
-    </div>
-  </li>
-  <li class="step">
-    <div class="step-content">
-      <span class="step-circle"><i class="fas fa-thumbs-up"></i></span>
-      <span class="step-text">Réalisée</span>
-    </div>
-  </li>
-</ul>
-
-    <%# div pulses title%>
-
-  <h1 div class="title-head"><%= @pulse.title %></h1>
+  <%= link_to city_pulses_path(current_user.city), class:"button-back" do %>
+    <p><i class="fas fa-arrow-left ms-5 mb-3"> </i> Pulses de ta ville</p>
+  <% end %>
 
 <div class="container">
-  <div class="box-pulse-show">
-    <div class="pulse-card-why">
-      <img class="avatar-large-profile" src="<%= @pulse.user.photo_url %>" alt="">
-      <div class="pt-3 inner-pulse-card">
-        <h2 class="ms-5">Mon probleme </h2>
-        <p><%= @pulse.problem %></p>
+
+  <%# PROGRESS STEP BAR %>
+
+  <ul class="steps">
+    <li class="step step-success">
+      <div class="step-content">
+        <span class="step-circle"><i class="fas fa-lightbulb"></i></span>
+        <span class="step-text">Postée</span>
       </div>
-    </div>
-    <div class="pulse-card-why selected">
-      <div class="p-3">
-        <h2>Ma Solution</h2>
-        <p><%= @pulse.solution %></p>
+    </li>
+    <li class="step step-success">
+      <div class="step-content">
+        <span class="step-circle"><i class="fas fa-heart"></i></span>
+        <span class="step-text">Vote</span>
       </div>
-    </div>
-    <div style="margin-left:350px;">
-      <button class="card__button"><i class="fas fa-heart"></i></button>
-      <p class="ms-5">Like !</p>
+    </li>
+    <li class="step step-active">
+      <div class="step-content">
+        <span class="step-circle"><i class="fas fa-check"></i></span>
+        <span class="step-text">Validée</span>
+      </div>
+    </li>
+    <li class="step">
+      <div class="step-content">
+        <span class="step-circle"><i class="fas fa-thumbs-up"></i></span>
+        <span class="step-text">Réalisée</span>
+      </div>
+    </li>
+  </ul>
+
+      <%# div pulses title%>
+
+    <h1 class=" m-3 title-head"><%= @pulse.title %></h1>
+        <h1><%= @pulse.user.nickname %></h1>
+
+
+  <div class="container">
+    <div class="box-pulse-show">
+      <div class="pulse-card-why">
+        <img class="avatar-large-profile" src="<%= @pulse.user.photo_url %>" alt="">
+        <div class="pt-3 inner-pulse-card">
+          <h2 class="ms-5">Mon probleme </h2>
+          <p><%= @pulse.problem %></p>
+        </div>
+      </div>
+      <div class="pulse-card-why selected">
+        <div class="p-3">
+          <h2>Ma Solution</h2>
+          <p><%= @pulse.solution %></p>
+        </div>
+      </div>
+      <div style="margin-left:350px;">
+        <button class="card__button"><i class="fas fa-heart"></i></button>
+        <p class="ms-5">Like !</p>
+      </div>
     </div>
   </div>
 </div>
