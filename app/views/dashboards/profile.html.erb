@@ -46,9 +46,14 @@
 <%# 7 div échanges mairie %>
     <div class="w-50 m-3">
       <h2>Tes échanges avec la Mairie</h2>
-      <p>current_user.pulses.???</p>
-      <p>current_user.pulses.???</p>
-      <p>current_user.pulses.???</p>
+      <% unless current_user.pulses[-1].blank? %>
+        <h3><%= current_user.pulses[-1].title %></h3>
+        <p><%= current_user.pulses[-1].solution %></p>
+      <% end %>
+      <h3>Très bonne idée !</h3>
+      <p>Nous allons tout mettre en oeuvre pour la mettre en place au plus vite.</p>
+      <p>Bien cordialement,</p>
+      <p>Martine, de la mairie</p>
     </div>
 <%# fin div 5 %>
   </div>
@@ -61,19 +66,19 @@
       <h2>Tes derniers Pulses postés</h2>
       <div class="pulses-profile border p-2 mb-2">
         <% unless current_user.pulses[-1].blank? %>
-          <h3><%= current_user.pulses[-1].title %>, le <%= current_user.pulses[-1].created_at.strftime("%m/%d/%Y") %> </h3>
+          <h3><%= current_user.pulses[-1].title %>, le <%= current_user.pulses[-1].created_at.strftime("%d/%m/%Y") %> </h3>
           <p><%= current_user.pulses[-1].solution %></p>
         <% end %>
       </div>
       <div class="pulses-profile border p-2 mb-2">
         <% unless current_user.pulses[-2].blank? %>
-          <h3> <%= current_user.pulses[-2].title %>, le <%= current_user.pulses[-2].created_at.strftime("%m/%d/%Y") %> </h3>
+          <h3> <%= current_user.pulses[-2].title %>, le <%= current_user.pulses[-2].created_at.strftime("%d/%m/%Y") %> </h3>
           <p><%= current_user.pulses[-2].solution %></p>
         <% end %>
       </div>
       <div class="pulses-profile border p-2 mb-2">
         <% unless current_user.pulses[-3].blank? %>
-          <h3> <%= current_user.pulses[-3].title %>, le <%= current_user.pulses[-3].created_at.strftime("Pulsé le %m/%d/%Y") %></h3>
+          <h3> <%= current_user.pulses[-3].title %>, le <%= current_user.pulses[-3].created_at.strftime("Pulsé le %d/%m/%Y") %></h3>
           <p><%= current_user.pulses[-3].solution %></p>
         <% end %>
       </div>
@@ -87,7 +92,7 @@
           <h3><%= current_user.favorites[-1].pulse.title %>,
             par <%= current_user.favorites[-1].pulse.user.nickname %>
             de <%= current_user.favorites[-1].pulse.user.city.name %>,
-            le <%= current_user.favorites[-1].pulse.created_at.strftime("%m/%d/%Y") %></h3>
+            le <%= current_user.favorites[-1].pulse.created_at.strftime("%d/%m/%Y") %></h3>
           <p><%= current_user.favorites[-1].pulse.solution %></p>
         <% end %>
       </div>
@@ -96,7 +101,7 @@
           <h3><%= current_user.favorites[-2].pulse.title %>,
             par <%= current_user.favorites[-2].pulse.user.nickname %>
             de <%= current_user.favorites[-2].pulse.user.city.name %>,
-            le <%= current_user.favorites[-1].pulse.created_at.strftime("%m/%d/%Y") %></h3>
+            le <%= current_user.favorites[-1].pulse.created_at.strftime("%d/%m/%Y") %></h3>
           <p><%= current_user.favorites[-2].pulse.solution %></p>
         <% end %>
       </div>
@@ -105,7 +110,7 @@
           <h3><%= current_user.favorites[-3].pulse.title %>,
             par <%= current_user.favorites[-3].pulse.user.nickname %>
             de <%= current_user.favorites[-3].pulse.user.city.name %>,
-            le <%= current_user.favorites[-1].pulse.created_at.strftime("%m/%d/%Y") %></h3>
+            le <%= current_user.favorites[-1].pulse.created_at.strftime("%d/%m/%Y") %></h3>
           <p><%= current_user.favorites[-3].pulse.solution %></p>
         <% end %>
       </div>
