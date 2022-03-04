@@ -3,7 +3,7 @@
 }
 
 .label {
-width: 300px;
+width: auto;
 border-radius: 10px;
 box-shadow: 0 0 0 0 #F4F4F4, 0.1rem 0.1rem 6px #272932;
 font-family: $body-font;
@@ -13,6 +13,7 @@ display: flex;
 align-items: center;
 justify-content: center;
 position: relative;
+padding: 0px 12px 0px 40px;
 }
 
 .input {
@@ -96,4 +97,12 @@ display: none;
 
 .mapboxgl-ctrl-geocoder--pin-right{
   display: none;
+}
+
+.form-control::file-selector-button {
+  padding: 7px;
+  margin: auto auto;
+  height: 36px;
+  margin-right: 5px;
+  border-radius: 10px;
 }

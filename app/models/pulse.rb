@@ -14,6 +14,8 @@ class Pulse < ApplicationRecord
   validates :problem, length: { minimum: 1 }
   validates :address, presence: true
 
+  has_one_attached :photo
+
   include PgSearch::Model
   pg_search_scope :global_search, against: [ :title, :solution, :problem],
   using: { tsearch: { prefix: true } },
