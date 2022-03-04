@@ -24,6 +24,10 @@
 
 .profile-card-bottom {
   color: $black;
+  border-color: black;
+  border: solid 2px;
+  padding: 10px;
+  margin: 45px;
   background-color: $white;
   border-radius: 8px;
   h2 {
