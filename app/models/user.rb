@@ -10,4 +10,6 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true
   validates :city, presence: true
+
+  has_one_attached :photo
 end
