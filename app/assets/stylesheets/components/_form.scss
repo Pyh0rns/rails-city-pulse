@@ -3,35 +3,20 @@
 }
 
 .label {
-width: 250px;
+width: 300px;
 border-radius: 10px;
 box-shadow: 0 0 0 0 #F4F4F4, 0.1rem 0.1rem 6px #272932;
 font-family: $body-font;
 text-align: center;
-height: 30px;
-align-self: flex-start;
+height: 50px;
 display: flex;
 align-items: center;
 justify-content: center;
+position: relative;
 }
 
 .input {
   background-color: $black;
-}
-
-.avatar-input {
-  position: absolute;
-  right: -8px;
-  bottom: 5px;
-}
-
-.avatar-input .avatar {
-height: 60px;
-width: 60px;
-border-radius: 50%;
-background-size: cover;
-background-position: center;
-object-fit: cover;
 }
 
 .group-input-avatar {
@@ -60,9 +45,27 @@ object-fit: cover;
 }
 
 .fix-form {
-  width: 75%;
+  width: 60%;
 }
 
 .form-custom {
   border-radius: 10px;
+  height: 50px;
+}
+
+.input-group-text {
+padding: 0%;
+}
+
+
+.label-logo img {
+  position: absolute;
+  left: -25px;
+  bottom: -5px;
+  width: 60px;
+}
+
+.label-group {
+  align-self: flex-start;
+  position: relative;
 }
