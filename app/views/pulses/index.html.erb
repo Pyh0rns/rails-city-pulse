@@ -28,22 +28,32 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container" data-controller="filter">
+
+  <div class="d-flex justify-content-between mb-5">
+  <button data-action="click->filter#order">ordre decroissant</button>
+    <p>plus likés</p>
+    <p>categories</p>
+  </div>
+
+
   <%# ================= CARDS ================= %>
-  <div class='card-pulse-container'>
+  <div class='card-pulse-container mb-5'>
       <% @pulses.each do |pulse| %>
         <div class="card-pulse">
-          <img class="avatar" src="<%= pulse.user.photo_url %>" alt="">
-          <img id= "card-pulse-img" src= '<%= pulse.photo_url%>'/>
+        <img class="avatar" src="<%= pulse.user.photo_url %>" alt="">
+            <img id= "card-pulse-img" src= '<%= pulse.photo_url%>'/>
           <div class="card-pulse-infos">
             <div class='mb-3'>
-              <h2><%= pulse.title %> <i class="fas fa-theater-masks"></i> </h2>
+              <%= link_to city_pulse_path(pulse, @city) do %>
+               <h2><%= pulse.title %> <i class="fas fa-theater-masks"></i> </h2>
+              <% end %>
             </div>
             <div class='d-flex'>
               <div>
                 <p> <%= pulse.problem %></p>
               </div>
-              <div class="card-pulse-votes"> <%= pulse.favorites.length %> votes </div>
+              <div class="card-pulse-votes" data-filter-target='votes'> <%= pulse.favorites.length %> votes </div>
             </div>
 
           <%# ------- favorites ----------- %>
