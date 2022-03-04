@@ -34,26 +34,30 @@
 <%# 6 div meilleurs pulses %>
     <div class="w-50 m-3">
       <h2>Tes meilleurs Pulses</h2>
-      <% unless current_user.pulses[-1].blank? %>
-        <h3><%= current_user.pulses[-1].title %></h3>
-        <p><%= current_user.pulses[-1].solution %></p>
-        <p>a modifier avec les vrais favoris</p>
-        <%#= @best_pulses %>
-        <%#= best_favorites(current_user) %>
+      <% unless current_user.pulses.nil? %>
+        <% top2 = current_user.pulses.limit(1).sort_by { |pulse| pulse.favorites.count } %>
+        <% top2.reverse.each do |top| %>
+        <h3><%= top.title %>: <%= top.favorites.length %></h3>
+        <p><%= top.solution %></p>
+        <% end %>
       <% end %>
     </div>
 
+
 <%# 7 div échanges mairie %>
+<%# --------------------- FAKE, a changer !! -------------------- %>
     <div class="w-50 m-3">
       <h2>Tes échanges avec la Mairie</h2>
       <% unless current_user.pulses[-1].blank? %>
         <h3><%= current_user.pulses[-1].title %></h3>
         <p><%= current_user.pulses[-1].solution %></p>
       <% end %>
-      <h3>Très bonne idée !</h3>
-      <p>Nous allons tout mettre en oeuvre pour la mettre en place au plus vite.</p>
-      <p>Bien cordialement,</p>
-      <p>Martine, de la mairie</p>
+      <div class="ms-5 border rounded p-3">
+        <h3>Très bonne idée !</h3>
+        <p>Nous allons tout mettre en oeuvre pour la mettre en place au plus vite.</p>
+        <p>Bien cordialement,</p>
+        <p>Martine, de la mairie</p>
+      </div>
     </div>
 <%# fin div 5 %>
   </div>
@@ -106,7 +110,7 @@
         <% end %>
       </div>
       <div class="pulses-profile border p-2 mb-2">
-        <% unless current_user.favorites[-3].pulse.blank? %>
+        <% unless current_user.favorites[-3].nil? %>
           <h3><%= current_user.favorites[-3].pulse.title %>,
             par <%= current_user.favorites[-3].pulse.user.nickname %>
             de <%= current_user.favorites[-3].pulse.user.city.name %>,
