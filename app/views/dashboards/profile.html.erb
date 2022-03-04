@@ -1,12 +1,14 @@
 <%# 1 div container pour toute la page  %>
 <div class="container mt-5">
 
-<%= link_to city_pulses_path(current_user.city) do %>
-  <p><i class="fas fa-arrow-left mb-3"> </i> Pulses de ta ville</p>
-<% end %>
+<div style= "width: 165px">
+  <%= link_to city_pulses_path(current_user.city) do %>
+    <p class="button-back"><i class="fas fa-arrow-left mb-3"> </i> Pulses de ta ville</p>
+  <% end %>
+</div>
 
   <%# 2 div du profil en haut de la page  %>
-  <div class="profile-card d-flex justify-content-between border p-3 m-5">
+  <div class="profile-card d-flex justify-content-between">
 
   <%# 3 div a gauche avec nom grade et ville %>
     <div class="w-50">
@@ -88,7 +90,7 @@
     <div class="w-50 m-3">
       <h2>Tes derniers Pulses aimés</h2>
       <div class="pulses-profile border p-2 mb-2">
-        <% unless current_user.favorites[-1].pulse.blank? %>
+        <% unless current_user.favorites[-1].nil? %>
           <h3><%= current_user.favorites[-1].pulse.title %>,
             par <%= current_user.favorites[-1].pulse.user.nickname %>
             de <%= current_user.favorites[-1].pulse.user.city.name %>,
@@ -97,7 +99,7 @@
         <% end %>
       </div>
       <div class="pulses-profile border p-2 mb-2">
-        <% unless current_user.favorites[-2].pulse.blank? %>
+        <% unless current_user.favorites[-2].nil? %>
           <h3><%= current_user.favorites[-2].pulse.title %>,
             par <%= current_user.favorites[-2].pulse.user.nickname %>
             de <%= current_user.favorites[-2].pulse.user.city.name %>,
@@ -106,7 +108,7 @@
         <% end %>
       </div>
       <div class="pulses-profile border p-2 mb-2">
-        <% unless current_user.favorites[-3].pulse.blank? %>
+        <% unless current_user.favorites[-3].nil? %>
           <h3><%= current_user.favorites[-3].pulse.title %>,
             par <%= current_user.favorites[-3].pulse.user.nickname %>
             de <%= current_user.favorites[-3].pulse.user.city.name %>,
