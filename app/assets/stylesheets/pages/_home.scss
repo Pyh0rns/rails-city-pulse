@@ -13,7 +13,7 @@
 }
 
 .home-logo {
-  color: black;
+  color: $black;
   font-size: 164px;
   font-family: 'Righteous', cursive;
   text-align: center;
@@ -24,7 +24,7 @@
 }
 
 .title-head {
-  color: black;
+  color: $black;
   font-size: 90px;
   font-family: 'Righteous', cursive;
   text-align: center;
@@ -35,7 +35,7 @@
 }
 
   #logo {
-    color: black;
+    color: $black;
     font-size: 65px;
     text-align: center;
     position: relative;
@@ -45,7 +45,7 @@
   }
 
 #why {
-  color: black;
+  color: $black;
   font-size: 100px;
   font-family: 'Urbanist', sans-serif;
   text-align: center;
@@ -54,7 +54,7 @@
 }
 
 #fonction {
-  color: black;
+  color: $black;
   font-size: 20px;
   font-family: 'Urbanist', sans-serif;
   text-align: center;

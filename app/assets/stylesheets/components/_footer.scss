@@ -1,0 +1,55 @@
+.footer {
+  background: $black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  color: $white;
+}
+.footer-links {
+  display: flex;
+  align-items: center;
+}
+.footer-links a {
+  color: $white;
+  opacity: 0.15;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 0px 7px;
+  display: flex;
+}
+.footer-links a:hover {
+  opacity: 1;
+}
+.footer .fa-heart {
+  color: #D23333;
+}
+
+.footer .infos{
+width: 11%;
+}
+
+
+.footer .infos a{
+text-decoration: none;
+color: inherit;
+font-size: 10px;
+margin: 3%;
+display: block;
+opacity: 0.5;
+}
+
+.footer .infos a:hover{
+  opacity: 1;
+  color: black;
+}
+
+.footer h3{
+font-size: 15px;
+font-style: bold;
+opacity: 0.7;
+}
+
+.footer p{
+ font-size: 12px;
+}
