@@ -207,10 +207,7 @@
   box-sizing: border-box;
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
-  p{
-    padding: 20px;
-    font-size: 35px;
-  }
+
 }
 
 
@@ -253,6 +250,10 @@
       font-size: 14px;
       opacity: .7;
     }
+  }
+
+  .inner-pulse-card {
+    margin-left: 120px;
   }
 
   .button-like-red {
