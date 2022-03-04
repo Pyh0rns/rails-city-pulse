@@ -1,11 +1,11 @@
 <%# 1 div container pour toute la page  %>
 <div class="container mt-5">
 
-<div style= "width: 165px">
-  <%= link_to city_pulses_path(current_user.city) do %>
-    <p class="button-back"><i class="fas fa-arrow-left mb-3"> </i> Pulses de ta ville</p>
-  <% end %>
-</div>
+  <div style= "width: 165px">
+    <%= link_to city_pulses_path(current_user.city) do %>
+      <p class="button-back"><i class="fas fa-arrow-left mb-3"> </i> Pulses de ta ville</p>
+    <% end %>
+  </div>
 
   <%# 2 div du profil en haut de la page  %>
   <div class="profile-card d-flex justify-content-between mt-5 p-4">

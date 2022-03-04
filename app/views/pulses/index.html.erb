@@ -25,7 +25,9 @@
       <% end %>
     </div>
     <%# ----------- link to form new -------- %>
-    <%= link_to 'Pulse ton idée', new_city_pulse_path, class:"button-pulse-red"%>
+    <% if current_user.city == @city %>
+      <%= link_to 'Pulse ton idée', new_city_pulse_path, class:"button-pulse-red"%>
+    <% end %>
   </div>
 </div>
 
