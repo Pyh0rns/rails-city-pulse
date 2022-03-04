@@ -4,13 +4,16 @@
 
 require 'faker'
 
+
+PulseCategory.destroy_all
+puts "Destroy old categories"
 puts "Destroy old favorites"
 Favorite.destroy_all
 puts "Destroy old pulses"
 Pulse.destroy_all
 puts "Destroy old users"
 User.destroy_all
-puts "Destroy old categories"
+puts "Destroy old pulse categories"
 Category.destroy_all
 puts "Destroy old cities"
 City.destroy_all
@@ -36,38 +39,59 @@ marie = User.create!(email: "mar@gmail.com", password: "azerty", bio: Faker::Lor
 puts "User ok..."
 
 puts "Create Categories"
-Category.create!(name: "Ecologie")
-Category.create!(name: "Transports")
-Category.create!(name: "Sécurité")
-Category.create!(name: "Santé")
-Category.create!(name: "Culture")
-Category.create!(name: "Sport")
+ecologie = Category.create!(name: "Ecologie", image: '🍀')
+transports = Category.create!(name: "Transports", image: '🚇')
+securite = Category.create!(name: "Sécurité", image: '👮')
+sante = Category.create!(name: "Santé", image: '👨‍⚕️')
+culture = Category.create!(name: "Culture", image: '🧑‍🎨')
+sport = Category.create!(name: "Sport", image:'🤸‍♀️')
 puts "Categories ok..."
 
 puts "create pulses"
-Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'posté', photo_url: 'https://images.unsplash.com/photo-1578302758063-0ef3e048ca89?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdhcmRlbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60', address: '18 rue Charlemagne, 75004 paris', city_id: paris.id , user_id: felix.id)
-Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'vote en cours', photo_url: 'https://images.unsplash.com/photo-1602148740250-0a4750e232e9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGJpa2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60', address: '10 faubourg Strasbourg Saint-Denis, 75010 paris', city_id: paris.id , user_id: felix.id)
-Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'validé', photo_url: 'https://images.unsplash.com/photo-1487452066049-a710f7296400?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHVyYmFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60', address: '3 place de la Republique, 75011 paris', city_id: paris.id , user_id: felix.id)
-Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'posté' , photo_url: 'https://images.unsplash.com/photo-1602148740250-0a4750e232e9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGJpa2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60', address: '28 chaussée du Sillon, 35400 saint-malo', city_id: stmalo.id , user_id: manu.id)
-Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'vote en cours', photo_url: 'https://images.unsplash.com/photo-1534166755186-fa2d8a5b2b03?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2Vhc2lkZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60', address: '12 rue Saint-Benoist, 35400 saint-malo', city_id: stmalo.id , user_id: manu.id)
-Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'validé', photo_url: 'https://images.unsplash.com/photo-1578302758063-0ef3e048ca89?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdhcmRlbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60', address: '86 avenue Aristide Briand, 35400 saint-malo', city_id: stmalo.id , user_id: manu.id)
-Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'posté', photo_url: 'https://images.unsplash.com/photo-1602148740250-0a4750e232e9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGJpa2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60', address:'2 rue Robert Arbrissel, 35000 rennes', city_id: rennes.id , user_id: marin.id)
-Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'vote en cours', photo_url: 'https://images.unsplash.com/photo-1559894790-52e7d9294de0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cmVubmVzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60', address:'20 quai Emile Zola, 35000 rennes', city_id: rennes.id , user_id: marin.id)
-Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'vote en cours', photo_url: 'https://images.unsplash.com/photo-1578302758063-0ef3e048ca89?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdhcmRlbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60', address:'place du Parlement de Bretagne, 35000 rennes', city_id: rennes.id , user_id: marin.id)
-pulsepy1 = Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'posté', photo_url: 'https://images.unsplash.com/photo-1630415262240-abcba793af39?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8bGlsbGV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60', address: '39 boulevard Vauban, 59800 lille', city_id: lille.id , user_id: py.id)
-pulsepy2 = Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'vote en cours', photo_url: 'https://images.unsplash.com/photo-1508766917616-d22f3f1eea14?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YmFyJTIwY2FmZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60', address: '40 rue de Béthune, 59800 lille', city_id: lille.id , user_id: py.id)
-Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'validé', photo_url: 'https://images.unsplash.com/photo-1602148740250-0a4750e232e9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGJpa2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60', address: '23 rue Gosselet, 59000 lille', city_id: lille.id , user_id: py.id)
-pulses1 = Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'vote en cours', photo_url: 'https://images.unsplash.com/photo-1487452066049-a710f7296400?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHVyYmFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60', address: '23 rue Jean Bart, 59000 lille', city_id: lille.id , user_id: simon.id)
-Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'vote en cours', photo_url: 'https://images.unsplash.com/photo-1578302758063-0ef3e048ca89?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdhcmRlbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60', address: '25 rue Jean Bart, 59000 lille', city_id: lille.id , user_id: simon.id)
-Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'vote en cours', photo_url: 'https://images.unsplash.com/photo-1578302758063-0ef3e048ca89?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdhcmRlbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60', address: '3 rue du rouet, 13000 Marseille', city_id: marseille.id , user_id: jordane.id)
-Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'vote en cours', photo_url: 'https://images.unsplash.com/photo-1463554050456-f2ed7d3fec09?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8Z2FyZGVufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60', address: '23 rue saint jean, 33000 bordeaux', city_id: bordeaux.id , user_id: remi.id)
-Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'vote en cours', photo_url: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Z2FyZGVufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60', address: '23 rue saint jean, 33000 bordeaux', city_id: bordeaux.id , user_id: camille.id)
+p1 = Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'posté', photo_url: 'https://images.unsplash.com/photo-1578302758063-0ef3e048ca89?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdhcmRlbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60', address: '18 rue Charlemagne, 75004 paris', city_id: paris.id , user_id: felix.id)
+p2 = Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'vote en cours', photo_url: 'https://images.unsplash.com/photo-1602148740250-0a4750e232e9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGJpa2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60', address: '10 faubourg Strasbourg Saint-Denis, 75010 paris', city_id: paris.id , user_id: felix.id)
+p3 = Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'validé', photo_url: 'https://images.unsplash.com/photo-1487452066049-a710f7296400?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHVyYmFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60', address: '3 place de la Republique, 75011 paris', city_id: paris.id , user_id: felix.id)
+p4 = Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'posté' , photo_url: 'https://images.unsplash.com/photo-1602148740250-0a4750e232e9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGJpa2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60', address: '28 chaussée du Sillon, 35400 saint-malo', city_id: stmalo.id , user_id: manu.id)
+p5 = Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'vote en cours', photo_url: 'https://images.unsplash.com/photo-1534166755186-fa2d8a5b2b03?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2Vhc2lkZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60', address: '12 rue Saint-Benoist, 35400 saint-malo', city_id: stmalo.id , user_id: manu.id)
+p6 = Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'validé', photo_url: 'https://images.unsplash.com/photo-1578302758063-0ef3e048ca89?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdhcmRlbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60', address: '86 avenue Aristide Briand, 35400 saint-malo', city_id: stmalo.id , user_id: manu.id)
+p7 = Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'posté', photo_url: 'https://images.unsplash.com/photo-1602148740250-0a4750e232e9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGJpa2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60', address:'2 rue Robert Arbrissel, 35000 rennes', city_id: rennes.id , user_id: marin.id)
+p8 = Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'vote en cours', photo_url: 'https://images.unsplash.com/photo-1559894790-52e7d9294de0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cmVubmVzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60', address:'20 quai Emile Zola, 35000 rennes', city_id: rennes.id , user_id: marin.id)
+p9 = Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'vote en cours', photo_url: 'https://images.unsplash.com/photo-1578302758063-0ef3e048ca89?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdhcmRlbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60', address:'place du Parlement de Bretagne, 35000 rennes', city_id: rennes.id , user_id: marin.id)
+p10 = Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'posté', photo_url: 'https://images.unsplash.com/photo-1630415262240-abcba793af39?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8bGlsbGV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60', address: '39 boulevard Vauban, 59800 lille', city_id: lille.id , user_id: py.id)
+p11 = Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'vote en cours', photo_url: 'https://images.unsplash.com/photo-1508766917616-d22f3f1eea14?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YmFyJTIwY2FmZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60', address: '40 rue de Béthune, 59800 lille', city_id: lille.id , user_id: py.id)
+p12 = Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'validé', photo_url: 'https://images.unsplash.com/photo-1602148740250-0a4750e232e9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGJpa2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60', address: '23 rue Gosselet, 59000 lille', city_id: lille.id , user_id: py.id)
+p13 = Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'vote en cours', photo_url: 'https://images.unsplash.com/photo-1487452066049-a710f7296400?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHVyYmFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60', address: '23 rue Jean Bart, 59000 lille', city_id: lille.id , user_id: simon.id)
+p14 = Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'vote en cours', photo_url: 'https://images.unsplash.com/photo-1578302758063-0ef3e048ca89?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdhcmRlbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60', address: '25 rue Jean Bart, 59000 lille', city_id: lille.id , user_id: simon.id)
+p15 = Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'vote en cours', photo_url: 'https://images.unsplash.com/photo-1578302758063-0ef3e048ca89?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGdhcmRlbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60', address: '3 rue du rouet, 13000 Marseille', city_id: marseille.id , user_id: jordane.id)
+p16 = Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'vote en cours', photo_url: 'https://images.unsplash.com/photo-1463554050456-f2ed7d3fec09?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8Z2FyZGVufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60', address: '23 rue saint jean, 33000 bordeaux', city_id: bordeaux.id , user_id: remi.id)
+p17 = Pulse.create!(title: Faker::Quote.singular_siegler, solution: Faker::Lorem.paragraphs, problem: Faker::Lorem.paragraphs, status: 'vote en cours', photo_url: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Z2FyZGVufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60', address: '23 rue saint jean, 33000 bordeaux', city_id: bordeaux.id , user_id: camille.id)
 puts "Pulse ok..."
 
 puts "create favorites"
-Favorite.create!(pulse_id: pulsepy1.id, user_id: py.id)
-Favorite.create!(pulse_id: pulsepy2.id, user_id: py.id)
-Favorite.create!(pulse_id: pulsepy1.id, user_id: simon.id)
-Favorite.create!(pulse_id: pulsepy1.id, user_id: marie.id)
-Favorite.create!(pulse_id: pulses1.id, user_id: marie.id)
+Favorite.create!(pulse_id: p10.id, user_id: py.id)
+Favorite.create!(pulse_id: p11.id, user_id: py.id)
+Favorite.create!(pulse_id: p10.id, user_id: simon.id)
+Favorite.create!(pulse_id: p10.id, user_id: marie.id)
+Favorite.create!(pulse_id: p13.id, user_id: marie.id)
+
+puts "Create Pulse Categories"
+PulseCategory.create!(pulse_id: p1.id, category_id: ecologie.id)
+PulseCategory.create!(pulse_id: p2.id, category_id:transports.id)
+PulseCategory.create!(pulse_id: p3.id, category_id:securite.id)
+PulseCategory.create!(pulse_id: p4.id, category_id:sante.id)
+PulseCategory.create!(pulse_id: p5.id, category_id:culture.id)
+PulseCategory.create!(pulse_id: p6.id, category_id:sport.id)
+PulseCategory.create!(pulse_id: p7.id, category_id: ecologie.id)
+PulseCategory.create!(pulse_id: p8.id, category_id:transports.id)
+PulseCategory.create!(pulse_id: p9.id, category_id:securite.id)
+PulseCategory.create!(pulse_id: p10.id, category_id:sante.id)
+PulseCategory.create!(pulse_id: p11.id, category_id:culture.id)
+PulseCategory.create!(pulse_id: p12.id, category_id:sport.id)
+PulseCategory.create!(pulse_id: p13.id, category_id:culture.id)
+PulseCategory.create!(pulse_id: p14.id, category_id: ecologie.id)
+PulseCategory.create!(pulse_id: p15.id, category_id:transports.id)
+PulseCategory.create!(pulse_id: p16.id, category_id:securite.id)
+PulseCategory.create!(pulse_id: p17.id, category_id:sante.id)
+PulseCategory.create!(pulse_id: p17.id, category_id:ecologie.id)
+puts 'Pulse Categoy created'
 puts "All is GooooOOOooooOOOod..."

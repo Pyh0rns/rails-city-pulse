@@ -36,21 +36,30 @@
 <div class="container" data-controller="filter">
   <div class="d-flex justify-content-between mb-5">
   <button data-action="click->filter#order">Plus likés</button>
-  <button data-action="click->filter#categ">Catégories</button>
   <button data-action="click->filter#done">Réalisés</button>
+  <div class="dropdown">
+  <button class="dropbtn">Catégories</button>
+  <div id="myDropdown" class="dropdown-content" data-filter-target="categ">
+    <button data-action="click->filter#categ">Transports</button>
+    <button data-action="click->filter#categ">Ecologie</button>
+    <button data-action="click->filter#categ">Sécurité</button>
+    <button data-action="click->filter#categ">Santé</button>
+    <button data-action="click->filter#categ">Culture</button>
+    <button data-action="click->filter#categ">Sport</button>
+  </div>
 </div>
-
+</div>
 
   <%# ================= CARDS ================= %>
   <div class='card-pulse-container mb-5'data-filter-target='container'>
       <% @pulses.each do |pulse| %>
-        <div class="card-pulse" data-filter-target='card' data-votes=<%= pulse.favorites.length %> data-done=<%= pulse.status%>>
+        <div class="card-pulse" data-filter-target='card' data-votes=<%= pulse.favorites.length %> data-done=<%= pulse.status%> data-category= <%= @pulses.find(pulse.id).categories.first.name %>>
         <img class="avatar" src="<%= pulse.user.photo_url %>" alt="">
             <img id= "card-pulse-img" src= <%=pulse.photo_url.nil? ? 'https://source.unsplash.com/random' : pulse.photo_url%>/>
           <div class="card-pulse-infos">
             <div class='mb-3 mt-2'>
               <%= link_to city_pulse_path(@city, pulse), class:"text-decoration-none" do %>
-               <h2><%= pulse.title %> <i class="fas fa-theater-masks"></i> </h2>
+               <h2><%= pulse.title %> <%= @pulses.find(pulse.id).categories.first.image %></h2>
               <% end %>
             </div>
             <div class='d-flex'>
