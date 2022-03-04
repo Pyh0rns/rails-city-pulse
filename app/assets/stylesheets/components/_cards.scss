@@ -15,7 +15,6 @@
   p{
     font-size: 14px;
     opacity: .7;
-
   }
 }
 
@@ -36,7 +35,6 @@
   p{
     font-size: 14px;
     opacity: .7;
-
   }
 }
 
@@ -63,6 +61,7 @@
   // width: 900px ;
   border-radius: 20px;
   padding: 4%;
+  margin-bottom: 20px;
 }
 
 #card-pulse-img {
@@ -70,6 +69,7 @@
   width: 100%;
   object-fit: cover;
   border-radius: 20px;
+  height: 200px;
 }
 
 // ---------- MANU HOME -------------
@@ -265,9 +265,8 @@
   position: absolute;
   top: -50px;
   right: 10px;
-  &:hover {
-  // no idea
-  }
+  margin-bottom: 10px;
+
 }
 
 .button-like-blue {
@@ -284,4 +283,5 @@
   position: absolute;
   top: -50px;
   right: 10px;
+  margin-bottom: 10px;
 }

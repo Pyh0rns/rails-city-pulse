@@ -26,7 +26,6 @@ class PulsesController < ApplicationController
   def show
     @pulse = find_pulse
     authorize @pulse
-
   end
 
   def new

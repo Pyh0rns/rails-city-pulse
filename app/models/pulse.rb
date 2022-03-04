@@ -4,7 +4,7 @@ class Pulse < ApplicationRecord
 
   belongs_to :city
   belongs_to :user
-  has_many :pulse_categories
+  has_many :pulse_categories, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :categories, through: :pulse_categories
 
@@ -19,15 +19,12 @@ class Pulse < ApplicationRecord
   using: { tsearch: { prefix: true } },
   associated_against: { user: [ :nickname ] }
 
-
-
-
-
   def liked?(user)
     return true if Favorite.find_by(user: user, pulse: self)
     return false
   end
 
+  # A TERMINER PY
   # def best_favorites(user)
   #   @best_pulses = []
   #   Pulse.where(user_id: user).each do |pulse|
