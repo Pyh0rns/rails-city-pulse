@@ -13,19 +13,18 @@
   <%= link_to root_path, class:"button-back d-flex mx-5" do %>
     <i class="fas fa-arrow-left">Return Home</i>
   <% end %>
-  <%# ================= SEARCHBAR ================= %>
-    <div class = 'search-bar-index'>
+
+    <%# ----------- searchbar -------- %>
+    <div class = "searchbarindex">
       <%= form_tag city_pulses_path(@city), method: :get do %>
         <%= text_field_tag :query,
           params[:query],
           class: "form-control",
-          placeholder: "Trouve un Pulse ou un utilisateur"
-        %>
+          placeholder: "Trouve un Pulse ou un utilisateur"%>
         <%= submit_tag "Search", class: "btn btn-primary" %>
       <% end %>
     </div>
-
-
+    <%# ----------- link to form new -------- %>
     <%= link_to 'Pulse ton idée', new_city_pulse_path, class:"button-pulse-red"%>
   </div>
 </div>
