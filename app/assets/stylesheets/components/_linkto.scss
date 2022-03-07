@@ -1,0 +1,12 @@
+.linkto {
+  color:inherit;
+  color: #272932;
+  text-decoration: none;
+  opacity: 0.8;
+  &:hover {
+    color:inherit;
+    color: #272932;
+    text-decoration: none;
+    opacity: 1;
+  }
+}

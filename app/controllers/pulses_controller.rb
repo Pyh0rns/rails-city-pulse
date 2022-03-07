@@ -61,6 +61,14 @@ class PulsesController < ApplicationController
     redirect_to city_pulses_path
   end
 
+  def update
+    @pulse = find_pulse
+    authorize @pulse
+    @pulse.status = "validé"
+    @pulse.save
+    redirect_to dashboard_path(current_user.city)
+  end
+
   private
 
   def pulse_params

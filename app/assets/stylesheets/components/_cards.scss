@@ -24,11 +24,11 @@
 
 .profile-card-bottom {
   color: $black;
+  background-color: $light-gray;
   border-color: black;
   border: solid 2px;
   padding: 10px;
   margin: 45px;
-  background-color: $white;
   border-radius: 8px;
   h2 {
     font-size: 20px;
@@ -41,6 +41,16 @@
     opacity: .7;
   }
 }
+
+.profile-card-bottom-inside {
+  width: 50%;
+  border-radius: 10px;
+  background-color: $black;
+}
+
+
+
+
 
 .pulses-profile {
   border-radius: 5px;

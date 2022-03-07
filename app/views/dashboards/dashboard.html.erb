@@ -1,5 +1,5 @@
 
-<div class="banner-dashboard" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= current_user.city.photo_url %>);">
+<div class="banner-dashboard mb-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= current_user.city.photo_url %>);">
   <h1> <%= current_user.city.name %> </h1>
   <h2> Votre tableau de Bord </h2>
 </div>
@@ -7,12 +7,12 @@
 <%# 1 div container pour toute la page  %>
 <div class="container">
 
-<%= link_to city_pulses_path(current_user.city) do %>
-  <p><i class="fas fa-arrow-left mb-3"> </i> Pulses de ta ville</p>
+<%= link_to city_pulses_path(current_user.city), class: "linkto" do %>
+  <p class="linkto"><i class="fas fa-arrow-left m-3 "> </i> Pulses de ta ville</p>
 <% end %>
 
 <%# 2 div du recap en haut de la page  %>
-  <div class="profile-card d-flex justify-content-between border p-3 m-5">
+  <div class="profile-card d-flex justify-content-between border px-5 py-5 m-5">
     <div>
       <div>
         <h2>Thématiques</h2>
@@ -21,17 +21,16 @@
           <div>
         <h2>Nombre d'idées proposées</h2>
         <p><%= current_user.city.pulses.count %></p>
-        <p>1290</p>
       </div>
     </div>
+    <div>
       <div>
-          <div>
         <h2>Nombre d'idées réalisées</h2>
-        <p>12</p>
+        <p><%= current_user.city.pulses.where(status: "validé").count %></p>
       </div>
-          <div>
+      <div>
         <h2>Top Contributeur</h2>
-        <p>Martine</p>
+        <p><%= best_contributor = current_user.city.pulses.group_by {|pulse| pulse.user.nickname}.keys[0] %></p>
       </div>
     </div>
   <%# fin div 2 %>
@@ -42,24 +41,48 @@
   <div class="profile-card-bottom d-flex justify-content-between border p-3 m-5">
 
 <%# 4 div meilleurs pulses %>
-    <div class="w-50 border m-2">
-      <h2>Les Meilleures idées de la semaine</h2>
-      <h3><%= current_user.city.pulses[-1].title %></h3>
-      <p><%= current_user.city.pulses[-1].problem %></p>
-      <p><%= current_user.city.pulses[-1].solution %></p>
-      <h3><%= current_user.city.pulses[-2].title %></h3>
-      <p><%= current_user.city.pulses[-2].problem %></p>
-      <p><%= current_user.city.pulses[-2].solution %></p>
+    <div class="profile-card-bottom-inside p-2 m-2">
+      <h2 class="p-2" style="color:white;">Les Meilleures idées de la semaine</h2>
 
+      <% unless current_user.city.pulses.nil? %>
+        <% top = current_user.city.pulses.sort_by { |pulse| pulse.favorites.count } %>
+        <% top.reverse.first(3).each do |pulse| %>
+          <div class="pulses-profile border bg-light p-2 mb-2">
+            <div class="d-flex justify-content-between">
+              <div>
+                <h3><%= pulse.title %> par <%= pulse.user.nickname %></h3>
+                <p style="font-size:12px;"><%= pulse.favorites.length %> votes, posté le <%= pulse.created_at.strftime("%d/%m/%Y") %>, statut: <%= pulse.status %> </p>
+              </div>
+              <img class="avatar" src="<%= pulse.user.photo_url %>" alt="">
+            </div>
+            <p><%= pulse.solution %></p>
+
+            <div class="d-flex">
+              <%= link_to city_pulse_path(current_user.city.id, pulse.id), method: :patch, class: "linkto" do %>
+                <p class="button-red mx-2"> Valider </p>
+              <% end %>
+              <p class="button-red"> Répondre</p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
     </div>
 
 <%# 5 div échanges mairie %>
-    <div class="w-50 border m-2">
-      <h2>Les derniers messages</h2>
-      <p>coucou</p>
+    <div class="profile-card-bottom-inside p-2 m-2">
+      <h2 style="color:white;">Les derniers messages</h2>
+      <div class="pulses-profile border bg-light p-2 mb-2">
+        <div class="d-flex justify-content-between">
+          <div>
+            <h3><%= current_user.pulses.first.title %> par <%= current_user.pulses.first.user.nickname %></h3>
+            <p style="font-size:12px;"><%= current_user.pulses.first.favorites.length %> votes, posté le <%= current_user.pulses.first.created_at.strftime("%d/%m/%Y") %>, statut: <%= current_user.pulses.first.status %> </p>
+          </div>
+          <img class="avatar" src="<%= current_user.pulses.first.user.photo_url %>" alt="">
+        </div>
+        <p><%= current_user.pulses.first.solution %></p>
+      </div>
     </div>
 <%# fin div 3 %>
   </div>
-
 <%# fin div 1 %>
 </div>

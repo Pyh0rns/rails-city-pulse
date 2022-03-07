@@ -94,6 +94,18 @@ text-decoration: none;
   padding-right: 20px;
 }
 
+// dashboard
+.button-red {
+  background: $button;
+  border-radius: 5px;
+  font-size: 14px;
+  text-decoration: none;
+  color: white;
+  padding: 4px 10px;
+  &:hover {
+    opacity: 1;
+  }
+}
 
 // .btn {
 //   border: none;
