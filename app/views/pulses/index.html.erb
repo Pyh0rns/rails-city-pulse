@@ -99,7 +99,7 @@
           <% end %>
           <div class="nb-votes">
             <span style="font-size:26px;"> <%= pulse.favorites.length %> </span>
-            <span style="font-size:12px;">votes</span>
+            <span style="font-size:12px;"><%= 'vote'.pluralize( pulse.favorites.length) %></span>
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
   <div class="card-counter-pulse">
     <div><h1><%= @pulse.favorites.length %></h1></div>
-    <div><p>votes</p></div>
+    <div><p><%= 'vote'.pluralize(@pulse.favorites.length) %></p></div>
   </div>
 
   <%= link_to city_pulses_path(@pulse.city), class:"button-back" do %>
