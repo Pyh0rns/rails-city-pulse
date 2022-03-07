@@ -12,4 +12,20 @@ class User < ApplicationRecord
   validates :city, presence: true
 
   has_one_attached :photo
+
+  def experience(user)
+    favorite = Favorite.where(user_id: user.id).count * 10
+    pulse = Pulse.where(user_id: user.id).count * 100
+    user.xp = favorite + pulse
+  end
+
+  def level(user)
+    if user.xp > 500
+      user.grade = 'Challenger'
+    else
+      user.grade = 'Novice'
+    end
+    user.save
+    user.grade
+  end
 end
