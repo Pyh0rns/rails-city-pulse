@@ -7,7 +7,7 @@ class FavoritesController < ApplicationController
     @favorite.pulse = @pulse
     @favorite.user = current_user
     @favorite.save
-    redirect_to city_pulses_path(@city)
+    redirect_to city_pulses_path(@city, anchor: "pulse-#{@pulse.id}")
   end
 
   def destroy
@@ -15,6 +15,6 @@ class FavoritesController < ApplicationController
     authorize @favorite
     @city = City.find(params[:city_id])
     @favorite.destroy
-    redirect_to city_pulses_path(@city)
+    redirect_to city_pulses_path(@city, anchor: "pulse-#{@favorite.pulse.id}")
   end
 end

@@ -55,7 +55,7 @@
     grid-gap: 16px;
     margin-bottom: 10px;
     width: 100%;
-    position: relative;
+    // position: relative;
   }
 
 .card-pulse {
@@ -64,7 +64,7 @@
   position: relative;
   // width: 900px ;
   border-radius: 20px;
-  padding: 4%;
+  padding: 4% 4% 4%;
   margin-bottom: 20px;
 }
 
@@ -74,6 +74,10 @@
   object-fit: cover;
   border-radius: 20px;
   height: 200px;
+}
+
+.card-hidden {
+  display: none;
 }
 
 // ---------- MANU HOME -------------
@@ -94,7 +98,8 @@
   display: grid;
   justify-content: space-between;
   align-items: center;
-  position: relative;
+  margin-bottom: 25px;
+  // position: relative;
 }
 
 .card-pulse h2 {
@@ -122,6 +127,21 @@
   text-align: center;
 
 }
+
+.nb-votes {
+  color: white;
+  background: $button;
+  padding: 2% 10%;
+  justify-content: center;
+  text-align: center;
+  // border-radius: 5px;
+  position: absolute;
+  bottom: 0;
+  left: 110px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
 
 // =============== CARDS LANDING PULSE ===============
 
@@ -186,8 +206,6 @@
 
 
 // ---------- MANU HOME -------------
-
-
 
 .card-counter-pulse{
   display: flex;
@@ -254,24 +272,24 @@
   .inner-pulse-card {
     margin-left: 120px;
   }
+//   .button-like-red {
+//   padding: 10px;
+//   background: $button;
+//   height: 50px;
+//   width: 50px;
+//   border-radius: 50%;
+//   color: white;
+//   font-weight: bold;
+//   border: none;
+//   margin: 25px auto;
+//   font-size: 20px;
+//   position: absolute;
+//   top: -50px;
+//   right: 10px;
+//   margin-bottom: 10px;
 
-  .button-like-red {
-  padding: 10px;
-  background: $button;
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  color: black;
-  font-weight: bold;
-  border: none;
-  margin: 25px auto;
-  font-size: 20px;
-  position: absolute;
-  top: -50px;
-  right: 10px;
-  margin-bottom: 10px;
 
-}
+// }
 
 .button-like-blue {
   padding: 10px;
@@ -290,202 +308,19 @@
   margin-bottom: 10px;
 }
 
-
-
-// ======= count ========
-// body{
-// 	background: orange;
-// 	animation: bg 5s infinite ease alternate;
+// .button-like-blue {
+//   padding: 10px;
+//   background: $button_blue;
+//   height: 50px;
+//   width: 50px;
+//   border-radius: 50%;
+//   color: white;
+//   font-weight: bold;
+//   border: none;
+//   margin: 25px auto;
+//   font-size: 20px;
+//   position: absolute;
+//   top: -50px;
+//   right: 10px;
+//   margin-bottom: 10px;
 // }
-
-.frame {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 400px;
-  height: 400px;
-  margin-top: -200px;
-  margin-left: -200px;
-  border-radius: 2px;
-	box-shadow: 4px 8px 16px 0 rgba(0,0,0,0);
-	overflow: hidden;
-  background: white;
-	// animation: bg 5s infinite ease alternate;
-  color: #333;
-	font-family: 'Open Sans', Helvetica, sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-
-.container {
-  position: absolute;
-	width: 400px;
-	height: 400px;
-}
-
-.mask{
-	position: absolute;
-	width: 400px;
-	height: 175px;
-	top: 225px;
-	background: white;
-	z-index: 99999;
-	animation: bg 5s infinite ease alternate;
-}
-
-.mask:before{
-	content: " ";
-	position: absolute;
-	width: 400px;
-	height: 175px;
-	top: -225px;
-	background: white;
-	z-index: 99999;
-	animation: bg 5s infinite ease alternate;
-}
-
-.content, .content-text-1, .content-text-2, .content-text-3, .content-2, .content-3, .text-10, .text-1, .text-2, .text-3, .text-4, .text-5, .text-6, .text-7, .text-8, .text-9{
-	position: absolute;
-	color: #fff;
-	top: 45%;
-	left: 12%;
-	font-size: 30px;
-	font-weight: 400;
-	text-shadow: 2px 2px 4px #00000030;
-}
-.content{
-	animation: up-3 12s infinite;
-	top: 55%;
-}
-.content-text-1{
-	font-weight: 610;
-	animation: up-3 12s infinite;
-	animation-delay: 3s;
-	top: 55%;
-}
-.content-text-2{
-	font-weight: 610;
-	animation: up-3 12s infinite;
-	animation-delay: 6s;
-	top: 55%;
-}
-.content-text-3{
-	font-weight: 610;
-	animation: up-3 12s infinite;
-	animation-delay: 9s;
-	top: 55%;
-}
-.content-2{
-	top: 55%;
-	left: 55%;
-	font-weight: 610;
-	animation: up-2 20s infinite;
-}
-.content-3{
-	top: 30%;
-	left: 55%;
-	font-weight: 610;
-	animation: up-2-2 20s infinite;
-}
-.text-1{
-	left: 79%;
-	font-weight: 610;
-	animation: up 10s infinite;
-}
-.text-2{
-	left: 79%;
-	opacity: 0;
-	font-weight: 610;
-	animation: up 10s infinite;
-	animation-delay: 1s;
-}
-.text-3{
-	left: 79%;
-	opacity: 0;
-	font-weight: 610;
-	animation: up 10s infinite;
-	animation-delay: 2s;
-}
-.text-4{
-	left: 79%;
-	opacity: 0;
-	font-weight: 610;
-	animation: up 10s infinite;
-	animation-delay: 3s;
-}
-.text-5{
-	left: 79%;
-	opacity: 0;
-	font-weight: 610;
-	animation: up 10s infinite;
-	animation-delay: 4s;
-}
-.text-6{
-	left: 79%;
-	opacity: 0;
-	font-weight: 610;
-	animation: up 10s infinite;
-	animation-delay: 5s;
-}
-.text-7{
-	left: 79%;
-	opacity: 0;
-	font-weight: 610;
-	animation: up 10s infinite;
-	animation-delay: 6s;
-}
-.text-8{
-	left: 79%;
-	opacity: 0;
-	font-weight: 610;
-	animation: up 10s infinite;
-	animation-delay: 7s;
-}
-.text-9{
-	left: 79%;
-	opacity: 0;
-	font-weight: 610;
-	animation: up 10s infinite;
-	animation-delay: 8s;
-}
-.text-10{
-	left: 79%;
-	opacity: 0;
-	font-weight: 610;
-	animation: up 10s infinite;
-	animation-delay: 9s;
-}
-
-
-@keyframes up{
-	0%{top: 65%; opacity: 1;}
-	10%{top: 45%; opacity: 1;}
-	20%{top: 30%; opacity: 0;}
-	100%{top: 30%; opacity: 0;}
-}
-@keyframes up-2{
-	0%{top: 45%; opacity: 1;}
-	50%{top: 45%; opacity: 1;}
-	51%{top: 30%; opacity: 0;}
-	100%{top: 30%; opacity: 0;}
-}
-@keyframes up-2-2{
-	0%{top: 55%; opacity: 0;}
-	50%{top: 55%; opacity: 0;}
-	51%{top: 45%; opacity: 1;}
-	100%{top: 45%; opacity: 1;}
-}
-@keyframes up-3{
-	0%{top: 65%; opacity: 1;}
-	5%{top: 45%; opacity: 1;}
-	20%{top: 45%; opacity: 1;}
-	30%{top: 30%; opacity: 0;}
-	100%{top: 30%; opacity: 0;}
-}
-
-@keyframes bg{
-	0%{background: deeppink;}
-	100%{background: orange;}
-}
-
-// ====== count end =======
