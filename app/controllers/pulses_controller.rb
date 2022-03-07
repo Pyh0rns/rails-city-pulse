@@ -64,7 +64,7 @@ class PulsesController < ApplicationController
   private
 
   def pulse_params
-    params.require(:pulse).permit(:title, :solution, :problem, :address, :photo_url)
+    params.require(:pulse).permit(:title, :solution, :problem, :address, :photo)
   end
 
   def find_pulse
