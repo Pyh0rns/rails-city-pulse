@@ -13,22 +13,23 @@ class User < ApplicationRecord
 
   has_one_attached :photo
 
-  def experience(user)
-    favorite = Favorite.where(user_id: user.id).count * 10
-    pulse = Pulse.where(user_id: user.id).count * 100
+  def experience
+    favorite = Favorite.where(user_id: id).count * 10
+    pulse = Pulse.where(user_id: id).count * 100
+    user = User.find(id)
     user.xp = favorite + pulse
     user.save!
     return user.xp
   end
 
   def level
-    @user = User.find(id)
-    if @user.xp > 500
-      @user.grade = 'Challenger'
+    user = User.find(id)
+    if user.xp > 200
+      user.grade = 'Challenger'
     else
-      @user.grade = 'Novice'
+      user.grade = 'Novice'
     end
-    @user.save!
-    return @user.grade
+    user.save!
+    return user.grade
   end
 end
