@@ -7,6 +7,10 @@
     </div>
 </div>
 
+<% if flash[:congrats_modal] %>
+<%= render 'success_modal' %>
+<% end %>
+
 <div class='p-5'>
   <%# ================= NAVIGATION ================= %>
   <div class="navigation d-flex align-items-center justify-content-around mb-5">

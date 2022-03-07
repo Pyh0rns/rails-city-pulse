@@ -48,7 +48,7 @@ class PulsesController < ApplicationController
         @pulse_categories.save
         Favorite.create(user_id: current_user.id, pulse_id: @pulse.id)
       end
-      redirect_to city_pulses_path
+      redirect_to city_pulses_path, flash: { congrats_modal: true }
     else
       render :new
     end

@@ -1,0 +1,53 @@
+.flash-success {
+background-color: $black;
+opacity: 0.9;
+color: white;
+display: flex;
+flex-direction: column;
+border-radius: 10px;
+}
+
+.icons {
+  display: flex;
+  justify-content: space-between;
+  height: 35px;
+  font-size: 30px;
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+
+.icons a i{
+  transition: transform 0.3s ease-in-out;
+}
+.icons a:nth-child(1){
+  color: #1877F2;
+  border-color: #b7d4fb;
+}
+
+.icons a:nth-child(2){
+  color: #46C1F6;
+  border-color: #b6e7fc;
+}
+
+.icons a:nth-child(3){
+  color: #e1306c;
+  border-color: #f5bccf;
+}
+
+.icons a:nth-child(4){
+  color: #25D366;
+  border-color: #bef4d2;
+}
+
+.icons a:nth-child(5){
+  color: #0088cc;
+  border-color: #b3e6ff;
+}
+
+.icons a:hover{
+  color: #fff;
+  border-color: transparent;
+}
+.icons a:hover i{
+  transform: scale(1.2);
+}
