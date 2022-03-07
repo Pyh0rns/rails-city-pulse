@@ -20,7 +20,7 @@ class User < ApplicationRecord
   end
 
   def level(user)
-    if user.xp > 500
+    if user.xp > 200
       user.grade = 'Challenger'
     else
       user.grade = 'Novice'
