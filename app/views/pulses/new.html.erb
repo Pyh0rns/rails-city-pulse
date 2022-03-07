@@ -1,8 +1,9 @@
 <div class="container">
-  <div class="btn">
-    <%= link_to 'Ma ville', city_pulses_path%>
-  </div>
-
+<div class="mt-5">
+  <%= link_to city_pulses_path(current_user.city), class:"linkto" do %>
+    <p class="linkto"><i class="fas fa-arrow-left mb-3"> </i> Pulses de ta ville</p>
+  <% end %>
+</div>
   <div class="form-title">
     <h2>Envoi ton Pulse !</h2>
   </div>
