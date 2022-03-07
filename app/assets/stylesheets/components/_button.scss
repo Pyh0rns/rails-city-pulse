@@ -1,15 +1,46 @@
-.button-pulse-red {
-  background:#272932;
-  color: inherit;
+.button-like-red {
+  padding: 10px;
+  background: $button;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
   color: white;
-  font-size: 14px;
-  text-decoration: none;
-  height: fit-content;
-  text-align: center;
-  border-radius: 15px;
-  margin-top: 27px;
-  padding: 5px;
+  font-weight: bold;
+  border: none;
+  margin: 25px auto;
+  font-size: 20px;
+  position: absolute;
+  top: -50px;
+  right: 10px;
+  margin-bottom: 10px;
+
 }
+.button-like-red:hover {
+  top: -55px;
+  transition: all 0.5s;
+}
+
+.button-like-blue {
+  padding: 10px;
+  background: $button_blue;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+  border: none;
+  margin: 25px auto;
+  font-size: 20px;
+  position: absolute;
+  top: -50px;
+  right: 10px;
+  margin-bottom: 10px;
+}
+.button-like-blue:hover {
+  top: -55px;
+  transition: all 0.5s;
+}
+
 
 .button-back {
 color:inherit;
@@ -23,4 +54,29 @@ text-decoration: none;
   border: none;
   border-radius: 14px;
   height: 33px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
+
+#button-pulse-red {
+  background: $button;
+  border-radius: 25px;
+  font-size: 18px;
+  text-decoration: none;
+  color: white;
+  padding: 13px;
+}
+
+// .btn {
+//   border: none;
+//   outline: none;
+//   padding: 10px 16px;
+//   background-color: #f1f1f1;
+//   cursor: pointer;
+// }
+
+// /* Style the active class (and buttons on mouse-over) */
+// .active, .btn:hover {
+//   background-color: #666;
+//   color: white;
+// }

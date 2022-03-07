@@ -76,6 +76,10 @@
   height: 200px;
 }
 
+.card-hidden {
+  display: none;
+}
+
 // ---------- MANU HOME -------------
 
 .card-pulse .avatar {
@@ -270,37 +274,37 @@
     margin-left: 120px;
   }
 
-  .button-like-red {
-  padding: 10px;
-  background: $button;
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  color: white;
-  font-weight: bold;
-  border: none;
-  margin: 25px auto;
-  font-size: 20px;
-  position: absolute;
-  top: -50px;
-  right: 10px;
-  margin-bottom: 10px;
+//   .button-like-red {
+//   padding: 10px;
+//   background: $button;
+//   height: 50px;
+//   width: 50px;
+//   border-radius: 50%;
+//   color: white;
+//   font-weight: bold;
+//   border: none;
+//   margin: 25px auto;
+//   font-size: 20px;
+//   position: absolute;
+//   top: -50px;
+//   right: 10px;
+//   margin-bottom: 10px;
 
-}
+// }
 
-.button-like-blue {
-  padding: 10px;
-  background: $button_blue;
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  color: white;
-  font-weight: bold;
-  border: none;
-  margin: 25px auto;
-  font-size: 20px;
-  position: absolute;
-  top: -50px;
-  right: 10px;
-  margin-bottom: 10px;
-}
+// .button-like-blue {
+//   padding: 10px;
+//   background: $button_blue;
+//   height: 50px;
+//   width: 50px;
+//   border-radius: 50%;
+//   color: white;
+//   font-weight: bold;
+//   border: none;
+//   margin: 25px auto;
+//   font-size: 20px;
+//   position: absolute;
+//   top: -50px;
+//   right: 10px;
+//   margin-bottom: 10px;
+// }
