@@ -55,8 +55,12 @@
       <% @pulses.each do |pulse| %>
         <div class="card-pulse" data-filter-target='card' data-votes=<%= pulse.favorites.length %> data-done=<%= pulse.status%> data-category= <%= @pulses.find(pulse.id).categories.first.name %>>
         <img class="avatar" src="<%= pulse.user.photo_url %>" alt="">
-            <img id= "card-pulse-img" src= <%=pulse.photo_url.nil? ? 'https://source.unsplash.com/random' : pulse.photo_url%>/>
-          <div class="card-pulse-infos">
+          <% if pulse.photo.attached? %>
+            <%= cl_image_tag(pulse.photo.key, id:"card-pulse-img") %>
+          <% else %>
+            <img id= "card-pulse-img" src= <%= pulse.photo_url%>/>
+          <% end %>
+            <div class="card-pulse-infos">
             <div class='mb-3 mt-2'>
               <%= link_to city_pulse_path(@city, pulse), class:"text-decoration-none" do %>
                <h2><%= pulse.title %> <%= @pulses.find(pulse.id).categories.first.image %></h2>
