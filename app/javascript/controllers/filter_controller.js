@@ -6,12 +6,31 @@ export default class extends Controller {
   connect() {
   }
 
-  order(){
-    const array = []
-    this.cardTargets.forEach((element) => {
-      array.push(element);
-    });
-    const cardsarray = array.sort((a,b)=> {
+  filter_by(event){
+    const type = event.currentTarget.dataset.filterType
+    const cards = Array.from(this.cardTargets)
+    this.clear(cards);
+
+    switch (type) {
+      case 'order':
+        this.order(cards);
+        break;
+
+      case 'done':
+        this.done(cards);
+        break;
+
+      case 'category':
+        this.categ(event, cards);
+        break;
+
+      default:
+        break;
+    }
+  }
+
+  order(cards){
+    const cardsarray = cards.sort((a,b)=> {
       return parseInt(b.dataset.votes, 10) - parseInt(a.dataset.votes, 10)
     })
     this.containerTarget.innerHTML = ""
@@ -19,28 +38,24 @@ export default class extends Controller {
       this.containerTarget.insertAdjacentHTML('beforeend', `${element.outerHTML}`);
     })
   }
-  done(){
-    const array = []
-    this.cardTargets.forEach((element) => {
-      array.push(element);
-    });
-    const cardsarray = array.filter( array =>  array.dataset.done === 'validé')
-    this.containerTarget.innerHTML = ""
-    cardsarray.forEach((element) => {
-      this.containerTarget.insertAdjacentHTML('beforeend', `${element.outerHTML}`)
+  done(cards){
+    cards.forEach((card) =>{
+      if (card.dataset.done !== 'validé' && !card.classList.contains('card-hidden')){
+        card.classList.add('card-hidden')
+      }
+    })
+  }
+  categ(event, cards){
+    cards.forEach((card) => {
+      if (card.dataset.category !== event.currentTarget.innerHTML && !card.classList.contains('card-hidden')){
+        card.classList.add('card-hidden')
+      }
     })
   }
 
-  categ(event){
-    const array = []
-    console.log('Hello')
-    this.cardTargets.forEach((element) => {
-      array.push(element);
-    });
-    const cardsarray = array.filter(element =>  element.dataset.category === event.currentTarget.innerHTML)
-    this.containerTarget.innerHTML = ""
-    cardsarray.forEach((element) => {
-      this.containerTarget.insertAdjacentHTML('beforeend', `${element.outerHTML}`)
+  clear(cards){
+    cards.forEach((card) => {
+      card.classList.remove("card-hidden");
     })
   }
 }
