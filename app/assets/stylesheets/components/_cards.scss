@@ -113,7 +113,7 @@
 .card-pulse p {
   font-size: 13px;
   font-family: open sans-serif;
-  margin: 0;
+  margin-bottom: 20px;
   color: white;
   max-width: 90%;
   text-align: justify;
@@ -134,12 +134,13 @@
   padding: 2% 10%;
   justify-content: center;
   text-align: center;
-  // border-radius: 5px;
   position: absolute;
   bottom: 0;
-  left: 110px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  margin-bottom: 7px;
+  border-radius: 13px;
+  position: absolute;
+  right: 37%;
+
 }
 
 
