@@ -52,7 +52,7 @@
         <% top2 = current_user.pulses.limit(limit).sort_by { |pulse| pulse.favorites.count } %>
         <% top2.reverse.each do |top| %>
           <div class="pulses-profile border p-2 mb-2">
-            <h3><%= top.title %>: <%= top.favorites.length %></h3>
+            <h3><%= top.title %>: <%= top.favorites.length%> <%= 'vote'.pluralize(top.favorites.length)%> </h3>
             <p><%= top.solution %></p>
           </div>
         <% end %>
