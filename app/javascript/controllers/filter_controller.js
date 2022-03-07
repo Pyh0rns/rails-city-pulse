@@ -24,6 +24,10 @@ export default class extends Controller {
         this.categ(event, cards);
         break;
 
+      case 'recent':
+        this.clear(cards);
+        break;
+
       default:
         break;
     }

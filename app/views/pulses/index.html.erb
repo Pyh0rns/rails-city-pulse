@@ -27,7 +27,7 @@
     <%# ----------- link to form new -------- %>
     <div>
       <% if user_signed_in? && current_user.city == @city %>
-        <%= link_to 'Pulse ton idée', new_city_pulse_path, class:"button-pulse-red p-2"%>
+        <%= link_to 'Pulse ton idée', new_city_pulse_path, id:"button-pulse-red"%>
       <% end %>
     </div>
   </div>
@@ -35,6 +35,7 @@
 
 <div class="container" data-controller="filter">
   <div class="d-flex justify-content-between mb-5">
+  <button class= 'buttonfilter' data-action="click->filter#filter_by" data-filter-type="recent">Récents</button>
   <button class= 'buttonfilter' data-action="click->filter#filter_by" data-filter-type="order">Plus likés</button>
   <button class= 'buttonfilter' data-action="click->filter#filter_by" data-filter-type="done">Réalisés</button>
   <div class="dropdown">
