@@ -26,7 +26,7 @@
     </div>
     <%# ----------- link to form new -------- %>
     <div>
-      <% if current_user.city == @city %>
+      <% if user_signed_in? && current_user.city == @city %>
         <%= link_to 'Pulse ton idée', new_city_pulse_path, class:"button-pulse-red p-2"%>
       <% end %>
     </div>
@@ -64,9 +64,12 @@
             </div>
             <div class='d-flex'>
               <div>
-                <p> <%= pulse.problem %></p>
+                <p> <%= pulse.solution %></p>
               </div>
-              <div class="card-pulse-votes" data-filter-target='votes'><%= pulse.favorites.length %>likes</div>
+              <div class="card-pulse-votes" data-filter-target='votes'>
+                <span style="font-size:30px;"> <%= pulse.favorites.length + 100%> </span>
+                <span style="font-size:12px;">votes</span>
+              </div>
             </div>
           <%# ------- favorites ----------- %>
           <% if pulse.liked?(current_user)%>
