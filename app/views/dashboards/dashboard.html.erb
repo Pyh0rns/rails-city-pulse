@@ -30,7 +30,7 @@
       </div>
       <div>
         <h2>Top Contributeur</h2>
-        <p><%= best_contributor = current_user.city.pulses.group_by {|pulse| pulse.user.nickname}.keys[0] %></p>
+        <p><%= current_user.city.pulses.group_by {|pulse| pulse.user.nickname}.keys[0] %></p>
       </div>
     </div>
   <%# fin div 2 %>
@@ -51,7 +51,7 @@
             <div class="d-flex justify-content-between">
               <div>
                 <h3><%= pulse.title %> par <%= pulse.user.nickname %></h3>
-                <p style="font-size:12px;"><%= pulse.favorites.length %> votes, posté le <%= pulse.created_at.strftime("%d/%m/%Y") %>, statut: <%= pulse.status %> </p>
+                <p style="font-size:12px;"><%= pulse.favorites.length %> <%= 'vote'.pluralize(pulse.favorites.length) %>, posté le <%= pulse.created_at.strftime("%d/%m/%Y") %>, statut: <%= pulse.status %> </p>
               </div>
               <img class="avatar" src="<%= pulse.user.photo_url %>" alt="">
             </div>
@@ -75,7 +75,7 @@
         <div class="d-flex justify-content-between">
           <div>
             <h3><%= current_user.pulses.first.title %> par <%= current_user.pulses.first.user.nickname %></h3>
-            <p style="font-size:12px;"><%= current_user.pulses.first.favorites.length %> votes, posté le <%= current_user.pulses.first.created_at.strftime("%d/%m/%Y") %>, statut: <%= current_user.pulses.first.status %> </p>
+            <p style="font-size:12px;"><%= current_user.pulses.first.favorites.length %> <%= 'vote'.pluralize(current_user.pulses.first.favorites.length) %>, posté le <%= current_user.pulses.first.created_at.strftime("%d/%m/%Y") %>, statut: <%= current_user.pulses.first.status %> </p>
           </div>
           <img class="avatar" src="<%= current_user.pulses.first.user.photo_url %>" alt="">
         </div>
