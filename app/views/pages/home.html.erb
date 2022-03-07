@@ -35,43 +35,94 @@
       </div>
     </div>
   </div>
+
+
+    <%# ===================================== SEARCH =========================== %>
+  <%# ------ a modifier later par une vraie barre de recherche (compliqué) ---- %>
+  <div class="container d-flex justify-content-center">
+    <div class="dropdown">
+      <button class=" searchbarhome btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        Cherche ta Ville
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <%# faire une itération pour toutes nos villes plutot que de les écrire à la main %>
+        <% unless current_user.nil? %>
+          <%= link_to 'Ta Ville', city_pulses_path(current_user.city), class: "dropdown-item searchbarhome-drop"  %>
+        <% end %>
+        <%= link_to 'Lille', city_pulses_path(City.find_by(name: "Lille").id), class: "dropdown-item searchbarhome-drop"  %>
+        <%= link_to 'Paris', city_pulses_path(City.find_by(name: "Paris").id), class: "dropdown-item searchbarhome-drop"  %>
+        <%= link_to 'Marseille', city_pulses_path(City.find_by(name: "Marseille").id), class: "dropdown-item searchbarhome-drop"  %>
+        <%= link_to 'Rennes', city_pulses_path(City.find_by(name: "Rennes").id), class: "dropdown-item searchbarhome-drop"  %>
+        <%= link_to 'Bordeaux', city_pulses_path(City.find_by(name: "Bordeaux").id), class: "dropdown-item searchbarhome-drop"  %>
+        <%= link_to 'St Malo', city_pulses_path(City.find_by(name: "St Malo").id), class: "dropdown-item searchbarhome-drop"  %>
+      </ul>
+    </div>
+  </div>
+
+  <%# ------------------------------- search fin---------------------------------- %>
 </div>
-
-
-
-
 <%# ------------------------------- How it Works fin---------------------------------- %>
 
 
 
-<%# ===================================== SEARCH =========================== %>
-<%# ------ a modifier later par une vraie barre de recherche (compliqué) ---- %>
-<div class="container d-flex justify-content-center">
-  <div class="dropdown">
-    <button class=" searchbarhome btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-      Cherche ta Ville
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-      <%# faire une itération pour toutes nos villes plutot que de les écrire à la main %>
-      <% unless current_user.nil? %>
-        <%= link_to 'Ta Ville', city_pulses_path(current_user.city), class: "dropdown-item searchbarhome-drop"  %>
-      <% end %>
-      <%= link_to 'Lille', city_pulses_path(City.find_by(name: "Lille").id), class: "dropdown-item searchbarhome-drop"  %>
-      <%= link_to 'Paris', city_pulses_path(City.find_by(name: "Paris").id), class: "dropdown-item searchbarhome-drop"  %>
-      <%= link_to 'Marseille', city_pulses_path(City.find_by(name: "Marseille").id), class: "dropdown-item searchbarhome-drop"  %>
-      <%= link_to 'Rennes', city_pulses_path(City.find_by(name: "Rennes").id), class: "dropdown-item searchbarhome-drop"  %>
-      <%= link_to 'Bordeaux', city_pulses_path(City.find_by(name: "Bordeaux").id), class: "dropdown-item searchbarhome-drop"  %>
-      <%= link_to 'St Malo', city_pulses_path(City.find_by(name: "St Malo").id), class: "dropdown-item searchbarhome-drop"  %>
-    </ul>
-  </div>
-</div>
 
 
-<%# ------------------------------- search fin---------------------------------- %>
 
 
 <%# ------------------------------- Là où ca pulse !---------------------------------- %>
-<div id="why" class="container" style="margin-bottom:400px;">
+<%# <%= render 'shared/count' %>
+
+<%# <div id="why" class="container" style="margin-bottom:400px;">
   <h2>Là où ca pulse !</h2>
-</div>
+</div> %>
+
+<div class="container">
+      <h1>Carrousel</h1>
+      <div id="demo" class="carousel slide" data-ride="carousel">
+        <!-- Indicateurs -->
+        <ul class="carousel-indicators">
+          <li data-target="#demo" data-slide-to="0" class="active"></li>
+          <li data-target="#demo" data-slide-to="1"></li>
+          <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+
+        <!-- Carrousel -->
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://www.pierre-giraud.com/bootstrap-carrousel-slide-1.jpg" alt="Carrousel slide 1" class="d-block w-100">
+            <div class="carousel-caption d-none d-md-block">
+              <h4>Titre de la légende</h4>
+              <p>Légende de la slide n°1.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://www.pierre-giraud.com/bootstrap-carrousel-slide-2.jpg" alt="Carrousel slide 2" class="d-block w-100">
+            <div class="carousel-caption d-none d-md-block text-dark">
+              <h4>Titre de la légende</h4>
+              <p>Légende de la slide n°2.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://www.pierre-giraud.com/bootstrap-carrousel-slide-3.jpg" alt="Carrousel slide 3" class="d-block w-100">
+            <div class="carousel-caption d-none d-md-block">
+              <h4>Titre de la légende</h4>
+              <p>Légende de la slide n°3.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contrôles -->
+        <a class="carousel-control-prev" href="#demo" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Précédent</span>
+        </a>
+        <a class="carousel-control-next" href="#demo" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Suivant</span>
+        </a>
+      </div>
+    </div>
+
+
+
 <%# ------------------------------- Là où ca pulse ! fin---------------------------------- %>
