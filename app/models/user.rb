@@ -17,15 +17,18 @@ class User < ApplicationRecord
     favorite = Favorite.where(user_id: user.id).count * 10
     pulse = Pulse.where(user_id: user.id).count * 100
     user.xp = favorite + pulse
+    user.save!
+    return user.xp
   end
 
-  def level(user)
-    if user.xp > 500
-      user.grade = 'Challenger'
+  def level
+    @user = User.find(id)
+    if @user.xp > 500
+      @user.grade = 'Challenger'
     else
-      user.grade = 'Novice'
+      @user.grade = 'Novice'
     end
-    user.save
-    user.grade
+    @user.save!
+    return @user.grade
   end
 end

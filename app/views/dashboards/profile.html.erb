@@ -16,10 +16,11 @@
       <div class="profile-card-left">
         <h1><%= current_user.nickname %></h1>
         <h2>Ville: <%= current_user.city.name %></h2>
-        <h2>Grade: <%= current_user.level(current_user) %></h2>
+        <h2>Grade: <%= current_user.level %></h2>
         <h2>XP: <%= current_user.experience(current_user) %></h2>
       </div>
     </div>
+
   <%# 4 div a droite avec nom thématiques et bio %>
     <div class="w-50">
       <h2>Principales thématiques:
