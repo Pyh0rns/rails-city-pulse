@@ -10,24 +10,35 @@
 <div class='p-5'>
   <%# ================= NAVIGATION ================= %>
   <div class="navigation d-flex align-items-center justify-content-around mb-5">
-    <%= link_to root_path, class:" text-decoration-none button-back d-flex mx-5" do %>
-      <i class="fas fa-arrow-left"> Change de ville !</i>
-    <% end %>
+    <div class='dropdown'>
+    <a class="dropbtn-city">Change de ville !</a>
+      <div id="myDropdown" class="dropdown-city-content" data-filter-target="categ">
+       <% unless current_user.nil? %>
+        <%= link_to 'Ta Ville', city_pulses_path(current_user.city), class: 'link'  %>
+      <% end %>
+        <%= link_to 'Lille', city_pulses_path(City.find_by(name: "Lille").id), class:'link' %>
+        <%= link_to 'Paris', city_pulses_path(City.find_by(name: "Paris").id), class:'link' %>
+        <%= link_to 'Marseille', city_pulses_path(City.find_by(name: "Marseille").id), class:'link' %>
+        <%= link_to 'Rennes', city_pulses_path(City.find_by(name: "Rennes").id), class:'link' %>
+        <%= link_to 'Bordeaux', city_pulses_path(City.find_by(name: "Bordeaux").id), class:'link' %>
+        <%= link_to 'St Malo', city_pulses_path(City.find_by(name: "St Malo").id), class:'link' %>
+      </div>
+    </div>
 
     <%# ----------- searchbar -------- %>
     <div class= "searchbarindex">
       <%= form_tag city_pulses_path(@city), method: :get do %>
         <%= text_field_tag :query,
           params[:query],
-          class: "form-control",
-          placeholder: "Trouve un Pulse ou un utilisateur"%>
+          id: "form-index-control",
+          placeholder: "Trouve un Pulse ou un utilisateur 🔍" %>
         <%= submit_tag "Search", class: "d-none btn btn-primary" %>
       <% end %>
     </div>
     <%# ----------- link to form new -------- %>
     <div>
       <% if user_signed_in? && current_user.city == @city %>
-        <%= link_to 'Pulse ton idée', new_city_pulse_path, class:"button-pulse-red p-2"%>
+        <%= link_to 'Pulse ton idée', new_city_pulse_path, id:"button-pulse-red"%>
       <% end %>
     </div>
   </div>
@@ -35,28 +46,33 @@
 
 <div class="container" data-controller="filter">
   <div class="d-flex justify-content-between mb-5">
-  <button class= 'buttonfilter' data-action="click->filter#filter_by" data-filter-type="order">Plus likés</button>
-  <button class= 'buttonfilter' data-action="click->filter#filter_by" data-filter-type="done">Réalisés</button>
-  <div class="dropdown">
-  <button class="dropbtn">Catégories</button>
-  <div id="myDropdown" class="dropdown-content" data-filter-target="categ">
-    <button data-action="click->filter#filter_by" data-filter-type="category">Transports</button>
-    <button data-action="click->filter#filter_by" data-filter-type="category">Ecologie</button>
-    <button data-action="click->filter#filter_by" data-filter-type="category">Sécurité</button>
-    <button data-action="click->filter#filter_by" data-filter-type="category">Santé</button>
-    <button data-action="click->filter#filter_by" data-filter-type="category">Culture</button>
-    <button data-action="click->filter#filter_by" data-filter-type="category">Sport</button>
+    <button class= 'buttonfilter'data-filter-target='btn' data-action="click->filter#filter_by" data-filter-type="recent">Récents</button>
+    <button class= 'buttonfilter'data-filter-target='btn' data-action="click->filter#filter_by" data-filter-type="order">Plus likés</button>
+    <button class= 'buttonfilter'data-filter-target='btn' data-action="click->filter#filter_by" data-filter-type="done">Réalisés</button>
+    <div class="dropdown">
+      <button class="dropbtn">Catégories</button>
+        <div id="myDropdown" class="dropdown-content" data-filter-target="categ">
+          <button data-action="click->filter#filter_by" data-filter-type="category">Transports</button>
+          <button data-action="click->filter#filter_by" data-filter-type="category">Ecologie</button>
+          <button data-action="click->filter#filter_by" data-filter-type="category">Sécurité</button>
+          <button data-action="click->filter#filter_by" data-filter-type="category">Santé</button>
+          <button data-action="click->filter#filter_by" data-filter-type="category">Culture</button>
+          <button data-action="click->filter#filter_by" data-filter-type="category">Sport</button>
+        </div>
+    </div>
   </div>
-</div>
-</div>
 
   <%# ================= CARDS ================= %>
   <div class='card-pulse-container mb-5'data-filter-target='container'>
       <% @pulses.each do |pulse| %>
         <div class="card-pulse" data-filter-target='card' data-votes=<%= pulse.favorites.length %> data-done=<%= pulse.status%> data-category= <%= @pulses.find(pulse.id).categories.first.name %>>
         <img class="avatar" src="<%= pulse.user.photo_url %>" alt="">
-            <img id= "card-pulse-img" src= <%=pulse.photo_url.nil? ? 'https://source.unsplash.com/random' : pulse.photo_url%>/>
-          <div class="card-pulse-infos" id="pulse-<%= pulse.id %>">
+          <% if pulse.photo.attached? %>
+            <%= cl_image_tag(pulse.photo.key, id:"card-pulse-img") %>
+          <% else %>
+            <img id= "card-pulse-img" src= <%= pulse.photo_url%>/>
+          <% end %>
+        <div class="card-pulse-infos" id="pulse-<%= pulse.id %>">
             <div class='mb-3 mt-2'>
               <%= link_to city_pulse_path(@city, pulse), class:"text-decoration-none" do %>
                <h2><%= pulse.title %> <%= @pulses.find(pulse.id).categories.first.image %></h2>
@@ -77,8 +93,7 @@
               <button class="button-like-blue"><i class="fas fa-heartbeat"></i></button>
             <% end %>
           <% end %>
-
-          <div class="nb-votes" style=" data-filter-target='votes'">
+          <div class="nb-votes">
             <span style="font-size:26px;"> <%= pulse.favorites.length %> </span>
             <span style="font-size:12px;">votes</span>
           </div>
