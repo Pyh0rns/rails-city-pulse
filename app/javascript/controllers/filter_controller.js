@@ -1,7 +1,8 @@
 import { Controller } from "@hotwired/stimulus"
+import configPath from "@rails/webpacker/package/configPath";
 
 export default class extends Controller {
-  static targets = ["votes", "card", "container", "categ"]
+  static targets = ["votes", "card", "container", "categ", "btn"]
 
   connect() {
   }
@@ -10,6 +11,7 @@ export default class extends Controller {
     const type = event.currentTarget.dataset.filterType
     const cards = Array.from(this.cardTargets)
     this.clear(cards);
+    this.fix();
 
     switch (type) {
       case 'order':
@@ -61,5 +63,14 @@ export default class extends Controller {
     cards.forEach((card) => {
       card.classList.remove("card-hidden");
     })
+  }
+
+  fix(){
+    this.btnTargets.forEach((btn) => {
+      btn.addEventListener('click', (event) =>{
+        console.log(event)
+        event.target.classList.toggle('buttonfiltered')
+      });
+    });
   }
 }
