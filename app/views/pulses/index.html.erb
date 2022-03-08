@@ -80,19 +80,32 @@
         </div>
         <%# ------- test stepbar ----------- %>
 
-<% if pulse.status == "Votes en cours" %>
-  <div class="d-flex">
-    <i id="bulb" class="far fa-lightbulb"></i><i id="thumb-off" class="far fa-thumbs-up"></i><i id="check-off" class="far fa-check-circle"></i>
+
+
+
+<div class="bottom-card-index d-flex justify-content-between align-items-center px-5">
+  <div>
+    <% if pulse.status == "Votes en cours" %>
+      <div class="d-flex">
+        <i id="bulb" class="far fa-lightbulb me-2"></i><i id="thumb-off" class="far fa-thumbs-up me-2"></i><i id="check-off" class="far fa-check-circle"></i>
+      </div>
+    <% elsif pulse.status == "Réalisé" %>
+      <div class="d-flex">
+        <i id="bulb" class="far fa-lightbulb me-2"></i><i id="thumb-on" class="far fa-thumbs-up me-2"></i><i id="check-on" class="far fa-check-circle"></i>
+      </div>
+    <% elsif pulse.status == "Réalisé" %>
+      <div class="d-flex">
+        <i id="bulb" class="far fa-lightbulb me-2"></i><i id="thumb-on" class="far fa-thumbs-up me-2"></i><i id="check-off" class="far fa-check-circle"></i>
+      </div>
+    <% end %>
+
   </div>
-<% elsif pulse.status == "Réalisé" %>
-  <div class="d-flex">
-    <i id="bulb" class="far fa-lightbulb"></i><i id="thumb-on" class="far fa-thumbs-up"></i><i id="check-on" class="far fa-check-circle"></i>
+
+  <div class="d-flex align-items pt-3">
+    <h2><%= pulse.favorites.length %></h2>
+    <p> <%= 'vote'.pluralize(pulse.favorites.length) %></p>
   </div>
-<% elsif pulse.status == "Réalisé" %>
-  <div class="d-flex">
-    <i id="bulb" class="far fa-lightbulb"></i><i id="thumb-on" class="far fa-thumbs-up"></i><i id="check-off" class="far fa-check-circle"></i>
-  </div>
-<% end %>
+</div>
 
 
         <%# ------- favorites ----------- %>

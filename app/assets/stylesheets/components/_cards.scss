@@ -32,6 +32,19 @@
   display: none;
 }
 
+.bottom-card-index {
+  background: $button;
+  width: 100%;
+  max-width: 274px;
+  height: 40px;
+  color: white;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
 // ---------- MANU HOME -------------
 
 .card-pulse .avatar {
@@ -64,7 +77,6 @@
 .card-pulse p {
   font-size: 13px;
   font-family: open sans-serif;
-  margin-bottom: 20px;
   color: white;
   text-align: justify;
 }
