@@ -83,11 +83,11 @@
 
 
 
-<div class="bottom-card-index d-flex justify-content-between align-items-center px-5">
+<div class="bottom-card-index d-flex justify-content-between align-items-center">
   <div>
     <% if pulse.status == "Votes en cours" %>
       <div class="d-flex">
-        <i id="bulb" class="far fa-lightbulb me-2"></i><i id="thumb-off" class="far fa-thumbs-up me-2"></i><i id="check-off" class="far fa-check-circle"></i>
+        <i id="bulb" class="far fa-lightbulb me-2 ps-5"></i><i id="thumb-off" class="far fa-thumbs-up me-2"></i><i id="check-off" class="far fa-check-circle"></i>
       </div>
     <% elsif pulse.status == "Réalisé" %>
       <div class="d-flex">
@@ -101,7 +101,7 @@
 
   </div>
 
-  <div class="d-flex align-items pt-3">
+  <div class="d-flex align-items pt-3 pe-5">
     <h2><%= pulse.favorites.length %></h2>
     <p> <%= 'vote'.pluralize(pulse.favorites.length) %></p>
   </div>
