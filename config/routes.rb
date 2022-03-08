@@ -19,7 +19,8 @@ Rails.application.routes.draw do
   get 'dashboard/:city_id', to: 'dashboards#dashboard', as: :dashboard
 
     # ==================== ChatRoom ====================
-    resources :chatrooms, only: :show do
-      resources :messages, only: :create
-    end
+
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
 end
