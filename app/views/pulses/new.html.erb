@@ -37,7 +37,7 @@
       </div>
 
       <div class="input-group mb-3 group-input-avatar">
-      <%= f.input :solution, input_html: { class: "input form-control form-custom" }, wrapper_html: { class: "problem" }, label: false %>
+      <%= f.input :solution, input_html: { class: "input form-control form-custom", data: { action: "keydown->pulse-form#showThirdSection"} }, wrapper_html: { class: "problem" }, label: false %>
         <div class="input-group-append avatar-input">
           <img class="avatar input-group-text" src="<%= current_user.photo_url %>" alt="">
         </div>
@@ -55,7 +55,7 @@
       <div class="input-group mb-3 group-input-avatar">
       <%= f.input :address,
           input_html: { data: { geocoder_target: "address", current_city: current_user.city.name  }, class: "d-none" },
-          wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] }, class:"problem" }, label: false %>
+          wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'], action: "keydown->pulse-form#showFourthSection" }, class:"problem" }, label: false %>
         <div class="input-group-append avatar-input">
           <img class="avatar input-group-text" src="<%= current_user.photo_url %>" alt="">
         </div>
