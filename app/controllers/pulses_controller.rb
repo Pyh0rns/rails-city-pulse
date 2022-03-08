@@ -66,9 +66,12 @@ class PulsesController < ApplicationController
     authorize @pulse
     if @pulse.status == "Votes en cours"
       @pulse.status = "Validé"
-
+      chatroom = Chatroom.new(name: @pulse.title)
+      chatroom.pulse = @pulse
+      chatroom.save
     else
       @pulse.status = "Réalisé"
+      @pulse.chatrooms.destroy_all
     end
     @pulse.save
     redirect_to dashboard_path(current_user.city)

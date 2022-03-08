@@ -7,6 +7,7 @@ class Pulse < ApplicationRecord
   has_many :pulse_categories, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :categories, through: :pulse_categories
+  has_many :chatrooms
 
   validates :title, length: { minimum: 1 }
   # Mettre plus dans le validates title solution et problem genre 300
