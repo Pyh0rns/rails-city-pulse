@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   # ==================== Routes App ====================
   resources :cities, except: [:index, :show, :new, :create, :edit, :update, :destroy] do
-    resources :pulses, only: [:index, :show, :new, :create]
+    resources :pulses, only: [:index, :show, :new, :create, :update]
   end
   resources :pulses, only: [:destroy] do
     resources :favorites, only: [:create]

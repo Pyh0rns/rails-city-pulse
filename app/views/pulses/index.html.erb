@@ -7,20 +7,35 @@
     </div>
 </div>
 
+<% if flash[:congrats_modal] %>
+<%= render 'success_modal' %>
+<% end %>
+
 <div class='p-5'>
   <%# ================= NAVIGATION ================= %>
   <div class="navigation d-flex align-items-center justify-content-around mb-5">
-    <%= link_to root_path, class:" text-decoration-none button-back d-flex mx-5" do %>
-      <i class="fas fa-arrow-left"> Change de ville !</i>
-    <% end %>
+    <div class='dropdown'>
+    <a class="dropbtn-city">Change de ville !</a>
+      <div id="myDropdown" class="dropdown-city-content" data-filter-target="categ">
+       <% unless current_user.nil? %>
+        <%= link_to 'Ta Ville', city_pulses_path(current_user.city), class: 'link'  %>
+      <% end %>
+        <%= link_to 'Lille', city_pulses_path(City.find_by(name: "Lille").id), class:'link' %>
+        <%= link_to 'Paris', city_pulses_path(City.find_by(name: "Paris").id), class:'link' %>
+        <%= link_to 'Marseille', city_pulses_path(City.find_by(name: "Marseille").id), class:'link' %>
+        <%= link_to 'Rennes', city_pulses_path(City.find_by(name: "Rennes").id), class:'link' %>
+        <%= link_to 'Bordeaux', city_pulses_path(City.find_by(name: "Bordeaux").id), class:'link' %>
+        <%= link_to 'St Malo', city_pulses_path(City.find_by(name: "St Malo").id), class:'link' %>
+      </div>
+    </div>
 
     <%# ----------- searchbar -------- %>
     <div class= "searchbarindex">
       <%= form_tag city_pulses_path(@city), method: :get do %>
         <%= text_field_tag :query,
           params[:query],
-          class: "form-control",
-          placeholder: "Trouve un Pulse ou un utilisateur"%>
+          id: "form-index-control",
+          placeholder: "Trouve un Pulse ou un utilisateur 🔍" %>
         <%= submit_tag "Search", class: "d-none btn btn-primary" %>
       <% end %>
     </div>
@@ -35,21 +50,21 @@
 
 <div class="container" data-controller="filter">
   <div class="d-flex justify-content-between mb-5">
-  <button class= 'buttonfilter' data-action="click->filter#filter_by" data-filter-type="recent">Récents</button>
-  <button class= 'buttonfilter' data-action="click->filter#filter_by" data-filter-type="order">Plus likés</button>
-  <button class= 'buttonfilter' data-action="click->filter#filter_by" data-filter-type="done">Réalisés</button>
-  <div class="dropdown">
-  <button class="dropbtn">Catégories</button>
-  <div id="myDropdown" class="dropdown-content" data-filter-target="categ">
-    <button data-action="click->filter#filter_by" data-filter-type="category">Transports</button>
-    <button data-action="click->filter#filter_by" data-filter-type="category">Ecologie</button>
-    <button data-action="click->filter#filter_by" data-filter-type="category">Sécurité</button>
-    <button data-action="click->filter#filter_by" data-filter-type="category">Santé</button>
-    <button data-action="click->filter#filter_by" data-filter-type="category">Culture</button>
-    <button data-action="click->filter#filter_by" data-filter-type="category">Sport</button>
+    <button class= 'buttonfilter'data-filter-target='btn' data-action="click->filter#filter_by" data-filter-type="recent">Récents</button>
+    <button class= 'buttonfilter'data-filter-target='btn' data-action="click->filter#filter_by" data-filter-type="order">Plus likés</button>
+    <button class= 'buttonfilter'data-filter-target='btn' data-action="click->filter#filter_by" data-filter-type="done">Réalisés</button>
+    <div class="dropdown">
+      <button class="dropbtn">Catégories</button>
+        <div id="myDropdown" class="dropdown-content" data-filter-target="categ">
+          <button data-action="click->filter#filter_by" data-filter-type="category">Transports</button>
+          <button data-action="click->filter#filter_by" data-filter-type="category">Ecologie</button>
+          <button data-action="click->filter#filter_by" data-filter-type="category">Sécurité</button>
+          <button data-action="click->filter#filter_by" data-filter-type="category">Santé</button>
+          <button data-action="click->filter#filter_by" data-filter-type="category">Culture</button>
+          <button data-action="click->filter#filter_by" data-filter-type="category">Sport</button>
+        </div>
+    </div>
   </div>
-</div>
-</div>
 
   <%# ================= CARDS ================= %>
   <div class='card-pulse-container mb-5'data-filter-target='container'>
@@ -82,10 +97,9 @@
               <button class="button-like-blue"><i class="fas fa-heartbeat"></i></button>
             <% end %>
           <% end %>
-
-          <div class="nb-votes" style=" data-filter-target='votes'">
+          <div class="nb-votes">
             <span style="font-size:26px;"> <%= pulse.favorites.length %> </span>
-            <span style="font-size:12px;">votes</span>
+            <span style="font-size:12px;"><%= 'vote'.pluralize( pulse.favorites.length) %></span>
           </div>
         </div>
       </div>

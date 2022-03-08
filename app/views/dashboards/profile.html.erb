@@ -1,11 +1,10 @@
 <%# 1 div container pour toute la page  %>
-<div class="container mt-5">
-
   <div style= "width: 165px">
-    <%= link_to city_pulses_path(current_user.city) do %>
-      <p class="button-back"><i class="fas fa-arrow-left mb-3"> </i> Pulses de ta ville</p>
+    <%= link_to city_pulses_path(current_user.city), class:"linkto" do %>
+      <p class="linkto"><i class="fas fa-arrow-left mb-3"> </i> Pulses de ta ville</p>
     <% end %>
   </div>
+<div class="container">
 
   <%# 2 div du profil en haut de la page  %>
   <div class="profile-card d-flex justify-content-between mt-5 p-4">
@@ -16,62 +15,90 @@
       <div class="profile-card-left">
         <h1><%= current_user.nickname %></h1>
         <h2>Ville: <%= current_user.city.name %></h2>
-        <h2>Grade: <%= current_user.grade %></h2>
-        <h2>XP: <%= current_user.xp %></h2>
+        <h2>Grade: <%= current_user.level %></h2>
+        <h2>XP: <%= current_user.experience %></h2>
       </div>
     </div>
 
   <%# 4 div a droite avec nom thématiques et bio %>
     <div class="w-50">
-      <h2>Principales thématiques: <i class="fas fa-leaf"></i> <i class="fas fa-biking"></i></h2>
+      <h2>Principales thématiques:
+      <% current_user.pulses.each do |pulse|%>
+        <%= pulse.categories.group_by {|category| category.image}.keys[0]%>
+      <%end%>
+      </h2>
+
       <h2>Bio: </h2>
       <p><%= current_user.bio %> </p>
     </div>
   <%# fin div 2 %>
   </div>
+</div>
 
 <%# 5 div échanges mairie et meilleurs pulses %>
-  <div class="profile-card-bottom d-flex justify-content-between border p-3 m-5">
+  <div class="profile-card-bottom">
 
 <%# 6 div meilleurs pulses %>
-    <div class="w-50 m-3">
+    <div>
       <h2>Tes meilleurs Pulses</h2>
-      <% unless current_user.pulses.nil? %>
-        <% if current_user.pulses.length == 1 %>
-          <% limit = 1 %>
-        <% elsif current_user.pulses.length == 2 %>
-          <% limit = 2 %>
-        <% else %>
-          <% limit = 3 %>
+      <div class="profile-meilleurs-pulses">
+        <% unless current_user.pulses.nil? %>
+          <% if current_user.pulses.length == 1 %>
+            <% limit = 1 %>
+          <% elsif current_user.pulses.length == 2 %>
+            <% limit = 2 %>
+          <% else %>
+            <% limit = 3 %>
+          <% end %>
+          <% top2 = current_user.pulses.limit(limit).sort_by { |pulse| pulse.favorites.count } %>
+          <% top2.reverse.each do |top| %>
+            <div class="pulses-profile d-flex">
+                <div class='m-3 fs-3'>
+                  <% top.categories.each do |category| %>
+                    <%= category.image %>
+                  <% end %>
+                </div>
+                <div>
+                  <h3><%= top.title %> : <%= top.favorites.length %> 💙 </h3>
+                  <p><%= top.solution %></p>
+                </div>
+                <div class='pulse-icone-coeur'>
+                  <i class="fas fa-heartbeat"></i>
+                </div>
+            </div>
+          <% end %>
         <% end %>
-        <% top2 = current_user.pulses.limit(limit).sort_by { |pulse| pulse.favorites.count } %>
-        <% top2.reverse.each do |top| %>
-          <div class="pulses-profile border p-2 mb-2">
-            <h3><%= top.title %>: <%= top.favorites.length %></h3>
-            <p><%= top.solution %></p>
-          </div>
-        <% end %>
-      <% end %>
+      </div>
     </div>
 
 
 <%# 7 div échanges mairie %>
 <%# --------------------- FAKE, a changer !! -------------------- %>
-    <div class="w-50 m-3">
-      <h2>Tes échanges avec la Mairie</h2>
-      <% unless current_user.pulses[-1].blank? %>
-        <div class="pulses-profile border p-2 mb-2">
-          <h3><%= current_user.pulses[-1].title %></h3>
-          <p><%= current_user.pulses[-1].solution %></p>
+  <div>
+    <h2>Tes échanges avec la Mairie</h2>
+      <div class="echange-mairie">
+        <% unless current_user.pulses[-1].blank? %>
+          <div class="pulses-profile d-flex justify-content-between">
+          <div><img class="avatar-conversation" src="<%= current_user.photo_url %>" alt=""></div>
+            <div>
+              <h3><%= current_user.pulses[-1].title %></h3>
+              <p><%= current_user.pulses[-1].solution %></p>
+            </div>
+            <div class='m-3 fs-3'>
+              <%= current_user.pulses.first.categories.first.image %>
+            </div>
+          </div>
+        <% end %>
+        <div class="retour-mairie d-flex justify-content-end">
+          <div>
+            <h3>Très bonne idée !</h3>
+            <p>Nous allons tout mettre en oeuvre pour la mettre en place au plus vite.</p>
+            <p>Bien cordialement,</p>
+            <p>Martine, de la mairie</p>
+          </div>
         </div>
-      <% end %>
-      <div class="ms-5 border rounded p-3">
-        <h3>Très bonne idée !</h3>
-        <p>Nous allons tout mettre en oeuvre pour la mettre en place au plus vite.</p>
-        <p>Bien cordialement,</p>
-        <p>Martine, de la mairie</p>
       </div>
-    </div>
+  </div>
 <%# fin div 5 %>
   </div>
 
@@ -136,4 +163,3 @@
   </div>
 
 <%# fin div 1 %>
-</div>

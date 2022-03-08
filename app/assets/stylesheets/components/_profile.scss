@@ -1,0 +1,104 @@
+.profile-card-bottom-inside {
+  width: 50%;
+  border-radius: 10px;
+  background-color: $black;
+}
+
+.profile-card-bottom {
+  color: $black;
+  padding: 10px;
+  margin: 45px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  h2 {
+    font-size: 20px;
+  }
+  h3 {
+    font-size: 16px;
+  }
+  p{
+    font-size: 14px;
+    opacity: .7;
+  }
+}
+
+.profile-meilleurs-pulses {
+  width: 100%;
+  background: #272932;
+  color: white;
+  border-radius: 9px;
+  padding-left: 14px;
+  padding-top: 29px;
+  padding-bottom: 35px;
+  padding-right: 12px;
+}
+
+.pulses-profile {
+  border-radius: 5px;
+  background: white;
+  color: #272932;
+  padding: 5px;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.pulse-icone-coeur {
+  padding: 10px;
+  background: $button;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+  border: none;
+  font-size: 20px;
+  text-align: center;
+  bottom: 175px;
+  right: 15px;
+  margin-bottom: 10px;
+}
+
+.echange-mairie{
+  padding-left: 14px;
+  padding-top: 29px;
+  padding-bottom: 35px;
+  padding-right: 12px;
+  border: solid;
+  background: $black;
+  color: white;
+  margin-left: 4px;
+  margin-top: 6px;
+  display: block;
+  border-radius: 9px;
+  align-items: center;
+}
+.retour-mairie {
+  background: white;
+  color: $black;
+  max-width: 400px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.profile-card {
+  position: relative;
+  color: white;
+  background-color: $black;
+  border-radius: 8px;
+  h1 {
+    font-size: 32px;
+  }
+  h2 {
+    font-size: 20px;
+  }
+  p {
+    font-size: 14px;
+    opacity: .7;
+  }
+}
+
+.profile-card-left {
+  margin-left: 120px;
+}
