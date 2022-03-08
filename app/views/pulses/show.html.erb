@@ -11,7 +11,7 @@
 
   <%# PROGRESS STEP BAR %>
 
-  <ul class="steps">
+  <%# <ul class="steps">
     <li class="step step-success">
       <div class="step-content">
         <span class="step-circle"><i class="fas fa-lightbulb"></i></span>
@@ -36,7 +36,31 @@
         <span class="step-text">Réalisée</span>
       </div>
     </li>
-  </ul>
+  </ul> %>
+
+
+  <%# ------------------- progress bar js---------------------------- %>
+  <div class="bar">
+    <%# <h1>Step Progress Bar</h1> %>
+
+    <div class="progress-container">
+
+      <div class="progress" id="progress"></div>
+
+        <div class="circle active"><i class="fas fa-lightbulb" id="bar-icon"></i></div>
+        <div class="circle"><i class="fas fa-heartbeat" id="bar-icon"></i></div>
+        <div class="circle"><i class="fas fa-check" id="bar-icon"></i></div>
+        <%# <div class="circle"><i class="fab fa-react" id=bar></i></div> %>
+
+    </div>
+  </div>
+
+  <div class="bar">
+    <button class="btn" id="prev" disabled>Prev</button>
+    <button class="btn" id="next">Next</button>
+  </div>
+
+  <%# ------------------- progress bar js fin ---------------------------- %>
 
       <%# div pulses title%>
 
@@ -59,10 +83,15 @@
           <p><%= @pulse.solution %></p>
         </div>
       </div>
-      <div style="margin-left:350px;">
+      <%# <div class="bar">
         <button class="card__button"><i class="fas fa-heart"></i></button>
-        <p class="ms-5">Like !</p>
-      </div>
+      </div> %>
     </div>
   </div>
+
+      <div class="u-center-text u-margin-top-huge">
+        <a href="#" class="btn btn--green">Pulse</a>
+      </div>
+
+
 </div>
