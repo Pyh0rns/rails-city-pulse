@@ -50,6 +50,12 @@ ActiveRecord::Schema.define(version: 2022_03_08_090754) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "chatrooms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "cities", force: :cascade do |t|
     t.string "name"
     t.string "photo_url"
@@ -64,6 +70,16 @@ ActiveRecord::Schema.define(version: 2022_03_08_090754) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["pulse_id"], name: "index_favorites_on_pulse_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "content"
+    t.bigint "chatroom_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "pulse_categories", force: :cascade do |t|
@@ -116,6 +132,8 @@ ActiveRecord::Schema.define(version: 2022_03_08_090754) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "favorites", "pulses"
   add_foreign_key "favorites", "users"
+  add_foreign_key "messages", "chatrooms"
+  add_foreign_key "messages", "users"
   add_foreign_key "pulse_categories", "categories"
   add_foreign_key "pulse_categories", "pulses"
   add_foreign_key "pulses", "cities"
