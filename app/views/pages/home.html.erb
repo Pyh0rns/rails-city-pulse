@@ -70,59 +70,52 @@
 
 
 <%# ------------------------------- Là où ca pulse !---------------------------------- %>
-<%# <%= render 'shared/count' %>
-
-<%# <div id="why" class="container" style="margin-bottom:400px;">
-  <h2>Là où ca pulse !</h2>
-</div> %>
-
-<div class="container">
-      <h1>Carrousel</h1>
-      <div id="demo" class="carousel slide" data-ride="carousel">
-        <!-- Indicateurs -->
-        <ul class="carousel-indicators">
-          <li data-target="#demo" data-slide-to="0" class="active"></li>
-          <li data-target="#demo" data-slide-to="1"></li>
-          <li data-target="#demo" data-slide-to="2"></li>
-        </ul>
-
-        <!-- Carrousel -->
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="https://www.pierre-giraud.com/bootstrap-carrousel-slide-1.jpg" alt="Carrousel slide 1" class="d-block w-100">
-            <div class="carousel-caption d-none d-md-block">
-              <h4>Titre de la légende</h4>
-              <p>Légende de la slide n°1.</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="https://www.pierre-giraud.com/bootstrap-carrousel-slide-2.jpg" alt="Carrousel slide 2" class="d-block w-100">
-            <div class="carousel-caption d-none d-md-block text-dark">
-              <h4>Titre de la légende</h4>
-              <p>Légende de la slide n°2.</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="https://www.pierre-giraud.com/bootstrap-carrousel-slide-3.jpg" alt="Carrousel slide 3" class="d-block w-100">
-            <div class="carousel-caption d-none d-md-block">
-              <h4>Titre de la légende</h4>
-              <p>Légende de la slide n°3.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Contrôles -->
-        <a class="carousel-control-prev" href="#demo" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Précédent</span>
-        </a>
-        <a class="carousel-control-next" href="#demo" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Suivant</span>
-        </a>
-      </div>
-    </div>
-
 
 
 <%# ------------------------------- Là où ca pulse ! fin---------------------------------- %>
+
+<%# <div class="container d-flex justify-content-center">
+
+ <div id="carouselExampleCaptions" class="carousel slide d-block w-50" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://hellolille.eu/wp-content/uploads/2020/06/CCI_HelloLille_Nablezon-8-1536x1024.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Lille</h5>
+        <p>3500 Pulses</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://www.sncf-connect.com/assets/styles/ratio_2_1_max_width_961/public/media/2021-06/vue-sur-paris-depuis-la-tour-montparnasse.jpg?h=ce8c2c19&itok=Ru2ysUYF" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Paris</h5>
+        <p>250 Pulses</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://a.cdn-hotels.com/gdcs/production164/d686/03685140-68ce-11e8-8a0f-0242ac11000c.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Saint Malo</h5>
+        <p>35 Pulses</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+  </div>
+</div> %>
+
+
+
+<%= render 'shared/carroussel' %>
