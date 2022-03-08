@@ -84,7 +84,7 @@
                 <h2><%= pulse.title %> </h2>
               <% end %>
               <% @pulses.find(pulse.id).categories.each do |category| %>
-                <%#= category.image %>
+                <%= category.image %>
               <% end %>
 
             </div>
