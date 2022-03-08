@@ -54,6 +54,8 @@
   border-style: solid;
   border-width: 3px;
   border-color: white;
+  z-index: 10;
+
 }
 
 .card-pulse .card-pulse-infos {
@@ -104,6 +106,16 @@
 
 .votes {
   justify-content: center;
+  position: absolute;
+  top: -25px;
+  left: 205px;
+  background: $button;
+  padding: 5px 30px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  h1 {
+    color: white;
+  }
 }
 
 .img-user {
