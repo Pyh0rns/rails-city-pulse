@@ -100,6 +100,7 @@
 
 .container-home {
   width: 100%;
+  min-height: 400px;
   // height:100vh;
   background-image: asset-url("Group.svg");
   background-size: cover;
@@ -256,7 +257,6 @@
   margin: 25px auto;
   font-size: 20px;
   position: absolute;
-  top: -50px;
   right: 10px;
   margin-bottom: 10px;
 }

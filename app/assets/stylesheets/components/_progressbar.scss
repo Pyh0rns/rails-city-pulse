@@ -1,0 +1,112 @@
+:root {
+  --line-border-fill: #FD1C68;
+  --line-border-empty: #BDBDBD;
+}
+
+// * {
+//   box-sizing: border-box;
+// }
+
+.bar {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin: 0;
+}
+
+#bar-icon {
+  font-size: 30px;
+  color: #BDBDBD;
+}
+
+// .container {
+//   text-align: center;
+// }
+
+.progress-container {
+  display: flex;
+  /* Show CSS Trick card for this */
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 30px;
+  max-width: 100%;
+  width: 350px;
+}
+
+.progress-container::before {
+  content: "";
+  background-color: var(--line-border-empty);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 100%;
+  /* Put it Behind the numbers*/
+  z-index: -1;
+}
+
+.progress {
+  background-color: var(--line-border-fill);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 100%;
+  /* Put it Behind the numbers*/
+  z-index: -1;
+  transition: 0.4s ease;
+}
+
+.circle {
+  background-color: #fff;
+  color: #999;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  /* Show card with question: how to center
+ Stackoverflow, FB, whanever*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #b2bec3;
+  transition: 0.4s ease;
+}
+
+.circle.active > #bar-icon {
+  border-color: var(--line-border-fill);
+  color: #FD1C68;
+}
+
+.circle.active {
+  border-color: var(--line-border-fill);
+  color: #FD1C68;
+}
+.btn-progressbar {
+  background-color: var(--line-border-fill);
+  color:#FFFFFF;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 8px 30px;
+  margin: 5px;
+  font-size: 14px;
+}
+
+.btn-progressbar:active {
+  transform: scale(0.97);
+}
+
+.btn-progressbar:focus {
+  outline: 0;
+}
+
+.btn-progressbar:disabled {
+  background-color: var(--line-border-empty);
+  /* Can we make it better? Yeah*/
+  cursor: not-allowed;
+}
