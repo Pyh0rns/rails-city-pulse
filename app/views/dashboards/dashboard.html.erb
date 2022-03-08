@@ -16,7 +16,6 @@
     <div>
       <div>
         <h2>Thématiques</h2>
-        <p><i class="fas fa-leaf"></i> <i class="fas fa-biking"></i></p>
       </div>
       <div>
         <h2>Nombre d'idées proposées</h2>
@@ -59,7 +58,7 @@
 
             <div class="d-flex">
               <%= link_to city_pulse_path(current_user.city.id, pulse.id), method: :patch, class: "linkto" do %>
-                <% if pulse.status = "Votes en cours" %>
+                <% if pulse.status == "Votes en cours" %>
                   <p class="button-red mx-2"> Valider </p>
                 <% else %>
                   <p class="button-red mx-2"> Réalisé! </p>
