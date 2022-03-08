@@ -36,8 +36,7 @@
 
 .card-pulse .avatar {
   position: absolute;
-  right: 44%;
-  top: -32px;
+  top: -30px;
   width: 70px;
   height: 70px;
   border-style: solid;
@@ -67,7 +66,6 @@
   font-family: open sans-serif;
   margin-bottom: 20px;
   color: white;
-  max-width: 90%;
   text-align: justify;
 }
 
@@ -80,7 +78,7 @@
 
 }
 
-.nb-votes {
+.btn-votes {
   color: white;
   background: $button;
   padding: 2% 10%;
@@ -91,10 +89,16 @@
   margin-bottom: 7px;
   border-radius: 13px;
   position: absolute;
-  right: 37%;
-
 }
 
+.votes {
+  justify-content: center;
+}
+
+.img-user {
+  display: flex;
+  justify-content: center;
+}
 
 // =============== CARDS LANDING PULSE ===============
 
