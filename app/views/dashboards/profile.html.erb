@@ -71,18 +71,20 @@
 
 <%# 7 div échanges mairie %>
 <%# --------------------- FAKE, a changer !! -------------------- %>
+<div class='d-block'>
+  <h2>Tes échanges dernier avec la Mairie</h2>
   <div>
-    <h2>Tes échanges dernier avec la Mairie</h2>
       <% @messages.each do |message|%>
         <%= link_to 'Open', profile_path(current_user, chatroom_id: message.chatroom.id) %>
         <%= link_to 'Close', profile_path(current_user) %>
       <%end %>
+  </div>
 
-
-      <% if @chatroom %>
-      <div class="container chatroom" data-controller="chatroom-subscription"
+  <div class="echange-mairie">
+    <% if @chatroom %>
+      <div class="container chatroom container-chatroom mb-3" data-controller="chatroom-subscription"
         data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
-          <h1>#<%= @chatroom.name %></h1>
+        <h2>#<%= @chatroom.name %></h2>
           <div class="messages" data-chatroom-subscription-target="messages">
             <% @chatroom.messages.each do |message| %>
             <%= render "messages/message", message: message %>
@@ -90,19 +92,17 @@
           </div>
           <%= simple_form_for [@chatroom, @message],
             remote: true,
-            html: {data: {chatroom_subscription_target: "form"}, class: "d-flex"} do |f|
-          %>
-          <%= f.input :content,
-            label: false,
-            placeholder: "Message ##{@chatroom.name}",
-            wrapper_html: {class: "flex-grow-1"}
-          %>
-          <%= f.submit "Send", class: "btn btn-primary" %>
-          <% end %>
-      </div>
-    <% end %>
-
+            html: {data: {chatroom_subscription_target: "form"}, class: "d-block"} do |f| %>
+              <%= f.input :content,
+                label: false,
+                placeholder: "Message à votre Mairie",
+                wrapper_html: {class: "flex-grow-1 input-profile-message"} %>
+              <button><%= f.submit "Send", class: "profile" %></button>
+            <%end%>
+        </div>
+    <%end%>
   </div>
+</div>
 <%# fin div 5 %>
   </div>
 
