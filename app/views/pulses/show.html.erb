@@ -9,35 +9,6 @@
 
 <div class="container">
 
-  <%# PROGRESS STEP BAR %>
-
-  <%# <ul class="steps">
-    <li class="step step-success">
-      <div class="step-content">
-        <span class="step-circle"><i class="fas fa-lightbulb"></i></span>
-        <span class="step-text">Postée</span>
-      </div>
-    </li>
-    <li class="step step-success">
-      <div class="step-content">
-        <span class="step-circle"><i class="fas fa-heart"></i></span>
-        <span class="step-text">Vote</span>
-      </div>
-    </li>
-    <li class="step step-active">
-      <div class="step-content">
-        <span class="step-circle"><i class="fas fa-check"></i></span>
-        <span class="step-text">Validée</span>
-      </div>
-    </li>
-    <li class="step">
-      <div class="step-content">
-        <span class="step-circle"><i class="fas fa-thumbs-up"></i></span>
-        <span class="step-text">Réalisée</span>
-      </div>
-    </li>
-  </ul> %>
-
 
   <%# ------------------- progress bar js---------------------------- %>
   <div class="bar">
@@ -62,36 +33,38 @@
 
   <%# ------------------- progress bar js fin ---------------------------- %>
 
-      <%# div pulses title%>
-
-    <h1 class=" m-3 title-head"><%= @pulse.title %></h1>
-        <h1><%= @pulse.user.nickname %></h1>
-
-
   <div class="container">
-    <div class="box-pulse-show">
-      <div class="pulse-card-why">
-        <img class="avatar-large-profile" src="<%= @pulse.user.photo_url %>" alt="">
-        <div class="pt-3 inner-pulse-card">
-          <h2 class="ms-5">Mon probleme </h2>
+
+      <h1 class='main-title'><%= @pulse.title.upcase %></h1>
+      <div class='sub-title'><h2> by <%= @pulse.user.nickname %></h2></div>
+
+      <div class="idea-container">
+        <div><img class="avatar-show" src="<%= @pulse.user.photo_url %>" alt=""></div>
+        <div class='pulse-why'>
+          <h2>Mon probleme </h2>
           <p><%= @pulse.problem %></p>
         </div>
       </div>
-      <div class="pulse-card-why selected">
-        <div class="p-3">
-          <h2>Ma Solution</h2>
+
+      <div class="solution-container">
+        <div class='solution-solved'>
+          <h2>Ma solution</h2>
           <p><%= @pulse.solution %></p>
         </div>
+
+        <div>
+        <%= console %>
+          <% if @pulse.liked?(current_user)%>
+            <%= link_to favorite_path(@pulse.favorites.find_by(user_id: current_user).id, city_id: current_user.city), remote: true, method: :delete do %>
+              <button class="button-like-red"><i class="fas fa-heartbeat"></i></button>
+            <% end %>
+          <% else %>
+            <%= link_to pulse_favorites_path(@pulse, city_id: @city), remote: true, method: :post do %>
+              <button class="button-like-blue"><i class="fas fa-heartbeat"></i></button>
+            <% end %>
+          <% end %>
+        </div>
+
       </div>
-      <%# <div class="bar">
-        <button class="card__button"><i class="fas fa-heart"></i></button>
-      </div> %>
-    </div>
   </div>
-
-      <div class="u-center-text u-margin-top-huge">
-        <a href="#" class="btn btn--green">Pulse</a>
-      </div>
-
-
 </div>
