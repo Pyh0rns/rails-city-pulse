@@ -19,84 +19,94 @@
 </div>
 
 
-<%# ----------- recherches -------- %>
+<div class="container" data-controller="filter">
 
-  <div class="container" data-controller="filter">
-    <div class="d-flex justify-content-between mt-3 mx-5 mb-5">
 
+  <%# ----------- recherches -------- %>
+  <div class="d-flex justify-content-between mt-3 mx-5 mb-5">
     <div class= "searchbarindex me-2">
-        <%= form_tag city_pulses_path(@city), method: :get do %>
-          <%= text_field_tag :query,
-            params[:query],
-            id: "form-index-control",
-            placeholder: "Trouve un Pulse ou un utilisateur 🔍" %>
-          <%= submit_tag "Search", class: "d-none btn btn-primary" %>
-        <% end %>
-      </div>
-
-      <button class= 'buttonfilter'data-filter-target='btn' data-action="click->filter#filter_by" data-filter-type="recent">Récents</button>
-      <button class= 'buttonfilter'data-filter-target='btn' data-action="click->filter#filter_by" data-filter-type="order">Plus likés</button>
-      <button class= 'buttonfilter'data-filter-target='btn' data-action="click->filter#filter_by" data-filter-type="done">Réalisés</button>
-      <div class="dropdown">
-        <button class="dropbtn">Catégories</button>
-        <div id="myDropdown" class="dropdown-content" data-filter-target="categ">
-          <button data-action="click->filter#filter_by" data-filter-type="category">Transports</button>
-          <button data-action="click->filter#filter_by" data-filter-type="category">Ecologie</button>
-          <button data-action="click->filter#filter_by" data-filter-type="category">Sécurité</button>
-          <button data-action="click->filter#filter_by" data-filter-type="category">Santé</button>
-          <button data-action="click->filter#filter_by" data-filter-type="category">Culture</button>
-          <button data-action="click->filter#filter_by" data-filter-type="category">Sport</button>
-        </div>
+      <%= form_tag city_pulses_path(@city), method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          id: "form-index-control",
+          placeholder: "Trouve un Pulse ou un utilisateur 🔍" %>
+        <%= submit_tag "Search", class: "d-none btn btn-primary" %>
+      <% end %>
+    </div>
+    <button class= 'buttonfilter'data-filter-target='btn' data-action="click->filter#filter_by" data-filter-type="recent">Récents</button>
+    <button class= 'buttonfilter'data-filter-target='btn' data-action="click->filter#filter_by" data-filter-type="order">Plus likés</button>
+    <button class= 'buttonfilter'data-filter-target='btn' data-action="click->filter#filter_by" data-filter-type="done">Réalisés</button>
+    <div class="dropdown">
+      <button class="dropbtn">Catégories</button>
+      <div id="myDropdown" class="dropdown-content" data-filter-target="categ">
+        <button data-action="click->filter#filter_by" data-filter-type="category">Transports</button>
+        <button data-action="click->filter#filter_by" data-filter-type="category">Ecologie</button>
+        <button data-action="click->filter#filter_by" data-filter-type="category">Sécurité</button>
+        <button data-action="click->filter#filter_by" data-filter-type="category">Santé</button>
+        <button data-action="click->filter#filter_by" data-filter-type="category">Culture</button>
+        <button data-action="click->filter#filter_by" data-filter-type="category">Sport</button>
       </div>
     </div>
+  </div>
 
   <%# ================= CARDS ================= %>
   <div class='card-pulse-container mb-5'data-filter-target='container'>
-      <% @pulses.each do |pulse| %>
-        <div class="card-pulse" data-filter-target='card' data-votes=<%= pulse.favorites.length %> data-done=<%= pulse.status%> data-category= <%= @pulses.find(pulse.id).categories.first.name %>>
-        <div class="img-user">
-          <img class="avatar" src="<%= pulse.user.photo_url %>" alt="">
-        </div>
-          <% if pulse.photo.attached? %>
-            <%= cl_image_tag(pulse.photo.key, id:"card-pulse-img") %>
-          <% else %>
-            <img id= "card-pulse-img" src= <%= pulse.photo_url%>/>
-          <% end %>
-        <div class="card-pulse-infos" id="pulse-<%= pulse.id %>">
-            <div class='mb-3 mt-2'>
-              <%= link_to city_pulse_path(@city, pulse), class:"text-decoration-none" do %>
-                <h2><% @pulses.find(pulse.id).categories.each do |category| %>
-                  <span class="picto-index"><%= sanitize category.image %></span>
-                <% end %>
-               <span style="margin-left:10px;"> <%= pulse.title %> </h2></span>
-              <% end %>
-            </div>
-            <div class='d-flex'>
-              <div>
-                <p> <%= pulse.solution %></p>
-              </div>
-            </div>
-          <%# ------- favorites ----------- %>
-          <% if pulse.liked?(current_user)%>
-            <%= link_to favorite_path(pulse.favorites.find_by(user_id: current_user).id, city_id: current_user.city), remote: true, method: :delete do %>
-              <button class="button-like-red"><i class="fas fa-heartbeat"></i></button>
+    <% @pulses.each do |pulse| %>
+    <div class="card-pulse" data-filter-target='card' data-votes=<%= pulse.favorites.length %> data-done=<%= pulse.status%> data-category= <%= @pulses.find(pulse.id).categories.first.name %>>
+      <div class="img-user">
+        <img class="avatar" src="<%= pulse.user.photo_url %>" alt="">
+      </div>
+      <% if pulse.photo.attached? %>
+        <%= cl_image_tag(pulse.photo.key, id:"card-pulse-img") %>
+      <% else %>
+        <img id= "card-pulse-img" src= <%= pulse.photo_url%>/>
+      <% end %>
+      <div class="card-pulse-infos" id="pulse-<%= pulse.id %>">
+
+
+        <div class='mb-3 mt-2'>
+          <%= link_to city_pulse_path(@city, pulse), class:"text-decoration-none" do %>
+            <h2><% @pulses.find(pulse.id).categories.each do |category| %>
+              <span class="picto-index"><%= sanitize category.image %></span>
             <% end %>
-          <% else %>
-            <%= link_to pulse_favorites_path(pulse, city_id: @city), remote: true, method: :post do %>
-              <button class="button-like-blue"><i class="fas fa-heartbeat"></i></button>
-            <% end %>
+            <span style="margin-left:10px;"> <%= pulse.title %> </h2></span>
           <% end %>
         </div>
-        <div class="votes d-flex">
-          <div class="btn-votes">
-            <span style="font-size:26px;"> <%= pulse.favorites.length %> </span>
-            <span style="font-size:12px;"><%= 'vote'.pluralize( pulse.favorites.length) %></span>
+
+        <div class='d-flex'>
+          <div>
+            <p> <%= pulse.solution %></p>
           </div>
         </div>
+        <%# ------- test stepbar ----------- %>
+
+<% if pulse.status == "Votes en cours" %>
+  <div class="d-flex">
+    <i id="bulb" class="far fa-lightbulb"></i><i id="thumb-off" class="far fa-thumbs-up"></i><i id="check-off" class="far fa-check-circle"></i>
+  </div>
+<% elsif pulse.status == "Réalisé" %>
+  <div class="d-flex">
+    <i id="bulb" class="far fa-lightbulb"></i><i id="thumb-on" class="far fa-thumbs-up"></i><i id="check-on" class="far fa-check-circle"></i>
+  </div>
+<% elsif pulse.status == "Réalisé" %>
+  <div class="d-flex">
+    <i id="bulb" class="far fa-lightbulb"></i><i id="thumb-on" class="far fa-thumbs-up"></i><i id="check-off" class="far fa-check-circle"></i>
+  </div>
+<% end %>
+
+
+        <%# ------- favorites ----------- %>
+        <% if pulse.liked?(current_user)%>
+          <%= link_to favorite_path(pulse.favorites.find_by(user_id: current_user).id, city_id: current_user.city), remote: true, method: :delete do %>
+            <button class="button-like-red"><i class="fas fa-heartbeat"></i></button>
+          <% end %>
+        <% else %>
+          <%= link_to pulse_favorites_path(pulse, city_id: @city), remote: true, method: :post do %>
+            <button class="button-like-blue"><i class="fas fa-heartbeat"></i></button>
+          <% end %>
+        <% end %>
       </div>
+    </div>
     <% end %>
   </div>
-</div>
-
-
 </div>
