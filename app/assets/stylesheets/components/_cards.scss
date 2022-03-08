@@ -100,7 +100,7 @@
 
 .container-home {
   width: 100%;
-  height:100vh;
+  // height:100vh;
   background-image: asset-url("Group.svg");
   background-size: cover;
   margin-left: auto;
@@ -225,7 +225,6 @@
   .inner-pulse-card {
     margin-left: 120px;
   }
-
 //   .button-like-red {
 //   padding: 10px;
 //   background: $button;
@@ -242,7 +241,25 @@
 //   right: 10px;
 //   margin-bottom: 10px;
 
+
 // }
+
+.button-like-blue {
+  padding: 10px;
+  background: $button_blue;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+  border: none;
+  margin: 25px auto;
+  font-size: 20px;
+  position: absolute;
+  top: -50px;
+  right: 10px;
+  margin-bottom: 10px;
+}
 
 // .button-like-blue {
 //   padding: 10px;
