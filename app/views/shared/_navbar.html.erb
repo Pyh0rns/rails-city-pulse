@@ -13,10 +13,10 @@
         <% if user_signed_in? %>
           <% unless current_user.pro %>
             <li>
-              <p class="nav-xp me-3"> Grade: <%= current_user.grade %></p>
+              <p class="nav-xp me-3"> Grade: <%= current_user.level %></p>
             </li>
             <li>
-              <p class="nav-xp me-3">XP: <%= current_user.xp %></p>
+              <p class="nav-xp me-3">XP: <%= current_user.experience %></p>
             </li>
           <% end %>
           <li class="nav-item active">
