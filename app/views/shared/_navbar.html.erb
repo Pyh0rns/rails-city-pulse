@@ -11,9 +11,18 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
+          <% unless current_user.pro %>
+            <li>
+              <p class="nav-xp me-3"> Grade: <%= current_user.grade %></p>
+            </li>
+            <li>
+              <p class="nav-xp me-3">XP: <%= current_user.xp %></p>
+            </li>
+          <% end %>
           <li class="nav-item active">
-            <%= link_to "Home", "/", class: "nav-link" %>
+            <%= link_to "Home", "/", class: "nav-link", style:"color:white;" %>
           </li>
+
           <li class="nav-item dropdown">
             <%= image_tag current_user.photo_url.nil? ? "https://developers.google.com/web/images/contributors/no-photo.jpg" : current_user.photo_url , class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">

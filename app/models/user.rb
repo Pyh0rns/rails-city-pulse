@@ -24,8 +24,10 @@ class User < ApplicationRecord
 
   def level
     user = User.find(id)
-    if user.xp > 200
-      user.grade = 'Challenger'
+    if user.xp > 500
+      user.grade = 'Champion'
+    elsif user.xp > 200
+      user.grade = 'Initié'
     else
       user.grade = 'Novice'
     end
