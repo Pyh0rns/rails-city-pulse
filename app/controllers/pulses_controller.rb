@@ -64,8 +64,9 @@ class PulsesController < ApplicationController
   def update
     @pulse = find_pulse
     authorize @pulse
-    if @pulse.status == "Vote en cours"
+    if @pulse.status == "Votes en cours"
       @pulse.status = "Validé"
+
     else
       @pulse.status = "Réalisé"
     end

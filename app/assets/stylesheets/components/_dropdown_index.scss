@@ -68,22 +68,24 @@
 
 .dropbtn-city {
   text-decoration: none;
-  color: #272932;
+  color: $white;
   font-size: 16px;
   height: 33px;
   cursor: pointer;
   padding-left: 20px;
   padding-right: 20px;
+  opacity: 0.8;
 }
 
 .dropdown-city-content {
   display: none;
   position: absolute;
-  right: 50px;
+  width: 180px;
   background: $button;
   min-width: 150px;
   border-radius: 20px;
   z-index: 1;
+  margin-top: 10px;
 }
 
 .dropdown:hover .dropdown-city-content {
