@@ -108,6 +108,13 @@ display: none;
   border-radius: 10px;
 }
 
+ul.suggestions {
+  background-color: $black;
+  position: absolute;
+  color: #F4F4F4;
+  width: 100%;
+}
+
 // =========== FORM INDEX ======================
 
 #form-index-control {

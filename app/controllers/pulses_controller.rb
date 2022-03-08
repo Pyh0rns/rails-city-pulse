@@ -64,7 +64,11 @@ class PulsesController < ApplicationController
   def update
     @pulse = find_pulse
     authorize @pulse
-    @pulse.status = "validé"
+    if @pulse.status == "Vote en cours"
+      @pulse.status = "Validé"
+    else
+      @pulse.status = "Réalisé"
+    end
     @pulse.save
     redirect_to dashboard_path(current_user.city)
   end

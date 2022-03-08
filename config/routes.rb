@@ -17,4 +17,9 @@ Rails.application.routes.draw do
   # ==================== Route Profile ====================
   get 'profile/:id', to: 'dashboards#profile', as: :profile
   get 'dashboard/:city_id', to: 'dashboards#dashboard', as: :dashboard
+
+    # ==================== ChatRoom ====================
+    resources :chatrooms, only: :show do
+      resources :messages, only: :create
+    end
 end

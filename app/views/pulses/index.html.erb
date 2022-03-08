@@ -70,7 +70,9 @@
   <div class='card-pulse-container mb-5'data-filter-target='container'>
       <% @pulses.each do |pulse| %>
         <div class="card-pulse" data-filter-target='card' data-votes=<%= pulse.favorites.length %> data-done=<%= pulse.status%> data-category= <%= @pulses.find(pulse.id).categories.first.name %>>
-        <img class="avatar" src="<%= pulse.user.photo_url %>" alt="">
+        <div class="img-user">
+          <img class="avatar" src="<%= pulse.user.photo_url %>" alt="">
+        </div>
           <% if pulse.photo.attached? %>
             <%= cl_image_tag(pulse.photo.key, id:"card-pulse-img") %>
           <% else %>
@@ -79,7 +81,9 @@
         <div class="card-pulse-infos" id="pulse-<%= pulse.id %>">
             <div class='mb-3 mt-2'>
               <%= link_to city_pulse_path(@city, pulse), class:"text-decoration-none" do %>
-               <h2><%= pulse.title %> <%= @pulses.find(pulse.id).categories.first.image %></h2>
+                <h2><%= pulse.title %> <% @pulses.find(pulse.id).categories.each do |category| %>
+                  <%= sanitize category.image %>
+                <% end %></h2>
               <% end %>
             </div>
             <div class='d-flex'>
@@ -97,7 +101,9 @@
               <button class="button-like-blue"><i class="fas fa-heartbeat"></i></button>
             <% end %>
           <% end %>
-          <div class="nb-votes">
+        </div>
+        <div class="votes d-flex">
+          <div class="btn-votes">
             <span style="font-size:26px;"> <%= pulse.favorites.length %> </span>
             <span style="font-size:12px;"><%= 'vote'.pluralize( pulse.favorites.length) %></span>
           </div>

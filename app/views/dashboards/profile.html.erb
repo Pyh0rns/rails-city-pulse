@@ -1,5 +1,5 @@
 <%# 1 div container pour toute la page  %>
-  <div style= "width: 165px">
+  <div>
     <%= link_to city_pulses_path(current_user.city), class:"linkto" do %>
       <p class="linkto"><i class="fas fa-arrow-left mb-3"> </i> Pulses de ta ville</p>
     <% end %>
@@ -24,7 +24,7 @@
     <div class="w-50">
       <h2>Principales thématiques:
       <% current_user.pulses.each do |pulse|%>
-        <%= pulse.categories.group_by {|category| category.image}.keys[0]%>
+        <%= sanitize pulse.categories.group_by {|category| category.image}.keys[0]%>
       <%end%>
       </h2>
 
@@ -55,15 +55,12 @@
             <div class="pulses-profile d-flex">
                 <div class='m-3 fs-3'>
                   <% top.categories.each do |category| %>
-                    <%= category.image %>
+                    <%= sanitize category.image %>
                   <% end %>
                 </div>
-                <div>
+                <div class="pulse-profile-description">
                   <h3><%= top.title %> : <%= top.favorites.length %> 💙 </h3>
                   <p><%= top.solution %></p>
-                </div>
-                <div class='pulse-icone-coeur'>
-                  <i class="fas fa-heartbeat"></i>
                 </div>
             </div>
           <% end %>
@@ -85,7 +82,7 @@
               <p><%= current_user.pulses[-1].solution %></p>
             </div>
             <div class='m-3 fs-3'>
-              <%= current_user.pulses.first.categories.first.image %>
+              <%= sanitize current_user.pulses.first.categories.first.image %>
             </div>
           </div>
         <% end %>

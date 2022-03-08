@@ -24,7 +24,7 @@
 }
 
 .profile-meilleurs-pulses {
-  width: 100%;
+  max-width: 1168px;
   background: #272932;
   color: white;
   border-radius: 9px;
@@ -44,11 +44,15 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.pulse-profile-description {
+  max-width: 611px;
+}
 .pulse-icone-coeur {
   padding: 10px;
   background: $button;
-  height: 50px;
-  width: 50px;
+  height: 66px;
+  min-width: 66px;
   border-radius: 50%;
   color: white;
   font-weight: bold;
