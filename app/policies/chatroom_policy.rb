@@ -10,4 +10,11 @@ class ChatroomPolicy < ApplicationPolicy
     true
   end
 
+  def profile?
+    true
+  end
+
+  def dashboard?
+    true
+  end
 end

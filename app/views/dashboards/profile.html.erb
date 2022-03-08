@@ -72,29 +72,36 @@
 <%# 7 div échanges mairie %>
 <%# --------------------- FAKE, a changer !! -------------------- %>
   <div>
-    <h2>Tes échanges avec la Mairie</h2>
-      <div class="echange-mairie">
-        <% unless current_user.pulses[-1].blank? %>
-          <div class="pulses-profile d-flex justify-content-between">
-          <div><img class="avatar-conversation" src="<%= current_user.photo_url %>" alt=""></div>
-            <div>
-              <h3><%= current_user.pulses[-1].title %></h3>
-              <p><%= current_user.pulses[-1].solution %></p>
-            </div>
-            <div class='m-3 fs-3'>
-              <%= sanitize current_user.pulses.first.categories.first.image %>
-            </div>
+    <h2>Tes échanges dernier avec la Mairie</h2>
+      <% @messages.each do |message|%>
+        <%= link_to 'Open', profile_path(current_user, chatroom_id: message.chatroom.id) %>
+        <%= link_to 'Close', profile_path(current_user) %>
+      <%end %>
+
+
+      <% if @chatroom %>
+      <div class="container chatroom" data-controller="chatroom-subscription"
+        data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
+          <h1>#<%= @chatroom.name %></h1>
+          <div class="messages" data-chatroom-subscription-target="messages">
+            <% @chatroom.messages.each do |message| %>
+            <%= render "messages/message", message: message %>
+            <% end %>
           </div>
-        <% end %>
-        <div class="retour-mairie d-flex justify-content-end">
-          <div>
-            <h3>Très bonne idée !</h3>
-            <p>Nous allons tout mettre en oeuvre pour la mettre en place au plus vite.</p>
-            <p>Bien cordialement,</p>
-            <p>Martine, de la mairie</p>
-          </div>
-        </div>
+          <%= simple_form_for [@chatroom, @message],
+            remote: true,
+            html: {data: {chatroom_subscription_target: "form"}, class: "d-flex"} do |f|
+          %>
+          <%= f.input :content,
+            label: false,
+            placeholder: "Message ##{@chatroom.name}",
+            wrapper_html: {class: "flex-grow-1"}
+          %>
+          <%= f.submit "Send", class: "btn btn-primary" %>
+          <% end %>
       </div>
+    <% end %>
+
   </div>
 <%# fin div 5 %>
   </div>
