@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_08_085745) do
+ActiveRecord::Schema.define(version: 2022_03_08_090754) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 2022_03_08_085745) do
   create_table "pulses", force: :cascade do |t|
     t.string "title"
     t.string "solution"
-    t.string "status"
+    t.string "status", default: "Votes en cours"
     t.string "photo_url"
     t.string "address"
     t.string "problem"

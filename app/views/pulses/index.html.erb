@@ -81,8 +81,12 @@
         <div class="card-pulse-infos" id="pulse-<%= pulse.id %>">
             <div class='mb-3 mt-2'>
               <%= link_to city_pulse_path(@city, pulse), class:"text-decoration-none" do %>
-               <h2><%= pulse.title %> <%= @pulses.find(pulse.id).categories.first.image %></h2>
+                <h2><%= pulse.title %> </h2>
               <% end %>
+              <% @pulses.find(pulse.id).categories.each do |category| %>
+                <%#= category.image %>
+              <% end %>
+
             </div>
             <div class='d-flex'>
               <div>

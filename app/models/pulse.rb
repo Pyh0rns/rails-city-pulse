@@ -27,13 +27,14 @@ class Pulse < ApplicationRecord
     return false
   end
 
-  # A TERMINER PY
-  # def best_favorites(user)
-  #   @best_pulses = []
-  #   Pulse.where(user_id: user).each do |pulse|
-  #     @best_pulses << pulse.favorites
+  # def statut
+  #   Pulse.all.each do |pulse|
+  #     pulse.status = "Votes en cours"
+  #     pulse.save!
   #   end
-  #   return @best_pulses
   # end
-
 end
+
+# <%= link_to city_pulse_path(current_user.city.id, pulse.id), method: :patch, class: "linkto" do %>
+#   <p class="button-red mx-2"> Valider </p>
+# <% end %>
