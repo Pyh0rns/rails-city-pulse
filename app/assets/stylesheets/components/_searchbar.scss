@@ -16,4 +16,19 @@
 
 .searchbarindex {
   width: 500px;
+  height: 33px;
 }
+
+#form-index-control {
+  width: 500px;
+  border-radius: 6px;
+  border: solid;
+  border-color: #FD1C68 ;
+  text-align: center;
+  height: 33px;
+  }
+
+#form-index-control::placeholder{
+    color: #FD1C68 ;
+    opacity: 0.7;
+  }

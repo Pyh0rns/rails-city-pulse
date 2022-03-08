@@ -1,7 +1,7 @@
 // ================== BTN LIKE ==================
 
 .button-like-red {
-  padding: 10px;
+  padding: 5px;
   background: $button;
   height: 50px;
   width: 50px;
@@ -10,20 +10,19 @@
   font-weight: bold;
   border: none;
   margin: 25px auto;
-  font-size: 20px;
+  font-size: 26px;
   position: absolute;
-  bottom: 175px;
   right: 15px;
   margin-bottom: 10px;
-  top: 168px;
+  top: 145px;
 }
 .button-like-red:hover {
-  top: 164px;
+  top: 150px;
   transition: all 0.5s;
 }
 
 .button-like-blue {
-  padding: 10px;
+  padding: 5px;
   background: $button_blue;
   height: 50px;
   width: 50px;
@@ -32,15 +31,14 @@
   font-weight: bold;
   border: none;
   margin: 25px auto;
-  font-size: 20px;
+  font-size: 26px;
   position: absolute;
-  bottom: 175px;
   right: 15px;
   margin-bottom: 10px;
-  top: 168px;
+  top: 145px;
 }
 .button-like-blue:hover {
-  top: 164px;
+  top: 150px;
   transition: all 0.5s;
 }
 
@@ -58,7 +56,8 @@ text-decoration: none;
   font-size: 18px;
   text-decoration: none;
   color: white;
-  padding: 13px;
+  padding: 20px 70px;
+  margin: 20px;
 }
 
 // ================== BTN FILTER ==================

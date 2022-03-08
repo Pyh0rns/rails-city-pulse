@@ -13,3 +13,9 @@
     opacity: 1;
   }
 }
+
+.link-change-city {
+  &:hover {
+    text-decoration: none;
+  }
+}
