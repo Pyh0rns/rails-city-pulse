@@ -48,7 +48,6 @@
         </div>
 
         <div>
-        <%= console %>
           <% if @pulse.liked?(current_user)%>
             <%= link_to favorite_path(@pulse.favorites.find_by(user_id: current_user).id, city_id: current_user.city), remote: true, method: :delete do %>
               <button class="button-like-red"><i class="fas fa-heartbeat"></i></button>
