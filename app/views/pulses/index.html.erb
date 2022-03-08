@@ -52,7 +52,7 @@
   <%# ================= CARDS ================= %>
   <div class='card-pulse-container mb-5'data-filter-target='container'>
     <% @pulses.each do |pulse| %>
-    <div class="card-pulse" data-filter-target='card' data-votes=<%= pulse.favorites.length %> data-done=<%= pulse.status%> data-category= <%= @pulses.find(pulse.id).categories.first.name %>>
+    <div class="card-pulse mt-3" data-filter-target='card' data-votes=<%= pulse.favorites.length %> data-done=<%= pulse.status%> data-category= <%= @pulses.find(pulse.id).categories.first.name %>>
       <div class="img-user">
         <img class="avatar" src="<%= pulse.user.photo_url %>" alt="">
       </div>
@@ -64,49 +64,63 @@
       <div class="card-pulse-infos" id="pulse-<%= pulse.id %>">
 
 
-        <div class='mb-3 mt-2'>
-          <%= link_to city_pulse_path(@city, pulse), class:"text-decoration-none" do %>
-            <h2><% @pulses.find(pulse.id).categories.each do |category| %>
-              <span class="picto-index"><%= sanitize category.image %></span>
-            <% end %>
-            <span style="margin-left:10px;"> <%= pulse.title %> </h2></span>
+
+      <%# ------- votes ----------- %>
+
+<div class="votes">
+
+  <h1><%= pulse.favorites.length %></h1>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+      <%# ------- categories & text ----------- %>
+      <div class='mb-3 mt-2'>
+        <%= link_to city_pulse_path(@city, pulse), class:"text-decoration-none" do %>
+          <h2><% @pulses.find(pulse.id).categories.each do |category| %>
+            <span class="picto-index"><%= sanitize category.image %></span>
           <% end %>
-        </div>
+          <span style="margin-left:10px;"> <%= pulse.title %> </h2></span>
+        <% end %>
+      </div>
 
         <div class='d-flex'>
           <div>
             <p> <%= pulse.solution %></p>
           </div>
         </div>
-        <%# ------- test stepbar ----------- %>
+        <%# ------- status ----------- %>
 
-
-
-
-<div class="bottom-card-index d-flex justify-content-between align-items-center">
-  <div>
-    <% if pulse.status == "Votes en cours" %>
-      <div class="d-flex">
-        <i id="bulb" class="far fa-lightbulb me-2 ps-5"></i><i id="thumb-off" class="far fa-thumbs-up me-2"></i><i id="check-off" class="far fa-check-circle"></i>
-      </div>
-    <% elsif pulse.status == "Réalisé" %>
-      <div class="d-flex">
-        <i id="bulb" class="far fa-lightbulb me-2"></i><i id="thumb-on" class="far fa-thumbs-up me-2"></i><i id="check-on" class="far fa-check-circle"></i>
-      </div>
-    <% elsif pulse.status == "Réalisé" %>
-      <div class="d-flex">
-        <i id="bulb" class="far fa-lightbulb me-2"></i><i id="thumb-on" class="far fa-thumbs-up me-2"></i><i id="check-off" class="far fa-check-circle"></i>
-      </div>
-    <% end %>
-
-  </div>
-
-  <div class="d-flex align-items pt-3 pe-5">
-    <h2><%= pulse.favorites.length %></h2>
-    <p> <%= 'vote'.pluralize(pulse.favorites.length) %></p>
-  </div>
-</div>
-
+        <div class="bottom-card-index d-flex justify-content-between align-items-center">
+          <div>
+            <% if pulse.status == "Votes en cours" %>
+              <div class="d-flex">
+                <i id="bulb" class="far fa-lightbulb me-2 ps-5"></i><i id="thumb-off" class="far fa-thumbs-up me-2"></i><i id="check-off" class="far fa-check-circle"></i>
+              </div>
+            <% elsif pulse.status == "Réalisé" %>
+              <div class="d-flex">
+                <i id="bulb" class="far fa-lightbulb me-2"></i><i id="thumb-on" class="far fa-thumbs-up me-2"></i><i id="check-on" class="far fa-check-circle"></i>
+              </div>
+            <% elsif pulse.status == "Réalisé" %>
+              <div class="d-flex">
+                <i id="bulb" class="far fa-lightbulb me-2"></i><i id="thumb-on" class="far fa-thumbs-up me-2"></i><i id="check-off" class="far fa-check-circle"></i>
+              </div>
+            <% end %>
+          </div>
+          <div class="d-flex align-items pe-5">
+            <h2><%= pulse.status %></h2>
+            <h2><%#= pulse.favorites.length %></h2>
+            <p> <%#= 'vote'.pluralize(pulse.favorites.length) %></p>
+          </div>
+        </div>
 
         <%# ------- favorites ----------- %>
         <% if pulse.liked?(current_user)%>
