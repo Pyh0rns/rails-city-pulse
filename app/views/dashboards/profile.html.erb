@@ -1,7 +1,12 @@
 <%# 1 div container pour toute la page  %>
   <div style= "width: 165px">
+<<<<<<< HEAD
+    <%= link_to city_pulses_path(current_user.city) do %>
+      <p id="button-back"><i class="fas fa-arrow-left mb-3"> </i> Ta ville</p>
+=======
     <%= link_to city_pulses_path(current_user.city), class:"linkto" do %>
       <p class="linkto"><i class="fas fa-arrow-left mb-3"> </i> Pulses de ta ville</p>
+>>>>>>> 34681be588601eb131c0f92570ae34578a99c7a2
     <% end %>
   </div>
 <div class="container">
@@ -58,12 +63,9 @@
                     <%= category.image %>
                   <% end %>
                 </div>
-                <div>
+                <div class="pulse-profile-description">
                   <h3><%= top.title %> : <%= top.favorites.length %> 💙 </h3>
                   <p><%= top.solution %></p>
-                </div>
-                <div class='pulse-icone-coeur'>
-                  <i class="fas fa-heartbeat"></i>
                 </div>
             </div>
           <% end %>
