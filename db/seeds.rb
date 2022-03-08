@@ -39,13 +39,13 @@ marie = User.create!(email: "mar@gmail.com", password: "azerty", xp: 0, bio: "To
 puts "User ok..."
 
 puts "Create Categories"
-ecologie = Category.create!(name: "Ecologie", image: '<i class="fas fa-leaf-heart"></i>')
-transports = Category.create!(name: "Transports", image: '<i class="fas fa-bus"></i>')
-securite = Category.create!(name: "Sécurité", image: '<i class="fas fa-cctv"></i>')
-sante = Category.create!(name: "Santé", image: '<i class="fas fa-briefcase-medical"></i>')
-culture = Category.create!(name: "Culture", image: '<i class="fas fa-palette"></i>')
-sport = Category.create!(name: "Sport", image: '<i class="fas fa-tennis-ball"></i>')
-urbanisme = Category.create!(name: "Urbanisme", image: '<i class="fas fa-building"></i>')
+ecologie = Category.create!(name: "Ecologie", image: '🍀')
+transports = Category.create!(name: "Transports", image: '🚌')
+securite = Category.create!(name: "Sécurité", image: '👮')
+sante = Category.create!(name: "Santé", image: '🏥')
+culture = Category.create!(name: "Culture", image: '🎭')
+sport = Category.create!(name: "Sport", image: '⛹️')
+urbanisme = Category.create!(name: "Urbanisme", image: '🏢')
 puts "Categories ok..."
 
 puts "create pulses"
