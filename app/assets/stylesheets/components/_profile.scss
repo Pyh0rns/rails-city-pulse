@@ -32,6 +32,7 @@
   padding-top: 29px;
   padding-bottom: 35px;
   padding-right: 12px;
+  height: 78%;
 }
 
 .pulses-profile {
@@ -67,7 +68,7 @@
 .echange-mairie{
   padding-left: 14px;
   padding-top: 29px;
-  padding-bottom: 35px;
+  padding-bottom: 63px;
   padding-right: 12px;
   border: solid;
   background: $black;
@@ -81,6 +82,31 @@
   width: 100%;
   height: auto;
 }
+
+.link-messages-profile{
+  display: block;
+  justify-content: space-around;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.link-messages-profile-h2{
+  text-decoration: none;
+  background-color: white;
+  padding: 6px;
+  border-radius: 12px;
+  color: #FD1C68;
+}
+
+.link-messages-profile-h2:hover{
+  color: #6F8AB7;
+}
+
+.link-messages-profile-p{
+  text-decoration: none;
+  color: white;
+}
+
 .retour-mairie {
   background: white;
   color: $black;
@@ -107,12 +133,13 @@
   height: 100%;
   overflow: scroll;
   padding: 1rem;
-  margin-bottom: -49px;
+  margin-bottom: 2px;
 }
 .input-profile-message{
 width: 21%;
 position: absolute;
-margin-top: 39px;
+margin-left: -8px;
+margin-top: -11px;
 }
 
 .profile-card {

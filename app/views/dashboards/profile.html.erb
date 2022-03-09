@@ -71,35 +71,27 @@
 
 <%# 7 div échanges mairie %>
 <%# --------------------- FAKE, a changer !! -------------------- %>
-<div class='d-block'>
+<div class='d-block' data-controller="open-chatroom">
   <h2>Tes échanges dernier avec la Mairie</h2>
-  <div>
-      <% @messages.each do |message|%>
-        <%= link_to 'Open', profile_path(current_user, chatroom_id: message.chatroom.id) %>
-        <%= link_to 'Close', profile_path(current_user) %>
-      <%end %>
-  </div>
 
   <div class="echange-mairie">
-    <% if @chatroom %>
-      <div class="container chatroom container-chatroom mb-3" data-controller="chatroom-subscription"
-        data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
-        <h2>#<%= @chatroom.name %></h2>
-          <div class="messages" data-chatroom-subscription-target="messages">
-            <% @chatroom.messages.each do |message| %>
-            <%= render "messages/message", message: message %>
-            <% end %>
+    <div>
+      <% unless @messages.first.nil? %>
+        <% @messages.each do |message|%>
+          <div class="link-messages-profile">
+              <h2>
+                <div data-open-chatroom-target="open" data-path-action="<%= chatroom_url(message.chatroom)%>" data-action="click->open-chatroom#open" class="link-messages-profile-h2" >
+                  <%= message.chatroom.name  %>
+                </div>
+              </h2>
+              <div data-open-chatroom-target="container"></div>
           </div>
-          <%= simple_form_for [@chatroom, @message],
-            remote: true,
-            html: {data: {chatroom_subscription_target: "form"}, class: "d-block"} do |f| %>
-              <%= f.input :content,
-                label: false,
-                placeholder: "Message à votre Mairie",
-                wrapper_html: {class: "flex-grow-1 input-profile-message"} %>
-              <button><%= f.submit "Send", class: "profile" %></button>
-            <%end%>
-        </div>
+        <% end %>
+      <%end %>
+    </div>
+
+    <% if @chatroom %>
+      <%= render "chatroom" %>
     <%end%>
   </div>
 </div>

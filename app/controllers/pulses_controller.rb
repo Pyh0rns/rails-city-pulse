@@ -71,7 +71,7 @@ class PulsesController < ApplicationController
       chatroom.save
     else
       @pulse.status = "Réalisé"
-      @pulse.chatrooms.destroy_all
+      @pulse.chatrooms.delete
     end
     @pulse.save
     redirect_to dashboard_path(current_user.city)
