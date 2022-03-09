@@ -14,12 +14,13 @@ export default class extends Controller {
     });
     this.geocoder.addTo(this.element)
     this.addressTarget.value = this.addressTarget.dataset.currentCity
-    this.geocoder.on("result", event => this.#setInputValue(event))
-    this.geocoder.on("clear", () => this.#clearInputValue())
+    this.geocoder.on("result", (event) => this.#setInputValue(event))
+    //this.geocoder.on("clear", () => this.#clearInputValue())
   }
 
   #setInputValue(event) {
-    this.addressTarget.value = event.result["place_name"]
+    this.addressTarget.value = event.result["place_name"];
+    this.geocoder.setPlaceholder(event.result["place_name"]);
   }
 
   #clearInputValue() {

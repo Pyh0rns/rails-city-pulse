@@ -20,8 +20,6 @@
 
 
 <div class="container" data-controller="filter">
-
-
   <%# ----------- recherches -------- %>
   <div class="d-flex justify-content-between mt-3 mx-5 mb-5">
     <div class= "searchbarindex me-2">
@@ -84,6 +82,12 @@
             <p> <%= pulse.solution %></p>
           </div>
         </div>
+
+        <%# <div class="d-flex justify-content-end"> %>
+        <%# <p>Posté par : %>
+        <%#= pulse.user.nickname %>
+        <%# </p> %>
+        <%# </div> %>
         <%# ------- status ----------- %>
 
         <div class="bottom-card-index d-flex justify-content-between align-items-center">
@@ -94,11 +98,11 @@
               </div>
             <% elsif pulse.status == "Réalisé" %>
               <div class="d-flex">
-                <i id="bulb" class="far fa-lightbulb me-2"></i><i id="thumb-on" class="far fa-thumbs-up me-2"></i><i id="check-on" class="far fa-check-circle"></i>
+                <i id="bulb" class="far fa-lightbulb me-2 ps-5"></i><i id="thumb-on" class="far fa-thumbs-up me-2"></i><i id="check-on" class="far fa-check-circle"></i>
               </div>
-            <% elsif pulse.status == "Réalisé" %>
+            <% else %>
               <div class="d-flex">
-                <i id="bulb" class="far fa-lightbulb me-2"></i><i id="thumb-on" class="far fa-thumbs-up me-2"></i><i id="check-off" class="far fa-check-circle"></i>
+                <i id="bulb" class="far fa-lightbulb me-2 ps-5"></i><i id="thumb-on" class="far fa-thumbs-up me-2"></i><i id="check-off" class="far fa-check-circle"></i>
               </div>
             <% end %>
           </div>
