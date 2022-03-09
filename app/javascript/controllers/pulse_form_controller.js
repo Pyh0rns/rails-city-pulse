@@ -44,13 +44,12 @@ export default class extends Controller {
 // // Catégories
 // On change pour changer l'input quand la photo est mise
 
-  showFifthSection(event) {
-    if (event.keyCode == 13) {
+  showFifthSection() {
       this.fifthSectionTarget.classList.remove("d-none");
       this.fourthInputTarget.blur();
       this.fifthInputTarget.focus();
       this.fifthSectionTarget.scrollIntoView();
-    }
+
   }
 // // Géo
 
