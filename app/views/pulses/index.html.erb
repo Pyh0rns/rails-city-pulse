@@ -52,7 +52,7 @@
   <%# ================= CARDS ================= %>
   <div class='card-pulse-container mb-5'data-filter-target='container'>
     <% @pulses.each do |pulse| %>
-    <div class="card-pulse mt-3" data-filter-target='card' data-votes=<%= pulse.favorites.length %> data-done=<%= pulse.status%> data-category= <%= @pulses.find(pulse.id).categories.first.name %>>
+    <div class="card-pulse mt-3" data-filter-target='card' data-votes=<%= pulse.favorites.length + (pulse.fake_votes.nil? ? 0 : pulse.fake_votes) %> data-done=<%= pulse.status%> data-category= <%= @pulses.find(pulse.id).categories.first.name %>>
       <div class="img-user">
         <img class="avatar" src="<%= pulse.user.photo_url %>" alt="">
       </div>
