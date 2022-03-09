@@ -1,5 +1,6 @@
 import { Controller } from "stimulus"
 
+
 export default class extends Controller {
   static targets = [ "firstInput", "secondInput", "fourthInput", "fifthInput", "sixthInput", "form", "firstSection", "secondSection", "thirdSection", "fourthSection", "geocoderInput", "fifthSection", "sixthSection", "submitButton" ]
 
@@ -33,13 +34,16 @@ export default class extends Controller {
     if (event.keyCode == 13) {
       console.log(this.geocoderInputTarget.value);
       document.querySelector('.mapboxgl-ctrl-geocoder--input').value = this.geocoderInputTarget.value;
-
       this.fourthSectionTarget.classList.remove("d-none");
-      this.geocoderInputTarget.blur();
+      document.querySelector('.mapboxgl-ctrl-geocoder--input').blur();
+      this.fourthSectionTarget.focus();
       this.fourthInputTarget.focus();
+      console.log(this.fourthInputTarget);
       this.fourthSectionTarget.scrollIntoView();
     }
   }
+
+
   // Photo
 
   showFifthSection(event) {
