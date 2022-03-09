@@ -18,12 +18,15 @@ class User < ApplicationRecord
     message = Message.where(user_id: id).count * 20
     pulse = Pulse.where(user_id: id).count * 50
 
-    valide = Pulse.where(user_id: id, status: "Validé").count * 100
-    realise = Pulse.where(user_id: id, status: "Réalisé").count * 200
+
+    valide = 0 + (Pulse.where(user_id: id, status: "Validé").count * 100)
+    realise = 0 + (Pulse.where(user_id: id, status: "Réalisé").count * 200)
 
     fake = 0
     Pulse.where(user_id: id).each do |puls|
-      fake += puls.fake_votes
+      unless puls.fake_votes.nil?
+        fake += puls.fake_votes
+      end
     end
 
     user = User.find(id)
