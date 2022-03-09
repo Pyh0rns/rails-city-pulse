@@ -8,8 +8,12 @@
     <h2>Envoi ton Pulse !</h2>
   </div>
 
+<%#===========FORM=========== %>
+
   <div class="form" data-controller="pulse-form">
     <%= simple_form_for([@city, @pulse], html: { data: { target: "pulse-form.form" }, class: "fix-form"} ) do |f| %>
+
+<%#===========1ere section Probleme=========== %>
 
     <div class="city-form-group" id="first-section" data-pulse-form-target="firstSection" >
 
@@ -21,12 +25,13 @@
     </div>
 
         <div class="input-group mb-3 group-input-avatar">
-        <%= f.input :problem, input_html: { class: "input form-control form-custom", data: { action: "keydown->pulse-form#showSecondSection"} }, wrapper_html: { class: "problem" }, label: false %>
+        <%= f.input :problem, input_html: { class: "input form-control form-custom", data: { action: "keydown->pulse-form#showSecondSection", pulse_form_target: "firstInput"} }, wrapper_html: { class: "problem" }, label: false %>
           <div class="input-group-append avatar-input">
             <img class="avatar input-group-text" src="<%= current_user.photo_url %>" alt="">
           </div>
         </div>
     </div>
+<%#===========2eme section Solution=========== %>
 
     <div class="city-form-group d-none" id="second-section" data-pulse-form-target="secondSection">
       <div class="label-group">
@@ -37,12 +42,13 @@
       </div>
 
       <div class="input-group mb-3 group-input-avatar">
-      <%= f.input :solution, input_html: { class: "input form-control form-custom", data: { action: "keydown->pulse-form#showThirdSection"} }, wrapper_html: { class: "problem" }, label: false %>
+      <%= f.input :solution, input_html: { class: "input form-control form-custom", data: { action: "keydown->pulse-form#showThirdSection", pulse_form_target: "secondInput"} }, wrapper_html: { class: "problem" }, label: false %>
         <div class="input-group-append avatar-input">
           <img class="avatar input-group-text" src="<%= current_user.photo_url %>" alt="">
         </div>
       </div>
     </div>
+<%#===========3eme section Geocoder=========== %>
 
     <div class="city-form-group d-none" id="third-section" data-pulse-form-target="thirdSection">
       <div class="label-group">
@@ -54,13 +60,14 @@
 
       <div class="input-group mb-3 group-input-avatar">
       <%= f.input :address,
-          input_html: { data: { geocoder_target: "address", current_city: current_user.city.name  }, class: "d-none" },
+          input_html: { data: { geocoder_target: "address", pulse_form_target: "geocoderInput", current_city: current_user.city.name  }, class: "d-none" },
           wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'], action: "keydown->pulse-form#showFourthSection" }, class:"problem" }, label: false %>
         <div class="input-group-append avatar-input">
           <img class="avatar input-group-text" src="<%= current_user.photo_url %>" alt="">
         </div>
       </div>
     </div>
+<%#===========4eme section Titre=========== %>
 
     <div class="city-form-group d-none" id="fourth-section" data-pulse-form-target="fourthSection">
       <div class="label-group">
@@ -70,12 +77,13 @@
           </div>
       </div>
       <div class="input-group mb-3 group-input-avatar">
-      <%= f.input :title, input_html: { class: "input form-control form-custom" }, wrapper_html: { class: "problem" }, label: false  %>
+      <%= f.input :title, input_html: { class: "input form-control form-custom", data: { action: "keydown->pulse-form#showFifthSection", pulse_form_target: "fourthInput"} }, wrapper_html: { class: "problem" }, label: false  %>
       <div class="input-group-append avatar-input">
           <img class="avatar input-group-text" src="<%= current_user.photo_url %>" alt="">
         </div>
       </div>
     </div>
+<%#===========5eme section Photo=========== %>
 
     <div class="city-form-group d-none" id="fifth-section" data-pulse-form-target="fifthSection">
       <div class="label-group">
@@ -85,12 +93,13 @@
         </div>
       </div>
       <div class="input-group mb-3 group-input-avatar">
-      <%= f.input :photo, as: :file, input_html: { class: "input form-control form-custom" }, wrapper_html: { class: "problem" }, label: false %>
+      <%= f.input :photo, as: :file, input_html: { class: "input form-control form-custom", data: { action: "keydown->pulse-form#showSixthSection", pulse_form_target: "fifthInput"}  }, wrapper_html: { class: "problem" }, label: false %>
         <div class="input-group-append avatar-input">
           <img class="avatar input-group-text" src="<%= current_user.photo_url %>" alt="">
         </div>
       </div>
     </div>
+<%#===========6eme section Catégories=========== %>
 
     <div class="city-form-group d-none" id="sixth-section" data-pulse-form-target="sixthSection">
       <div class="label-group">
@@ -107,6 +116,8 @@
         </div>
       </div>
     </div>
+<%#===========7eme section Submit=========== %>
+
       <div id="seventh-section" class="d-none" data-pulse-form-target="submitButton">
       <%= f.submit%>
       </div>
