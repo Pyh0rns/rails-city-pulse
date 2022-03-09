@@ -50,7 +50,7 @@
   <%# ================= CARDS ================= %>
   <div class='card-pulse-container mb-5'data-filter-target='container'>
     <% @pulses.each do |pulse| %>
-    <div class="card-pulse mt-3" data-filter-target='card' data-votes=<%= pulse.favorites.length + (pulse.fake_votes.nil? ? 0 : pulse.fake_votes) %> data-done=<%= pulse.status%> data-category=<%= pulse.categories.first.name %>>
+    <div id="pulse-<%= pulse.id %>" class="card-pulse mt-3" data-filter-target='card' data-votes=<%= pulse.favorites.length + (pulse.fake_votes.nil? ? 0 : pulse.fake_votes) %> data-done=<%= pulse.status%> data-category=<%= pulse.categories.first.name %>>
       <div class="img-user">
         <img class="avatar" src="<%= pulse.user.photo_url %>" alt="">
       </div>
@@ -59,7 +59,7 @@
       <% else %>
         <img id= "card-pulse-img" src= <%= pulse.photo_url%>/>
       <% end %>
-      <div class="card-pulse-infos" id="pulse-<%= pulse.id %>">
+      <div class="card-pulse-infos">
 
       <%# ------- votes ----------- %>
 
