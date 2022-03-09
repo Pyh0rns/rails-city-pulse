@@ -10,34 +10,19 @@
         <div class="col-1-of-3">
           <div class="card card-home">
             <div class="card__side card__side--front-1">
+
               <img src="https://hellolille.eu/wp-content/uploads/2020/06/CCI_HelloLille_Nablezon-8-1536x1024.jpg" class="d-block w-100" alt="...">
-
-              <div class="card__title card__title--1">
-                <i class="fas fa-star"></i>
-                <h4 class="card__heading">TOP 1</h4>
-                <h4 class="card__heading">Lille</h4>
-              </div>
-
-              <div class="card__details">
-                <ul>
-                  <li></li>
-                  <li>Lille</li>
-                  <li>catégorie</li>
-                  <li>catégorie</li>
-                  <li>catégorie</li>
-                  <li></li>
-                </ul>
-              </div>
+              <h4 class="card__heading d-flex align-items-center justify-content-center">Lille</h4>
 
             </div>
             <div class="card__side card__side--back card__side--back-1">
               <div class="card__cta">
                 <div class="card__price-box">
-                  <p class="card__price-only">Pulses</p>
                   <p class="card__price-value">6666</p>
                 </div>
-                <a href="#popup" class="btn btn--white">Select</a>
-                <%# <%= link_to 'Lille', city_pulses_path(City.find_by(name: "Lille").id) %>
+                 <%= link_to  city_pulses_path(City.find_by(name: "Lille").id) do  %>
+                <button class="btn btn--white">Lille</button>
+                <% end %>
               </div>
             </div>
           </div>
@@ -47,26 +32,12 @@
           <div class="card card-home">
             <div class="card__side card__side--front-2">
             <img src="https://media.cntraveler.com/photos/5d8cf7d5db6acf000833e6cc/master/pass/Eiffel-Tower_GettyImages-1060266626.jpg" class="d-block w-100" alt="...">
-              <div class="card__title card__title--2">
-               <i class="fas fa-star-half-alt"></i>
-                <h4 class="card__heading">TOP 2</h4>
-              </div>
+            <h4 class="card__heading d-flex align-items-center justify-content-center">Paris</h4>
 
-              <div class="card__details">
-                <ul>
-                  <li></li>
-                  <li>Paris</li>
-                  <%# <li>catégorie</li>
-                  <li>catégorie</li>
-                  <li>catégorie</li> %>
-                  <li></li>
-                </ul>
-              </div>
             </div>
             <div class="card__side card__side--back card__side--back-2">
               <div class="card__cta">
                 <div class="card__price-box">
-                  <p class="card__price-only">Pulses</p>
                   <p class="card__price-value">3500</p>
                 </div>
 
@@ -82,37 +53,22 @@
           <div class="card card-home">
             <div class="card__side card__side--front-3">
             <img src="https://a.cdn-hotels.com/gdcs/production164/d686/03685140-68ce-11e8-8a0f-0242ac11000c.jpg" class="d-block w-100" alt="...">
-              <div class="card__title card__title--3">
-                <i class="fas fa-rocket"></i>
-                <h4 class="card__heading">TOP 3</h4>
-              </div>
+            <h4 class="card__heading d-flex align-items-center justify-content-center">St Malo</h4>
 
-              <div class="card__details">
-                <ul>
-                  <li></li>
-                  <li>St Malo</li>
-                  <li>catégorie</li>
-                  <li>catégorie</li>
-                  <li>catégorie</li>
-                  <li></li>
-                </ul>
-              </div>
             </div>
             <div class="card__side card__side--back card__side--back-3">
               <div class="card__cta">
                 <div class="card__price-box">
-                  <p class="card__price-only">Pulses</p>
                   <p class="card__price-value">500</p>
                 </div>
-                <a href="#popup" class="btn btn--white">Select</a>
-                <%# <%= link_to 'St Malo', city_pulses_path(City.find_by(name: "St Malo").id), class: "dropdown-item searchbarhome-drop"  %>
+                 <%= link_to  city_pulses_path(City.find_by(name: "St Malo").id) do  %>
+                <button class="btn btn--white">St Malo</button>
+                <% end %>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="u-center-text u-margin-top-huge">
-        <a href="#" class="btn btn--green">Pulse</a>
-      </div>
+
     </section>
