@@ -10,9 +10,9 @@
 
   <div class="home-call">
 
-    <div class="dropdown">
-      <button class="btn btn--green">Cherche ta ville</button>
-      <div class="dropdown-content">
+    <div class="dropdown dropdown-home my-5">
+      <button class="btn btn--green">Cherche une ville</button>
+      <div class="dropdown-content dropdown-home-content">
 
         <% unless current_user.nil? %>
           <%= link_to 'Ta Ville', city_pulses_path(current_user.city), class: "dropdown-item searchbarhome-drop"  %>
@@ -24,14 +24,9 @@
         <%= link_to 'Bordeaux', city_pulses_path(City.find_by(name: "Bordeaux").id), class: "dropdown-item searchbarhome-drop"  %>
         <%= link_to 'St Malo', city_pulses_path(City.find_by(name: "St Malo").id), class: "dropdown-item searchbarhome-drop"  %>
       </div>
-  </div>
+    </div>
 
-        <p>OU</p>
 
-        <div class="u-center-text u-margin-top-huge">
-          <a href="#" class="btn btn--green">Pulse</a>
-          <%# <%= link_to 'Pulse ton idée', new_city_pulse_path, id:"button-pulse-red"%>
-        </div>
   </div>
 
 
