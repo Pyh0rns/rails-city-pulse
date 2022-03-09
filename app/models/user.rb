@@ -16,9 +16,9 @@ class User < ApplicationRecord
   def experience
     favorite = Favorite.where(user_id: id).count * 10
     pulse = Pulse.where(user_id: id).count * 100
+    message = Message.where(user_id: id).count * 20
     user = User.find(id)
-    # finir l'xp
-    user.xp = favorite + pulse
+    user.xp = favorite + pulse + message
     user.save!
     return user.xp
   end
