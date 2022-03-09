@@ -225,13 +225,13 @@
           perspective: 150rem;
   -moz-perspective: 150rem;
   position: relative;
-  height: 52rem;
+  height: 300px;
   margin: 0 auto;
   width: 100%;
 }
 
 .card__side {
-  height: 52rem;
+  height: 300px;
   -webkit-transition: all 0.8s ease;
   transition: all 0.8s ease;
   position: absolute;
@@ -329,7 +329,7 @@
 }
 
 .card__heading {
-  font-size: 4rem;
+  font-size: 30px;
   font-weight: 300;
   text-transform: uppercase;
   text-align: center;
@@ -376,7 +376,6 @@
 .card__price-box {
   text-align: center;
   color: #fff;
-  margin-bottom: 8rem;
 }
 
 .card__price-only {
