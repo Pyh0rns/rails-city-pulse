@@ -2,16 +2,17 @@ import { Controller } from "stimulus"
 import { csrfToken } from "@rails/ujs"
 
 export default class extends Controller {
-  static targets = [ "open", "viewChatroom", "container" ]
+  static targets = [ "open", "viewChatroom", "container", "info"]
 
   connect() {
   }
 
 
-  open(){
-    // console.log(this.viewChatroomTarget)
-    const url = this.openTarget.dataset.pathAction;
-    console.log(url);
+  open(event){
+    const url = event.currentTarget.dataset.pathAction;
+    if (this.containerTarget.innerHTML !== ""){
+      return this.containerTarget.innerHTML = "";
+    }
     fetch(url, {
       method: "GET",
       headers: { "Accept": "application/json", "X-CSRF-Token": csrfToken()}
