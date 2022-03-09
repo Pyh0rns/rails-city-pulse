@@ -2,7 +2,7 @@ import { Controller } from "stimulus"
 
 
 export default class extends Controller {
-  static targets = [ "firstInput", "secondInput", "fourthInput", "fifthInput", "sixthInput", "form", "firstSection", "secondSection", "thirdSection", "fourthSection", "geocoderInput", "fifthSection", "sixthSection", "submitButton" ]
+  static targets = [ "firstInput", "secondInput", "thirdInput", "fourthInput", "fifthInput", "sixthInput", "form", "firstSection", "secondSection", "thirdSection", "fourthSection", "geocoderInput", "fifthSection", "sixthSection", "submitButton" ]
 
   connect() {
     this.firstInputTarget.focus();
@@ -17,53 +17,54 @@ export default class extends Controller {
       this.secondSectionTarget.scrollIntoView();
     }
   }
-  // Geocoder
+  // Titre
+
 
   showThirdSection(event) {
     if (event.keyCode == 13) {
-      console.log(this.geocoderInputTarget);
       this.thirdSectionTarget.classList.remove("d-none");
       this.secondInputTarget.blur();
-      document.querySelector('.mapboxgl-ctrl-geocoder--input').focus();
+      this.thirdInputTarget.focus();
       this.thirdSectionTarget.scrollIntoView();
+      console.log(this.thirdInputTarget);
     }
   }
-  // Titre
+// Photo
+
 
   showFourthSection(event) {
     if (event.keyCode == 13) {
-      console.log(this.geocoderInputTarget.value);
-      document.querySelector('.mapboxgl-ctrl-geocoder--input').value = this.geocoderInputTarget.value;
       this.fourthSectionTarget.classList.remove("d-none");
-      document.querySelector('.mapboxgl-ctrl-geocoder--input').blur();
-      this.fourthSectionTarget.focus();
-      this.fourthInputTarget.focus();
-      console.log(this.fourthInputTarget);
+      this.thirdInputTarget.blur();
       this.fourthSectionTarget.scrollIntoView();
     }
   }
 
 
-  // Photo
+// // Catégories
+// On change pour changer l'input quand la photo est mise
 
   showFifthSection(event) {
     if (event.keyCode == 13) {
       this.fifthSectionTarget.classList.remove("d-none");
       this.fourthInputTarget.blur();
+      this.fifthInputTarget.focus();
       this.fifthSectionTarget.scrollIntoView();
     }
   }
-  // Catégories
+// // Géo
 
   showSixthSection(event) {
     if (event.keyCode == 13) {
       this.sixthSectionTarget.classList.remove("d-none");
+      document.querySelector('.mapboxgl-ctrl-geocoder--input').value = this.geocoderInputTarget.value;
+      console.log(this.geocoderInputTarget);
       this.fifthInputTarget.blur();
-      this.sixthInputTarget.focus();
-      this.sixthSectionTarget.scrollIntoView();
+      document.querySelector('.mapboxgl-ctrl-geocoder--input').focus();
       this.submitButtonTarget.classList.remove("d-none");
     }
   }
+}
 
 
     // Submit
@@ -76,4 +77,3 @@ export default class extends Controller {
 // Find a way to store the value given by geocoder by JS
 // Maybe use the this.formTarget.value into a variable to feed it back to the form later
 // Find a way to fetch the value given by geocoder on this form with this.forInput.value
-}

@@ -48,9 +48,64 @@
         </div>
       </div>
     </div>
-<%#===========3eme section Geocoder=========== %>
+<%#===========3eme section Titre=========== %>
 
-    <div class="city-form-group d-none" id="third-section" data-pulse-form-target="thirdSection">
+<div class="city-form-group d-none" id="third-section" data-pulse-form-target="thirdSection">
+      <div class="label-group">
+      <%= f.label :title, label: "Donne moi un titre fort !", class: "label" %>
+        <div class="label-logo">
+              <%= image_tag "btn-gradient.svg"%>
+          </div>
+      </div>
+      <div class="input-group mb-3 group-input-avatar">
+      <%= f.input :title, input_html: { class: "input form-control form-custom fourth-input", data: { action: "keydown->pulse-form#showFourthSection", pulse_form_target: "thirdInput"} }, wrapper_html: { class: "problem" }, label: false  %>
+      <div class="input-group-append avatar-input">
+          <img class="avatar input-group-text" src="<%= current_user.photo_url %>" alt="">
+        </div>
+      </div>
+    </div>
+
+<%#===========4eme section Photo=========== %>
+<div class="city-form-group d-none" id="fourth-section" data-pulse-form-target="fourthSection">
+      <div class="label-group">
+        <%= f.label :photo_url, label: "Envoi une photo pour illustrer ton idée !", class: "label" %>
+        <div class="label-logo">
+        <%= image_tag "btn-gradient.svg" %>
+        </div>
+      </div>
+      <div class="input-group mb-3 group-input-avatar">
+      <%= f.input :photo, as: :file, input_html: { class: "input form-control form-custom", data: { action: "keydown->pulse-form#showFifthSection", pulse_form_target: "fourthInput"}  }, wrapper_html: { class: "problem" }, label: false %>
+        <div class="input-group-append avatar-input">
+          <img class="avatar input-group-text" src="<%= current_user.photo_url %>" alt="">
+        </div>
+      </div>
+    </div>
+
+
+
+<%#===========5eme section Catégories=========== %>
+
+<div class="city-form-group d-none" id="fifth-section" data-pulse-form-target="fifthSection">
+      <div class="label-group">
+      <%= f.label :categories, label: "Dernière étape : Catégorise moi !", class: "label" %>
+        <div class="label-logo">
+          <%= image_tag "btn-gradient.svg" %>
+        </div>
+      </div>
+
+      <div class="input-group mb-3 group-input-avatar">
+      <%= f.association :categories, include_hidden: false, input_html: { class: "input form-control form-custom", data: { action: "keydown->pulse-form#showSixthSection", pulse_form_target: "fifthInput"} }, wrapper_html: { class: "problem" }, label: false %>
+        <div class="input-group-append avatar-input">
+          <img class="avatar input-group-text" src="<%= current_user.photo_url %>" alt="">
+        </div>
+      </div>
+    </div>
+
+
+
+<%#===========6eme section Geo=========== %>
+
+    <div class="city-form-group d-none" id="sixth-section" data-pulse-form-target="sixthSection">
       <div class="label-group">
         <%= f.label :address, label: "Balance une adresse !", class: "label"%>
         <div class="label-logo">
@@ -61,61 +116,13 @@
       <div class="input-group mb-3 group-input-avatar">
       <%= f.input :address,
           input_html: { data: { geocoder_target: "address", pulse_form_target: "geocoderInput", current_city: current_user.city.name  }, class: "d-none" },
-          wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'], action: "keydown->pulse-form#showFourthSection" }, class:"problem" }, label: false %>
+          wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY']}, class:"problem" }, label: false %>
         <div class="input-group-append avatar-input">
           <img class="avatar input-group-text" src="<%= current_user.photo_url %>" alt="">
         </div>
       </div>
     </div>
-<%#===========4eme section Titre=========== %>
 
-    <div class="city-form-group d-none" id="fourth-section" data-pulse-form-target="fourthSection">
-      <div class="label-group">
-      <%= f.label :title, label: "Donne moi un titre fort !", class: "label" %>
-        <div class="label-logo">
-              <%= image_tag "btn-gradient.svg"%>
-          </div>
-      </div>
-      <div class="input-group mb-3 group-input-avatar">
-      <%= f.input :title, input_html: { class: "input form-control form-custom fourth-input", data: { action: "keydown->pulse-form#showFifthSection", pulse_form_target: "fourthInput"} }, wrapper_html: { class: "problem" }, label: false  %>
-      <div class="input-group-append avatar-input">
-          <img class="avatar input-group-text" src="<%= current_user.photo_url %>" alt="">
-        </div>
-      </div>
-    </div>
-<%#===========5eme section Photo=========== %>
-
-    <div class="city-form-group d-none" id="fifth-section" data-pulse-form-target="fifthSection">
-      <div class="label-group">
-        <%= f.label :photo_url, label: "Envoi une photo pour illustrer ton idée !", class: "label" %>
-        <div class="label-logo">
-        <%= image_tag "btn-gradient.svg" %>
-        </div>
-      </div>
-      <div class="input-group mb-3 group-input-avatar">
-      <%= f.input :photo, as: :file, input_html: { class: "input form-control form-custom", data: { action: "keydown->pulse-form#showSixthSection", pulse_form_target: "fifthInput"}  }, wrapper_html: { class: "problem" }, label: false %>
-        <div class="input-group-append avatar-input">
-          <img class="avatar input-group-text" src="<%= current_user.photo_url %>" alt="">
-        </div>
-      </div>
-    </div>
-<%#===========6eme section Catégories=========== %>
-
-    <div class="city-form-group d-none" id="sixth-section" data-pulse-form-target="sixthSection">
-      <div class="label-group">
-      <%= f.label :categories, label: "Dernière étape : Catégorise moi !", class: "label" %>
-        <div class="label-logo">
-          <%= image_tag "btn-gradient.svg" %>
-        </div>
-      </div>
-
-      <div class="input-group mb-3 group-input-avatar">
-      <%= f.association :categories, include_hidden: false, input_html: { class: "input form-control form-custom", data: { pulse_form_target: "sixthInput"}}, wrapper_html: { class: "problem" }, label: false %>
-        <div class="input-group-append avatar-input">
-          <img class="avatar input-group-text" src="<%= current_user.photo_url %>" alt="">
-        </div>
-      </div>
-    </div>
 <%#===========7eme section Submit=========== %>
 
    <div id="seventh-section" class="d-none" data-pulse-form-target="submitButton">
