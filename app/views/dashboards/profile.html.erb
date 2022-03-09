@@ -36,9 +36,8 @@
 </div>
 
 <%# 5 div échanges mairie et meilleurs pulses %>
-  <div class="profile-card-bottom">
-
-<%# 6 div meilleurs pulses %>
+<div>
+  <div class="profile-card-bottom justify-content-between">
     <div>
       <h2>Tes meilleurs Pulses</h2>
       <div class="profile-meilleurs-pulses">
@@ -69,94 +68,95 @@
       </div>
     </div>
 
+  <%# --------------------- CHATROOM -------------------- %>
+    <div class='d-block' data-controller="open-chatroom">
+      <h2>Tes échanges dernier avec la Mairie</h2>
 
-<%# 7 div échanges mairie %>
-<%# --------------------- FAKE, a changer !! -------------------- %>
-<div class='d-block' data-controller="open-chatroom">
-  <h2>Tes échanges dernier avec la Mairie</h2>
-
-  <div class="echange-mairie">
-    <div>
-      <% unless @messages.first.nil? %>
-        <% @messages.each do |message|%>
-          <div class="link-messages-profile">
-              <h2>
-                <div data-open-chatroom-target="open" data-path-action="<%= chatroom_url(message.chatroom)%>" data-action="click->open-chatroom#open" class="link-messages-profile-h2" >
-                  <%= message.chatroom.name  %>
-                </div>
-              </h2>
-              <div data-open-chatroom-target="container"></div>
-          </div>
-        <% end %>
-      <%end %>
+      <div class="echange-mairie">
+        <div>
+          <% unless @messages.first.nil? %>
+            <% @messages.each do |message|%>
+              <div class="link-messages-profile">
+                  <h2>
+                    <div data-open-chatroom-target="open" data-path-action="<%= chatroom_url(message.chatroom)%>" data-action="click->open-chatroom#open" class="link-messages-profile-h2" >
+                      <%= message.chatroom.name %> <div  data-open-chatroom-target="info" data-path-action="<%= chatroom_url(message.chatroom.id)%>"></div>
+                    </div>
+                  </h2>
+              </div>
+            <% end %>
+          <%end %>
+        </div>
+        <% if @chatroom %>
+          <%= render "chatroom" %>
+        <%end%>
+        <div data-open-chatroom-target="container"></div>
+      </div>
     </div>
-
-    <% if @chatroom %>
-      <%= render "chatroom" %>
-    <%end%>
-  </div>
+  </div> <%# fin div 5 %>
 </div>
-<%# fin div 5 %>
-  </div>
 
-<%# 7 div derniers pulses postés et aimés %>
-  <div class="profile-card-bottom d-flex justify-content-between border p-3 m-5">
-
-<%# 8 div derniers pulses postés %>
-    <div class="w-50 m-3">
-      <h2>Tes derniers Pulses postés</h2>
-      <div class="pulses-profile border p-2 mb-2">
-        <% unless current_user.pulses[-1].blank? %>
-          <h3><%= current_user.pulses[-1].title %>, le <%= current_user.pulses[-1].created_at.strftime("%d/%m/%Y") %> </h3>
-          <p><%= current_user.pulses[-1].solution %></p>
-        <% end %>
-      </div>
-      <div class="pulses-profile border p-2 mb-2">
-        <% unless current_user.pulses[-2].blank? %>
-          <h3> <%= current_user.pulses[-2].title %>, le <%= current_user.pulses[-2].created_at.strftime("%d/%m/%Y") %> </h3>
-          <p><%= current_user.pulses[-2].solution %></p>
-        <% end %>
-      </div>
-      <div class="pulses-profile border p-2 mb-2">
-        <% unless current_user.pulses[-3].blank? %>
-          <h3> <%= current_user.pulses[-3].title %>, le <%= current_user.pulses[-3].created_at.strftime("Pulsé le %d/%m/%Y") %></h3>
-          <p><%= current_user.pulses[-3].solution %></p>
-        <% end %>
-      </div>
+  <%# 7 div derniers pulses postés et aimés %>
+  <div class='d-flex'>
+    <div class="profile-card-bottom">
+        <div>
+          <h2>Tes derniers Pulses postés</h2>
+          <div class='profile-meilleurs-pulses'>
+              <div class="pulses-profile border p-2 mb-2">
+                <% unless current_user.pulses[-1].blank? %>
+                  <h3><%= current_user.pulses[-1].title %>, le <%= current_user.pulses[-1].created_at.strftime("%d/%m/%Y") %> </h3>
+                  <p><%= current_user.pulses[-1].solution %></p>
+                <% end %>
+              </div>
+              <div class="pulses-profile border p-2 mb-2">
+                <% unless current_user.pulses[-2].blank? %>
+                  <h3> <%= current_user.pulses[-2].title %>, le <%= current_user.pulses[-2].created_at.strftime("%d/%m/%Y") %> </h3>
+                  <p><%= current_user.pulses[-2].solution %></p>
+                <% end %>
+              </div>
+              <div class="pulses-profile border p-2 mb-2">
+                <% unless current_user.pulses[-3].blank? %>
+                  <h3> <%= current_user.pulses[-3].title %>, le <%= current_user.pulses[-3].created_at.strftime("Pulsé le %d/%m/%Y") %></h3>
+                  <p><%= current_user.pulses[-3].solution %></p>
+                <% end %>
+              </div>
+            </div>
+        </div>
     </div>
 
-<%# 9 div derniers pulses aimés %>
-    <div class="w-50 m-3">
-      <h2>Tes derniers Pulses aimés</h2>
-      <div class="pulses-profile border p-2 mb-2">
-        <% unless current_user.favorites[-1].nil? %>
-          <h3><%= current_user.favorites[-1].pulse.title %>,
-            par <%= current_user.favorites[-1].pulse.user.nickname %>
-            de <%= current_user.favorites[-1].pulse.user.city.name %>,
-            le <%= current_user.favorites[-1].pulse.created_at.strftime("%d/%m/%Y") %></h3>
-          <p><%= current_user.favorites[-1].pulse.solution %></p>
-        <% end %>
-      </div>
-      <div class="pulses-profile border p-2 mb-2">
-        <% unless current_user.favorites[-2].nil? %>
-          <h3><%= current_user.favorites[-2].pulse.title %>,
-            par <%= current_user.favorites[-2].pulse.user.nickname %>
-            de <%= current_user.favorites[-2].pulse.user.city.name %>,
-            le <%= current_user.favorites[-1].pulse.created_at.strftime("%d/%m/%Y") %></h3>
-          <p><%= current_user.favorites[-2].pulse.solution %></p>
-        <% end %>
-      </div>
-      <div class="pulses-profile border p-2 mb-2">
-        <% unless current_user.favorites[-3].nil? %>
-          <h3><%= current_user.favorites[-3].pulse.title %>,
-            par <%= current_user.favorites[-3].pulse.user.nickname %>
-            de <%= current_user.favorites[-3].pulse.user.city.name %>,
-            le <%= current_user.favorites[-1].pulse.created_at.strftime("%d/%m/%Y") %></h3>
-          <p><%= current_user.favorites[-3].pulse.solution %></p>
-        <% end %>
-      </div>
+    <%# 9 div derniers pulses aimés %>
+    <div class="profile-card-bottom">
+      <div>
+         <h2>Tes derniers Pulses aimés</h2>
+          <div class="profile-meilleurs-pulses">
+            <div class="pulses-profile border p-2 mb-2">
+              <% unless current_user.favorites[-1].nil? %>
+                <h3><%= current_user.favorites[-1].pulse.title %>,
+                  par <%= current_user.favorites[-1].pulse.user.nickname %>
+                  de <%= current_user.favorites[-1].pulse.user.city.name %>,
+                  le <%= current_user.favorites[-1].pulse.created_at.strftime("%d/%m/%Y") %></h3>
+                <p><%= current_user.favorites[-1].pulse.solution %></p>
+              <% end %>
+            </div>
+            <div class="pulses-profile border p-2 mb-2">
+              <% unless current_user.favorites[-2].nil? %>
+                <h3><%= current_user.favorites[-2].pulse.title %>,
+                  par <%= current_user.favorites[-2].pulse.user.nickname %>
+                  de <%= current_user.favorites[-2].pulse.user.city.name %>,
+                  le <%= current_user.favorites[-1].pulse.created_at.strftime("%d/%m/%Y") %></h3>
+                <p><%= current_user.favorites[-2].pulse.solution %></p>
+              <% end %>
+            </div>
+            <div class="pulses-profile border p-2 mb-2">
+              <% unless current_user.favorites[-3].nil? %>
+                <h3><%= current_user.favorites[-3].pulse.title %>,
+                  par <%= current_user.favorites[-3].pulse.user.nickname %>
+                  de <%= current_user.favorites[-3].pulse.user.city.name %>,
+                  le <%= current_user.favorites[-1].pulse.created_at.strftime("%d/%m/%Y") %></h3>
+                <p><%= current_user.favorites[-3].pulse.solution %></p>
+              <% end %>
+            </div>
+          </div>
+        </div>
     </div>
-<%# fin div 7 %>
   </div>
-
-<%# fin div 1 %>
+</div><%# fin div 7 %>
