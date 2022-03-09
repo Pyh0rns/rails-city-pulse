@@ -60,11 +60,11 @@ export default class extends Controller {
 
     // Submit
 
-    showSubmitButton(event) {
-      if (event.keyCode == 13) {
-        this.submitButtonTarget.classList.remove("d-none");
-      }
-    }
+    // showSubmitButton(event) {
+    //   if (event.keyCode == 13) {
+    //     this.submitButtonTarget.classList.remove("d-none");
+    //   }
+    // }
 
 // Find a way to store the value given by geocoder by JS
 // Maybe use the this.formTarget.value into a variable to feed it back to the form later
