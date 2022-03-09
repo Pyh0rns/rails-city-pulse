@@ -11,7 +11,7 @@
 <%#===========FORM=========== %>
 
   <div class="form" data-controller="pulse-form">
-    <%= simple_form_for([@city, @pulse], html: { data: { target: "pulse-form.form" }, class: "fix-form"} ) do |f| %>
+    <%= simple_form_for([@city, @pulse], html: { data: { target: "pulse-form.form" }, id:'form-el' , class: "fix-form"} ) do |f| %>
 
 <%#===========1ere section Probleme=========== %>
 
@@ -111,17 +111,16 @@
 
       <div class="input-group mb-3 group-input-avatar">
       <%= f.association :categories, include_hidden: false, input_html: { class: "input form-control form-custom", data: { pulse_form_target: "sixthInput"}}, wrapper_html: { class: "problem" }, label: false %>
-      <div class="input-group-append avatar-input">
+        <div class="input-group-append avatar-input">
           <img class="avatar input-group-text" src="<%= current_user.photo_url %>" alt="">
         </div>
       </div>
-            <%= f.submit%>
-
     </div>
 <%#===========7eme section Submit=========== %>
 
-      <%# <div id="seventh-section" class="d-none" data-pulse-form-target="submitButton">
-      </div> %>
+   <div id="seventh-section" class="d-none" data-pulse-form-target="submitButton">
+      <%= f.submit%>
+    </div>
     <% end %>
 
   </div>

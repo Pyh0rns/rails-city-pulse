@@ -23,7 +23,7 @@ export default class extends Controller {
       console.log(this.geocoderInputTarget);
       this.thirdSectionTarget.classList.remove("d-none");
       this.secondInputTarget.blur();
-      this.geocoderInputTarget.focus();
+      document.querySelector('.mapboxgl-ctrl-geocoder--input').focus();
       this.thirdSectionTarget.scrollIntoView();
     }
   }
@@ -31,6 +31,9 @@ export default class extends Controller {
 
   showFourthSection(event) {
     if (event.keyCode == 13) {
+      console.log(this.geocoderInputTarget.value);
+      document.querySelector('.mapboxgl-ctrl-geocoder--input').value = this.geocoderInputTarget.value;
+
       this.fourthSectionTarget.classList.remove("d-none");
       this.geocoderInputTarget.blur();
       this.fourthInputTarget.focus();
@@ -54,6 +57,7 @@ export default class extends Controller {
       this.fifthInputTarget.blur();
       this.sixthInputTarget.focus();
       this.sixthSectionTarget.scrollIntoView();
+      this.submitButtonTarget.classList.remove("d-none");
     }
   }
 
@@ -62,7 +66,6 @@ export default class extends Controller {
 
     // showSubmitButton(event) {
     //   if (event.keyCode == 13) {
-    //     this.submitButtonTarget.classList.remove("d-none");
     //   }
     // }
 
