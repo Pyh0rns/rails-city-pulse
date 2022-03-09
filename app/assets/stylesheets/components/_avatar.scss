@@ -51,6 +51,17 @@
   margin-right: 12px;
   border: $button_blue 3px solid;
 }
+.avatar-messagerie{
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border: #6F8AB7 3px solid;
+}
+
 
 // ------------ PAGE NEW PULSE --------------
 .avatar-input {

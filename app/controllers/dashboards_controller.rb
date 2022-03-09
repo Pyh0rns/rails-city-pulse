@@ -4,6 +4,7 @@ before_action :get_messages, only: [:profile]
   def profile
     @user = User.find(current_user.id)
     authorize @user
+
     if params[:chatroom_id]
       @chatroom = Chatroom.find(params[:chatroom_id])
       authorize @chatroom

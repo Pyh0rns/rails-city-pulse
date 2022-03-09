@@ -1,12 +1,12 @@
 <div class="container chatroom container-chatroom mb-3" data-controller="chatroom-subscription"
-  data-chatroom-subscription-chatroom-id-value="<%= chatroom.id %>" data-open-chatroom-target='viewChatroom'>
-  <h2>#<%= chatroom.name %></h2>
+  data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>" data-open-chatroom-target='viewChatroom'>
+  <h2>#<%= @chatroom.name %></h2>
     <div class="messages" data-chatroom-subscription-target="messages">
-      <% chatroom.messages.each do |message| %>
-      <%= render "messages/message", message: message %>
+      <% @chatroom.messages.each do |message| %>
+      <%= render "message.html.erb", message: message %>
       <% end %>
     </div>
-    <%= simple_form_for [chatroom, message],
+    <%= simple_form_for [@chatroom, @message],
       remote: true,
       html: {data: {chatroom_subscription_target: "form"}, class: "d-block"} do |f| %>
         <%= f.input :content,
