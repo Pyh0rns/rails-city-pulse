@@ -21,7 +21,6 @@ justify-content: center;
 flex-direction: row;
 }
 
-
 .home-logo {
   color: $black;
   font-size: 100px;
@@ -44,15 +43,15 @@ flex-direction: row;
   justify-content: center;
 }
 
-  #logo {
-    color: $black;
-    font-size: 65px;
-    text-align: center;
-    position: relative;
-    top: 50px;
-    display: flex;
-    justify-content: center;
-  }
+#logo {
+  color: $black;
+  font-size: 65px;
+  text-align: center;
+  position: relative;
+  top: 50px;
+  display: flex;
+  justify-content: center;
+}
 
 #why {
   color: $black;

@@ -35,7 +35,6 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  left: 25px;
   background: $button;
   min-width: 230px;
   border-radius: 20px;
@@ -43,6 +42,12 @@
 }
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+.dropdown-content-home {
+  width: 340px;
+  display: flex;
+  justify-content: center;
 }
 
 /* Links inside the dropdown */

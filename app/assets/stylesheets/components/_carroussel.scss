@@ -6,38 +6,25 @@
   background-position: center;
   object-fit: cover;
   border-radius: 15px;
-}
+  }
 }
 
-
-// ========== test =========
+.btn--green {
+  // background: -webkit-gradient(linear, left top, right top, from(#fc466b), to(#3f5efb));
+  // background: linear-gradient(to right, #fc466b, #3f5efb);
+  background: $button;
+  color: $white;
+  transition: all 1s;
+  &:hover {
+    color: $white;
+  }
+}
+// ========== test MANU =========
 
 
 .u-center-text {
   text-align: center !important;
 }
-
-// .u-margin-bottom-small {
-//   margin-bottom: 1.5rem !important;
-// }
-
-// .u-margin-bottom-medium {
-//   margin-bottom: 4rem !important;
-// }
-
-// .u-margin-top-big {
-//   margin-top: 5rem !important;
-// }
-
-
-// body {
-//   font-family: "Lato", sans-serif;
-//   font-weight: 400;
-//   line-height: 1.7;
-//   color: #fff;
-//   // background: #000;
-// }
-
 
 .heading-primary {
   color: #fff;
@@ -129,27 +116,11 @@
   background-color: #fff;
 }
 
-.btn--green {
-  background: -webkit-gradient(linear, left top, right top, from(#fc466b), to(#3f5efb));
-  background: linear-gradient(to right, #fc466b, #3f5efb);
-  color: #fff;
-}
-
-// ----------------------
-
-
-
-
-
-
-
-
-
-
 .btn--green::after {
   background-color: #55c57a;
 }
 
+// important, ne pas supprimer ce petit bloc. Mais je ne sais pas ce que c'est
 *,
 *::after,
 *::before {
@@ -158,17 +129,6 @@
   -webkit-box-sizing: inherit;
           box-sizing: inherit;
 }
-
-// html {
-//   font-size: 62.5%;
-// }
-
-
-// body {
-//   -webkit-box-sizing: border-box;
-//           box-sizing: border-box;
-// }
-
 
 .section-plans {
   // background-color: #000;
@@ -195,8 +155,8 @@
 
 .card__side {
   height: 300px;
-  -webkit-transition: all 0.8s ease;
-  transition: all 0.8s ease;
+  -webkit-transition: all 1.2s ease;
+  transition: all 1.2s ease;
   position: absolute;
   top: 0;
   left: 0;
@@ -371,9 +331,9 @@
   float: left;
 }
 
-.row [class^="col-"]:not(:last-child) {
+// .row [class^="col-"]:not(:last-child) {
 
-}
+// }
 
 .row .col-1-of-3 {
   width: calc((100% - 2 * 6rem) / 3);
