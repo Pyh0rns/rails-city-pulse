@@ -87,7 +87,7 @@
 
 <div class="city-form-group d-none" id="fifth-section" data-pulse-form-target="fifthSection">
       <div class="label-group">
-      <%= f.label :categories, label: "Dernière étape : Catégorise moi !", class: "label" %>
+      <%= f.label :categories, label: "Catégorise moi !", class: "label" %>
         <div class="label-logo">
           <%= image_tag "btn-gradient.svg" %>
         </div>
@@ -107,7 +107,7 @@
 
     <div class="city-form-group d-none" id="sixth-section" data-pulse-form-target="sixthSection">
       <div class="label-group">
-        <%= f.label :address, label: "Balance une adresse !", class: "label"%>
+        <%= f.label :address, label: "Dernière étape : Balance une adresse !", class: "label"%>
         <div class="label-logo">
             <%= image_tag "btn-gradient.svg"%>
         </div>
@@ -126,7 +126,7 @@
 <%#===========7eme section Submit=========== %>
 
    <div id="seventh-section" class="d-none" data-pulse-form-target="submitButton">
-      <%= f.submit%>
+      <%= f.submit "Pulse !", class: "submit-btn pulse" %>
     </div>
     <% end %>
 

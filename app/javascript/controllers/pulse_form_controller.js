@@ -60,6 +60,7 @@ export default class extends Controller {
       console.log(this.geocoderInputTarget);
       this.fifthInputTarget.blur();
       document.querySelector('.mapboxgl-ctrl-geocoder--input').focus();
+      document.querySelector('.mapboxgl-ctrl-geocoder--input').scrollIntoView();
       this.submitButtonTarget.classList.remove("d-none");
     }
   }

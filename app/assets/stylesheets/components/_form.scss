@@ -19,9 +19,13 @@ padding: 0px 12px 0px 40px;
 
 .input {
   background-color: $black;
+  box-shadow: 0 0 0 0 #F4F4F4, 0.1rem 0.1rem 6px #272932;
+  border: none;
   &:focus {
     background-color: $black;
     color: #F4F4F4;
+    box-shadow: 0 0 0 0 #F4F4F4, 0.1rem 0.1rem 6px #272932;
+    border: none;
   }
 }
 
@@ -93,11 +97,18 @@ padding: 0%;
   line-height: 1.5;
   color: white;
   background-clip: padding-box;
-  border: 1px solid #ced4da;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  border: none;
+
+    &:focus {
+    background-color: $black;
+    color: #F4F4F4;
+    box-shadow: 0 0 0 0 #F4F4F4, 0.1rem 0.1rem 6px #272932;
+    border: none;
+    }
 }
 
 .mapboxgl-ctrl-geocoder--input::placeholder {
