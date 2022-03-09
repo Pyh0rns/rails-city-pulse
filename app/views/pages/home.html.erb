@@ -10,69 +10,53 @@
 
   <div class="home-call">
 
-    <div class="dropdown dropdown-home my-5">
+    <div class="dropdown my-5">
       <button class="btn btn--green">Cherche une ville</button>
-      <div class="dropdown-content dropdown-home-content">
+      <div class="dropdown-content">
 
         <% unless current_user.nil? %>
-          <%= link_to 'Ta Ville', city_pulses_path(current_user.city), class: "dropdown-item searchbarhome-drop"  %>
+          <%= link_to 'Ta Ville', city_pulses_path(current_user.city), class: "dropdown-item dropdown-content-home"  %>
         <% end %>
-        <%= link_to 'Lille', city_pulses_path(City.find_by(name: "Lille").id), class: "dropdown-item searchbarhome-drop"  %>
-        <%= link_to 'Paris', city_pulses_path(City.find_by(name: "Paris").id), class: "dropdown-item searchbarhome-drop"  %>
-        <%= link_to 'Marseille', city_pulses_path(City.find_by(name: "Marseille").id), class: "dropdown-item searchbarhome-drop"  %>
-        <%= link_to 'Rennes', city_pulses_path(City.find_by(name: "Rennes").id), class: "dropdown-item searchbarhome-drop"  %>
-        <%= link_to 'Bordeaux', city_pulses_path(City.find_by(name: "Bordeaux").id), class: "dropdown-item searchbarhome-drop"  %>
-        <%= link_to 'St Malo', city_pulses_path(City.find_by(name: "St Malo").id), class: "dropdown-item searchbarhome-drop"  %>
+        <%= link_to 'Lille', city_pulses_path(City.find_by(name: "Lille").id), class: "dropdown-item dropdown-content-home"  %>
+        <%= link_to 'Paris', city_pulses_path(City.find_by(name: "Paris").id), class: "dropdown-item dropdown-content-home"  %>
+        <%= link_to 'Marseille', city_pulses_path(City.find_by(name: "Marseille").id), class: "dropdown-item dropdown-content-home"  %>
+        <%= link_to 'Rennes', city_pulses_path(City.find_by(name: "Rennes").id), class: "dropdown-item dropdown-content-home"  %>
+        <%= link_to 'Bordeaux', city_pulses_path(City.find_by(name: "Bordeaux").id), class: "dropdown-item dropdown-content-home"  %>
+        <%= link_to 'St Malo', city_pulses_path(City.find_by(name: "St Malo").id), class: "dropdown-item dropdown-content-home"  %>
       </div>
     </div>
-
-
   </div>
-
-
 
 <%# ------------------------------- How it Works---------------------------------- %>
 
 <div class="container-home">
-
-
-
   <div id="why">
     <h2>S'impliquer dans sa ville</h2>
   </div>
-
   <div class="card__container">
-
     <div class="card">
-
       <div class="card__content">
         <button class="card__button"><i class="fas fa-heartbeat"></i></button>
         <h3  id="fonction" class="card__header">Pulse</h3>
         <p class="card__info">Propose une idée pour pulser ta ville</p>
       </div>
-
     </div>
 
     <div class="card">
-
       <div class="card__content">
         <button class="card__button"><i class="fas fa-heart"></i></button>
         <h3 id="fonction" class="card__header">Vote</h3>
         <p class="card__info">Soutiens les pulses !</p>
       </div>
-
     </div>
 
     <div class="card">
-
       <div class="card__content">
         <button id=btn-fonction class="card__button"><i class="fas fa-thumbs-up"></i></button>
         <h3 id="fonction" class="card__header">Concretise</h3>
         <p id="description" class="card__info">Donne vie au pulse de ta ville</p>
       </div>
-
     </div>
-
   </div>
 
 
@@ -81,17 +65,6 @@
 <%# ------------------------------- How it Works fin---------------------------------- %>
 
 
-
-
-
-
-
-<%# ------------------------------- Là où ca pulse !---------------------------------- %>
-
-<%# ------------------------------- Là où ca pulse ! fin---------------------------------- %>
-
 <div class="container">
-
-<%= render 'shared/carroussel' %>
-
+  <%= render 'shared/carroussel' %>
 </div>
