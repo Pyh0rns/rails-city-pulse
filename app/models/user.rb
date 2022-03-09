@@ -16,7 +16,12 @@ class User < ApplicationRecord
   def experience
     favorite = Favorite.where(user_id: id).count * 10
     pulse = Pulse.where(user_id: id).count * 100
-    fake = Pulse.where(user_id: id).count * 10
+
+    fake = 0
+    Pulse.where(user_id: id).each do |pulse|
+      fake += pulse.fake_votes
+    end
+
     message = Message.where(user_id: id).count * 20
     user = User.find(id)
     user.xp = favorite + pulse + message + fake

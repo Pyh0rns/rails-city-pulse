@@ -50,7 +50,8 @@
           <% else %>
             <% limit = 3 %>
           <% end %>
-          <% top2 = current_user.pulses.limit(limit).sort_by { |pulse| pulse.favorites.count } %>
+          <% top2 = current_user.pulses.limit(limit).sort_by { |pulse| pulse.fake_votes } %>
+          <%# # trié par fake_votes et non vrais favoris. changer par pulse.favorites.count au besoin %>
           <% top2.reverse.each do |top| %>
             <div class="pulses-profile d-flex">
                 <div class='m-3 fs-3'>
@@ -59,7 +60,7 @@
                   <% end %>
                 </div>
                 <div class="pulse-profile-description">
-                  <h3><%= top.title %> : <%= top.favorites.length %> 💙 </h3>
+                  <h3><%= top.title %> : <%= top.favorites.length + top.fake_votes %> 💙 </h3>
                   <p><%= top.solution %></p>
                 </div>
             </div>
