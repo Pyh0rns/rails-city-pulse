@@ -8,13 +8,23 @@
   background-position: center;
 }
 
-.img-fluid{
+.img-fluid {
   position: relative;
 }
 
+.home-call {
+
+display: flex;
+justify-content: space-around;
+align-items: center;
+justify-content: center;
+flex-direction: row;
+}
+
+
 .home-logo {
   color: $black;
-  font-size: 164px;
+  font-size: 100px;
   font-family: 'Righteous', cursive;
   text-align: center;
   position: relative;

@@ -135,6 +135,54 @@
   color: #fff;
 }
 
+// ----------------------
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
+
+// ------------------------
+
+
+
+
+
+
+
+
 .btn--green::after {
   background-color: #55c57a;
 }
@@ -204,14 +252,17 @@
 
 .card__side--front-1 {
   background: linear-gradient(to right, #FDAE8F, #FD1C68);
+  height: 300px;
 }
 
 .card__side--front-2 {
   background: linear-gradient(to right, #FDAE8F, #FD1C68);
+  height: 300px;
 }
 
 .card__side--front-3 {
   background: linear-gradient(to right, #FDAE8F, #FD1C68);
+  height: 300px;
 }
 
 .card__side--back {
@@ -221,14 +272,17 @@
 
 .card__side--back-1 {
   background: linear-gradient(-45deg, #64b5f6, #f403d1);
+  height: 300px;
 }
 
 .card__side--back-2 {
   background: linear-gradient(-45deg, #ffec61, #f321d7);
+  height: 300px;
 }
 
 .card__side--back-3 {
   background: linear-gradient(-45deg, #9a4eff, #24ff72);
+  height: 300px;
 }
 
 .card:hover .card__side--front-1,
@@ -263,6 +317,7 @@
 
 .card__title--1 .fas {
   font-size: 5rem;
+  background-size: cover;
 }
 
 .card__title--2 .fas {
