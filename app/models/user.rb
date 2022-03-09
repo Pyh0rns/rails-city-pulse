@@ -15,16 +15,19 @@ class User < ApplicationRecord
 
   def experience
     favorite = Favorite.where(user_id: id).count * 10
-    pulse = Pulse.where(user_id: id).count * 100
+    message = Message.where(user_id: id).count * 20
+    pulse = Pulse.where(user_id: id).count * 50
+
+    valide = Pulse.where(user_id: id, status: "Validé").count * 100
+    realise = Pulse.where(user_id: id, status: "Réalisé").count * 200
 
     fake = 0
-    Pulse.where(user_id: id).each do |pulse|
-      fake += pulse.fake_votes
+    Pulse.where(user_id: id).each do |puls|
+      fake += puls.fake_votes
     end
 
-    message = Message.where(user_id: id).count * 20
     user = User.find(id)
-    user.xp = favorite + pulse + message + fake
+    user.xp = favorite + pulse + message + fake + valide + realise
     user.save!
     return user.xp
   end
