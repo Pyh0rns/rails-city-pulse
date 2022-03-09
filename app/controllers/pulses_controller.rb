@@ -40,8 +40,11 @@ class PulsesController < ApplicationController
     @pulse.user = current_user
     @pulse.city = current_user.city
     @city = current_user.city
+
+
     if @pulse.save
       params[:pulse][:category_ids].each do |id|
+
         @pulse_categories = PulseCategory.new
         @pulse_categories.category = Category.find(id)
         @pulse_categories.pulse = @pulse

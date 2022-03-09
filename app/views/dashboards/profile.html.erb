@@ -50,7 +50,7 @@
             <% limit = 3 %>
           <% end %>
 
-          <% top2 = current_user.pulses.limit(limit).sort_by { |pulse| pulse.fake_votes } %>
+          <% top2 = current_user.pulses.limit(limit).sort_by { |pulse| pulse.fake_votes.nil? ? pulse.favorites.count : pulse.fake_votes } %>
           <%# # trié par fake_votes et non vrais favoris. changer par pulse.favorites.count au besoin %>
           <% top2.reverse.each do |top| %>
             <div class="pulses-profile d-flex">
