@@ -52,7 +52,7 @@ class PulsesController < ApplicationController
         Favorite.create(user_id: current_user.id, pulse_id: @pulse.id)
       end
       redirect_to city_pulses_path, flash: { congrats_modal: true }
-      flash[:alert] = "User not found."
+      flash[:notice] = "XP + 50"
     else
       render :new
     end
