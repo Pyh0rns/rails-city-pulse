@@ -18,7 +18,6 @@ class User < ApplicationRecord
     message = Message.where(user_id: id).count * 20
     pulse = Pulse.where(user_id: id).count * 50
 
-
     valide = 0 + (Pulse.where(user_id: id, status: "Validé").count * 100)
     realise = 0 + (Pulse.where(user_id: id, status: "Réalisé").count * 200)
 
