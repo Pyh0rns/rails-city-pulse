@@ -35,11 +35,20 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  background: white;
+  background: $button;
   min-width: 230px;
   border-radius: 20px;
   z-index: 1;
 }
+.dropdown .dropdown-content-filter{
+  display: none;
+  position: absolute;
+  background: linear-gradient(207.67deg, #FDAE8F 3.43%, #FD1C68 104.7%);
+  min-width: 230px;
+  border-radius: 20px;
+  z-index: 1;
+}
+
 .dropdown:hover .dropdown-content {
   display: block;
 }
