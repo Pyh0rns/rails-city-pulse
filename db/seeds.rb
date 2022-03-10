@@ -53,7 +53,7 @@ transports = Category.create!(name: "Transports", image: '<i class="fas fa-bus">
 securite = Category.create!(name: "Sécurité", image: '<i class="fas fa-cctv"></i>')
 sante = Category.create!(name: "Santé", image: '<i class="fas fa-first-aid"></i>')
 culture = Category.create!(name: "Culture", image: '<i class="fas fa-theater-masks"></i>')
-sport = Category.create!(name: "Sport", image: '<i class="fas fa-tennis-ball"></i>')
+sport = Category.create!(name: "Sport", image: '<i class="fas fa-baseball-ball"></i>')
 urbanisme = Category.create!(name: "Urbanisme", image: '<i class="fas fa-building"></i>')
 puts "Categories ok..."
 
