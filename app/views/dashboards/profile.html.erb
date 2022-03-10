@@ -76,11 +76,11 @@
               <% unless @messages.first.nil? %>
                 <% @messages.each do |message|%>
                   <div class="link-messages-profile">
-                      <h2>
+                      <%# <h2> %>
                         <div data-open-chatroom-target="open" data-path-action="<%= chatroom_url(message.chatroom)%>" data-action="click->open-chatroom#open" class="link-messages-profile-h2" >
                           <%= message.chatroom.name %> <div  data-open-chatroom-target="info" data-path-action="<%= chatroom_url(message.chatroom.id)%>"></div>
                         </div>
-                      </h2>
+                      <%# </h2> %>
                   </div>
                 <% end %>
               <%end %>
