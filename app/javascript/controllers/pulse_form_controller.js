@@ -14,7 +14,7 @@ export default class extends Controller {
       this.secondSectionTarget.classList.remove("d-none");
       this.firstInputTarget.blur();
       this.secondInputTarget.focus();
-      this.secondSectionTarget.scrollIntoView();
+      this.secondSectionTarget.scrollIntoView({ behavior: 'smooth' });
     }
   }
   // Titre
@@ -25,7 +25,7 @@ export default class extends Controller {
       this.thirdSectionTarget.classList.remove("d-none");
       this.secondInputTarget.blur();
       this.thirdInputTarget.focus();
-      this.thirdSectionTarget.scrollIntoView();
+      this.thirdSectionTarget.scrollIntoView({ behavior: 'smooth' });
       console.log(this.thirdInputTarget);
     }
   }
@@ -36,7 +36,7 @@ export default class extends Controller {
     if (event.keyCode == 13) {
       this.fourthSectionTarget.classList.remove("d-none");
       this.thirdInputTarget.blur();
-      this.fourthSectionTarget.scrollIntoView();
+      this.fourthSectionTarget.scrollIntoView({ behavior: 'smooth' });
     }
   }
 
@@ -48,7 +48,7 @@ export default class extends Controller {
       this.fifthSectionTarget.classList.remove("d-none");
       this.fourthInputTarget.blur();
       this.fifthInputTarget.focus();
-      this.fifthSectionTarget.scrollIntoView();
+      this.fifthSectionTarget.scrollIntoView({ behavior: 'smooth' });
 
   }
 // // Géo
@@ -60,7 +60,7 @@ export default class extends Controller {
       console.log(this.geocoderInputTarget);
       this.fifthInputTarget.blur();
       document.querySelector('.mapboxgl-ctrl-geocoder--input').focus();
-      document.querySelector('.mapboxgl-ctrl-geocoder--input').scrollIntoView();
+      document.querySelector('.mapboxgl-ctrl-geocoder--input').scrollIntoView({ behavior: 'smooth' });
       this.submitButtonTarget.classList.remove("d-none");
     }
   }
