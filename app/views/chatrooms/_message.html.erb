@@ -1,7 +1,7 @@
 <div id="message-<%= message.id %>">
   <small>
     <img src="<%= message.user.photo_url %>" alt="" class='avatar-messagerie'>
-    <strong><%= message.user.nickname %>, le </strong>
+    <strong><%= message.user.nickname %>, </strong> le
     <em><%= message.created_at.strftime("%b %e à %l:%M %p") %></em>
   </small>
   <p><%= message.content %></p>

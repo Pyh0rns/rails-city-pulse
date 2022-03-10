@@ -1,7 +1,7 @@
 <%# 1 div container pour toute la page  %>
   <div>
     <%= link_to city_pulses_path(current_user.city), class:"linkto" do %>
-      <p class="linkto"><i class="fas fa-arrow-left mb-3"> </i> Pulses de ta ville</p>
+      <p class="profile-link"><i class="fas fa-arrow-left mb-3"> </i> Pulses de ta ville</p>
     <% end %>
   </div>
 <div class="container">
@@ -14,86 +14,91 @@
       <img class="avatar-large-profile" src="<%= current_user.photo_url %>" alt="">
       <div class="profile-card-left">
         <h1><%= current_user.nickname %></h1>
-        <h2>Ville: <%= current_user.city.name %></h2>
-        <h2>Grade: <%= current_user.level %></h2>
-        <h2>XP: <%= current_user.experience %></h2>
+        <h2><strong><i class="fas fa-city city-icone"></i></strong> : <%= current_user.city.name %></h2>
+        <h2><strong><i class="fas fa-graduation-cap city-icone"></i></strong> : <%= current_user.level %></h2>
+        <h2> <strong><i class="fas fa-bullseye city-icone"></i></strong> : <%= current_user.experience %> points</h2>
       </div>
     </div>
 
   <%# 4 div a droite avec nom thématiques et bio %>
-    <div class="w-50">
-      <h2>Principales thématiques:
-      <% current_user.pulses.each do |pulse|%>
-        <%= sanitize pulse.categories.group_by {|category| category.image}.keys[0]%>
-      <%end%>
-      </h2>
-
-      <h2>Bio: </h2>
-      <p><%= current_user.bio %> </p>
+    <div class=" w-50 description-profile">
+      <div class='ta-bio'>
+          <h2>Ta bio</h2>
+          <p><%= current_user.bio %></p>
+        </div>
+        <div class='thematique-fav'>
+          <h2>Tes thématiques favorites</h2>
+          <div class='thematique-fav-icone'>
+              <% current_user.pulses.each do |pulse|%>
+                <h3><%= sanitize pulse.categories.group_by {|category| category.image}.keys[0] %></h3>
+              <%end%>
+          </div>
+        </div>
     </div>
   <%# fin div 2 %>
   </div>
 </div>
 
 <%# 5 div échanges mairie et meilleurs pulses %>
-<div>
-  <div class="profile-card-bottom justify-content-between">
-    <div>
-      <h2>Tes meilleurs Pulses</h2>
-      <div class="profile-meilleurs-pulses">
-        <% unless current_user.pulses.nil? %>
-          <% if current_user.pulses.length == 1 %>
-            <% limit = 1 %>
-          <% elsif current_user.pulses.length == 2 %>
-            <% limit = 2 %>
-          <% else %>
-            <% limit = 3 %>
-          <% end %>
+<div class='d-flex'>
+    <div class='profile-card-bottom'>
+      <div>
+        <h2>Tes meilleurs Pulses</h2>
+        <div class="profile-meilleurs-pulses">
+          <% unless current_user.pulses.nil? %>
+            <% if current_user.pulses.length == 1 %>
+              <% limit = 1 %>
+            <% elsif current_user.pulses.length == 2 %>
+              <% limit = 2 %>
+            <% else %>
+              <% limit = 3 %>
+            <% end %>
 
-          <% top2 = current_user.pulses.limit(limit).sort_by { |pulse| pulse.fake_votes.nil? ? pulse.favorites.count : pulse.fake_votes } %>
-          <%# # trié par fake_votes et non vrais favoris. changer par pulse.favorites.count au besoin %>
-          <% top2.reverse.each do |top| %>
-            <div class="pulses-profile d-flex">
-                <div class='m-3 fs-3'>
-                  <% top.categories.each do |category| %>
-                    <%= sanitize category.image %>
-                  <% end %>
-                </div>
-                <div class="pulse-profile-description">
-                  <h3><%= top.title %> : <%= top.favorites.length + (top.fake_votes.nil? ? 0 : top.fake_votes) %> 💙 </h3>
-                  <p><%= top.solution %></p>
-                </div>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-
-  <%# --------------------- CHATROOM -------------------- %>
-    <div class='d-block' data-controller="open-chatroom">
-      <h2>Tes échanges dernier avec la Mairie</h2>
-
-      <div class="echange-mairie">
-        <div>
-          <% unless @messages.first.nil? %>
-            <% @messages.each do |message|%>
-              <div class="link-messages-profile">
-                  <h2>
-                    <div data-open-chatroom-target="open" data-path-action="<%= chatroom_url(message.chatroom)%>" data-action="click->open-chatroom#open" class="link-messages-profile-h2" >
-                      <%= message.chatroom.name %> <div  data-open-chatroom-target="info" data-path-action="<%= chatroom_url(message.chatroom.id)%>"></div>
-                    </div>
-                  </h2>
+            <% top2 = current_user.pulses.limit(limit).sort_by { |pulse| pulse.fake_votes.nil? ? pulse.favorites.count : pulse.fake_votes } %>
+            <%# # trié par fake_votes et non vrais favoris. changer par pulse.favorites.count au besoin %>
+            <% top2.reverse.each do |top| %>
+              <div class="pulses-profile d-flex">
+                  <div class='icone-profile'>
+                    <% top.categories.each do |category| %>
+                      <div class='best-icone'><%= sanitize category.image %></div>
+                    <% end %>
+                  </div>
+                  <div class="pulse-profile-description">
+                    <h3><%= top.title %> : <%= top.favorites.length + (top.fake_votes.nil? ? 0 : top.fake_votes) %> 💙 </h3>
+                    <p class=''><%= top.solution %></p>
+                  </div>
               </div>
             <% end %>
-          <%end %>
+          <% end %>
         </div>
-        <% if @chatroom %>
-          <%= render "chatroom" %>
-        <%end%>
-        <div data-open-chatroom-target="container"></div>
       </div>
     </div>
-  </div> <%# fin div 5 %>
+
+   <%# --------------------- CHATROOM -------------------- %>
+    <div class='profile-card-bottom messages-card-right' data-controller="open-chatroom">
+      <div>
+        <h2>Tes derniers échanges avec la Mairie</h2>
+        <div class="echange-mairie">
+          <div>
+            <% unless @messages.first.nil? %>
+              <% @messages.each do |message|%>
+                <div class="link-messages-profile">
+                    <h2>
+                      <div data-open-chatroom-target="open" data-path-action="<%= chatroom_url(message.chatroom)%>" data-action="click->open-chatroom#open" class="link-messages-profile-h2" >
+                        <%= message.chatroom.name %> <div  data-open-chatroom-target="info" data-path-action="<%= chatroom_url(message.chatroom.id)%>"></div>
+                      </div>
+                    </h2>
+                </div>
+              <% end %>
+            <%end %>
+          </div>
+          <% if @chatroom %>
+            <%= render "chatroom" %>
+          <%end%>
+          <div data-open-chatroom-target="container"></div>
+        </div>
+      </div>
+    </div>
 </div>
 
   <%# 7 div derniers pulses postés et aimés %>
