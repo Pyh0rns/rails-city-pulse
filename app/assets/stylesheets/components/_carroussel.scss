@@ -176,16 +176,19 @@
 .card__side--front-1 {
   background: linear-gradient(to right, #FDAE8F, #FD1C68);
   height: 300px;
+  border-radius: 20px;
 }
 
 .card__side--front-2 {
   background: linear-gradient(to right, #FDAE8F, #FD1C68);
   height: 300px;
+  border-radius: 20px;
 }
 
 .card__side--front-3 {
   background: linear-gradient(to right, #FDAE8F, #FD1C68);
   height: 300px;
+  border-radius: 20px;
 }
 
 .card__side--back {
@@ -196,16 +199,19 @@
 .card__side--back-1 {
   background: linear-gradient(-45deg, #64b5f6, #f403d1);
   height: 300px;
+  border-radius: 20px;
 }
 
 .card__side--back-2 {
   background: linear-gradient(-45deg, #ffec61, #f321d7);
   height: 300px;
+  border-radius: 20px;
 }
 
 .card__side--back-3 {
   background: linear-gradient(-45deg, #9a4eff, #24ff72);
   height: 300px;
+  border-radius: 20px;
 }
 
 .card:hover .card__side--front-1,
