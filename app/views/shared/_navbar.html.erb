@@ -18,11 +18,22 @@
         <% if user_signed_in? %>
           <% unless current_user.pro %>
             <li>
-              <p class="nav-xp pt-2 me-3"> Grade: <%= current_user.level %></p>
+              <%# <p class="nav-xp pt-2 me-3"> Grade: <%= current_user.level</p> %>
+              <p class= "button-nav-pulse d-flex align-items-center justify-content-center mt-1 me-2"><i class="fas fa-medal"></i></p>
             </li>
+
             <li>
-              <p class="nav-xp pt-2 me-3">XP: <%= current_user.experience %></p>
+              <p class="nav-xp mt-2 me-3"><%= current_user.level %></p>
             </li>
+
+            <li>
+              <p class= "button-nav-pulse d-flex align-items-center justify-content-center mt-1 me-2">XP</i></p>
+            </li>
+
+            <li>
+              <p class="nav-xp mt-2 me-3"><%= current_user.experience %></p>
+            </li>
+
           <% end %>
 
           <div class='dropdown mt-2'>

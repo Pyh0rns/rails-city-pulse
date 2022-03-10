@@ -160,3 +160,21 @@ text-decoration: none;
       box-shadow: 0 0 0 0 rgba(204,169,44, 0);
   }
 }
+
+
+.button-nav-pulse {
+    padding: 10px;
+    background: white;
+    height: 15px;
+    width: 15px;
+    border-radius: 100px;
+    color: #FD1C68;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    margin: 0px auto;
+
+    background: -webkit-linear-gradient(207.67deg, #FDAE8F 3.43%, #FD1C68 104.7%);
+    -webkit-background-clip: red;
+    -webkit-text-fill-color: white;
+  }
