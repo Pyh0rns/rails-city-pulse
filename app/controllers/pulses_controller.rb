@@ -25,6 +25,7 @@ class PulsesController < ApplicationController
 
   def show
     @pulse = find_pulse
+    @city = params[:city_id]
     authorize @pulse
   end
 

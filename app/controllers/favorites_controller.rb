@@ -9,15 +9,23 @@ class FavoritesController < ApplicationController
     @favorite.save
     # flash.now[:notice] = "XP + 20"
     flash[:notice] = "XP + 20"
-
-    redirect_to city_pulses_path(@city, anchor: "pulse-#{@pulse.id}")
+    if params[:current_page] == "show"
+      redirect_to city_pulse_path(@city, @pulse, anchor: "pulse-#{@pulse.id}")
+    else
+      redirect_to city_pulses_path(@city, anchor: "pulse-#{@pulse.id}")
+    end
   end
 
   def destroy
     @favorite = Favorite.find(params[:id])
+    @pulse = @favorite.pulse
     authorize @favorite
     @city = City.find(params[:city_id])
     @favorite.destroy
-    redirect_to city_pulses_path(@city, anchor: "pulse-#{@favorite.pulse.id}")
+    if params[:current_page] == "show"
+      redirect_to city_pulse_path(@city, @pulse, anchor: "pulse-#{@pulse.id}")
+    else
+      redirect_to city_pulses_path(@city, anchor: "pulse-#{@favorite.pulse.id}")
+    end
   end
 end

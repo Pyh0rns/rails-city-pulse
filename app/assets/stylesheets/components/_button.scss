@@ -48,6 +48,32 @@ color: #272932;
 text-decoration: none;
 }
 
+.button-like-blue-show {
+  padding: 5px;
+  background: $button_blue;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+  border: none;
+  margin: 25px auto;
+  font-size: 26px;
+}
+
+.button-like-red-show {
+  padding: 5px;
+  background: $button;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+  border: none;
+  margin: 25px auto;
+  font-size: 26px;
+}
+
 // ================== BTN PULSER ==================
 
 #button-pulse-red {
