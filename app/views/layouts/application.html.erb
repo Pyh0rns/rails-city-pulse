@@ -13,14 +13,18 @@
   </head>
 
   <body style="background-color: white;">
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
+    <div class="wrapper">
+      <%= render 'shared/navbar' %>
+      <%= render 'shared/flashes' %>
 
-    <%= yield %>
+      <%= yield %>
+      <div class="push">
+      </div>
+    </div>
 
 
 
-  <div class="footer mt-5">
+  <div class="footer">
       <div class="ms-5 me-5 d-flex">
         <div class="footer-links">
           <a href="https://github.com/Pyh0rns/rails-city-pulse"><i class="fab fa-github"></i></a>
