@@ -2,6 +2,77 @@
   text-align: center;
 }
 
+.button-show-back{
+  align-self: flex-end;
+}
+
+.counter-show {
+  text-align: center;
+}
+
+.top-show {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 45px;
+
+  .show-counter{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      text-align: right;
+      color: white;
+
+      width: 342px;
+      background: linear-gradient(207.67deg, #FDAE8F 3.43%, #FD1C68 104.7%);
+      box-sizing: border-box;
+
+
+  }
+}
+.like-show {
+  display: flex;
+  justify-content: center;
+}
+.show-picto {
+  display: flex;
+justify-content: space-evenly;
+margin-bottom: 40px;
+span {
+  background-color: $black;
+  color: $white;
+  padding: 20px;
+  border-radius: 10px;
+}
+}
+
+.progress-show {
+
+  min-height: 80px;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 45px;
+  div{
+    background: linear-gradient(207.67deg, #FDAE8F 3.43%, #FD1C68 104.7%);
+    font-size: 3rem;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    padding: 20px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.show-container {
+  display: flex;
+  flex-direction: row;
+  min-height: 650px;
+}
 .sub-title {
   text-align: end;
   max-width: 78%;
@@ -34,8 +105,24 @@
   display: block;
   margin-top: 50px;
   margin-left: 50px;
-  padding-left: 10px;
+  padding: 30px;
   justify-content: center;
+}
+.show-image {
+  width: 45%;
+}
+
+.image-show-right {
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+#show-image {
+  max-height: 500px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  height: 200px;
 }
 
 .pulse-why p {
@@ -57,7 +144,7 @@
   background-color: $black;
   border-radius: 8px;
   display: block;
-  padding-left: 10px;
+  padding: 30px;
   justify-content: center;
 }
 
@@ -80,9 +167,20 @@
   text-decoration: none;
 }
 
+.show-title h1{
+margin-bottom: 30px;
+}
+
 .title-rad {
   // font-size: 72px;
   background: -webkit-linear-gradient(207.67deg, #FDAE8F 3.43%, #FD1C68 104.7%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+// NOUVELLE SHOW
+
+.show-counter {
+  display: flex;
+  justify-content: center;
 }
