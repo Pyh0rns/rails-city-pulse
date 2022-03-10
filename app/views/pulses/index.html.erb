@@ -39,7 +39,11 @@
         <%= submit_tag "Search", class: "d-none btn btn-primary" %>
       <% end %>
     </div>
-    <button class= 'buttonfilter'data-filter-target='btn' data-action="click->filter#filter_by" data-filter-type="recent">Récents</button>
+
+    <%= link_to 'Récents', city_pulses_path(@city), class:"buttonfilter d-flex align-items-center text-decoration-none" %>
+
+
+    <%# <button class= 'buttonfilter'data-filter-target='btn' data-action="click->filter#filter_by" data-filter-type="recent">Récents</button> %>
     <button class= 'buttonfilter'data-filter-target='btn' data-action="click->filter#filter_by" data-filter-type="order">Plus likés</button>
     <button class= 'buttonfilter'data-filter-target='btn' data-action="click->filter#filter_by" data-filter-type="done">Réalisés</button>
     <div class="dropdown">
