@@ -1,64 +1,89 @@
-  <div class="card-counter-pulse">
-    <div><h1><%= @pulse.favorites.length %></h1></div>
-    <div><p><%= 'vote'.pluralize(@pulse.favorites.length) %></p></div>
-  </div>
-
-  <%= link_to city_pulses_path(@pulse.city), id:"button-back" do %>
-    <p><i class="fas fa-arrow-left ms-5 mb-3"> </i> Ta ville</p>
-  <% end %>
 
 <div class="container">
 
-
-  <%# ------------------- progress bar js---------------------------- %>
-  <div class="bar">
-    <div class="progress-container">
-      <div class="progress" id="progress"></div>
-        <div class="circle active"><i class="fas fa-lightbulb" id="bar-icon"></i></div>
-        <div class="circle"><i class="fas fa-heartbeat" id="bar-icon"></i></div>
-        <div class="circle"><i class="fas fa-check" id="bar-icon"></i></div>
+  <div class="top-show">
+   <div class="mt-3">
+  <%= link_to city_pulses_path(@pulse.city), class:"linkto" do %>
+    <p class="linkto" style="margin-top: 0px;"><i class="fas fa-arrow-left mb-3"> </i> Pulses de la ville</p>
+  <% end %>
+</div>
+    <div class="show-counter">
+      <div class="counter-show">
+        <div>
+          <h1><%= @pulse.favorites.length + (@pulse.fake_votes.nil? ? 0 : @pulse.fake_votes) %></h1>
+        </div>
+        <div>
+          <p><%= 'vote'.pluralize(@pulse.favorites.length) %></p>
+        </div>
       </div>
+    </div>
+    <div style= "width: 16%;"></div>
+
+  </div>
+
+      <div class="show-title">
+        <h1 class='main-title'><%= @pulse.title.upcase %></h1>
+        <h2 class="show-picto"><% Pulse.find(@pulse.id).categories.each do |category| %>
+          <span class="picto-index"><%= sanitize category.image %></span>
+        <% end %>
+        </h2>
+      </div>
+
+      <div class="progress-show">
+        <% if @pulse.status == "Votes en cours" %>
+          <div><i id="bulb" class="far fa-lightbulb"></i></div><div><i id="thumb-off" class="far fa-thumbs-up"></i></div><div><i id="check-off" class="far fa-check-circle"></i></div>
+        <% elsif @pulse.status == "Réalisé" %>
+          <div><i id="bulb" class="far fa-lightbulb"></i></div><div><i id="thumb-on" class="far fa-thumbs-up"></i></div><div><i id="check-on" class="far fa-check-circle"></i></div>
+        <% else %>
+          <div><i id="bulb" class="far fa-lightbulb"></i></div><div><i id="thumb-on" class="far fa-thumbs-up"></i></div><div><i id="check-off" class="far fa-check-circle"></i></div>
+        <% end %>
+      </div>
+
+
+
+  <div class="show-container">
+    <div class="show-content">
+      <div class="show-presentation">
+        <div class="idea-container">
+          <div> <img class="avatar-show" src="<%= @pulse.user.photo_url %>" alt="">
+          </div>
+          <div class='pulse-why'>
+            <h2>Son probleme </h2>
+            <p><%= @pulse.problem %></p>
+          </div>
+        </div>
+        <div class="solution-container">
+          <div class='solution-solved'>
+            <h2>Sa solution</h2>
+            <p><%= @pulse.solution %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="show-image">
+    <% if @pulse.photo.attached? %>
+      <div class="image-show-right" style="background-image:url(<%= cl_image_path(@pulse.photo.key) %>);"></div>
+    <% else %>
+      <img src= <%= @pulse.photo_url%>/>
+    <% end %>
     </div>
   </div>
 
-  <div class="bar">
-    <button class="btn" id="prev" disabled>Prev</button>
-    <button class="btn" id="next">Next</button>
-  </div>
-
-  <%# ------------------- progress bar js fin ---------------------------- %>
-
-  <div class="container">
-
-      <h1 class='main-title'><%= @pulse.title.upcase %></h1>
-      <div class='sub-title'><h2> by <%= @pulse.user.nickname %></h2></div>
-
-      <div class="idea-container">
-        <div><img class="avatar-show" src="<%= @pulse.user.photo_url %>" alt=""></div>
-        <div class='pulse-why'>
-          <h2>Mon probleme </h2>
-          <p><%= @pulse.problem %></p>
-        </div>
-      </div>
-
-      <div class="solution-container">
-        <div class='solution-solved'>
-          <h2>Ma solution</h2>
-          <p><%= @pulse.solution %></p>
-        </div>
-
-        <div>
-          <% if @pulse.liked?(current_user)%>
-            <%= link_to favorite_path(@pulse.favorites.find_by(user_id: current_user).id, city_id: current_user.city), remote: true, method: :delete do %>
-              <button class="button-like-red"><i class="fas fa-heartbeat"></i></button>
+      <div class="like-show" id="pulse-<%=@pulse.id%>">
+        <% if @pulse.liked?(current_user)%>
+          <%= link_to favorite_path(@pulse.favorites.find_by(user_id: current_user).id, city_id: current_user.city, current_page: "show"), remote: true, method: :delete do %>
+            <button class="button-like-red-show">
+              <i class="fas fa-heartbeat"></i>
+            </button>
             <% end %>
-          <% else %>
-            <%= link_to pulse_favorites_path(@pulse, city_id: @city), remote: true, method: :post do %>
-              <button class="button-like-blue"><i class="fas fa-heartbeat"></i></button>
-            <% end %>
+        <% else %>
+          <%= link_to pulse_favorites_path(@pulse, city_id: @city, current_page: "show"), remote: true, method: :post do %>
+            <button class="button-like-blue-show">
+              <i class="fas fa-heartbeat"></i>
+            </button>
           <% end %>
-        </div>
-
+        <% end %>
       </div>
+
   </div>
 </div>
