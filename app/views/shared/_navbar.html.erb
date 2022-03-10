@@ -1,8 +1,16 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "logo.svg" %>
-    <% end %>
+    <div class="d-flex align-items-center">
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <%= image_tag "logo.svg" %>
+      <% end %>
+
+      <% unless params[:city_id].nil? %>
+      <h2 class="title-rad"><%= City.find(params[:city_id]).name %></h2>
+      <% end %>
+
+    </div>
+
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -52,7 +60,7 @@
 
 
           <li class="nav-item active">
-            <%= link_to "Home", "/", class: "nav-link", style:"color:white;" %>
+            <%= link_to "Home", "/", class: "nav-link title-rad" %>
           </li>
 
           <li class="nav-item dropdown">

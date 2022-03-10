@@ -19,7 +19,7 @@
             <div class="card__side card__side--back card__side--back-1">
               <div class="card__cta">
                 <div class="card__price-box">
-                  <p class="card__price-value">6666</p>
+                  <p class="card__price-value"><%= (City.find_by(name: "Lille").pulses.count)+300 %></p>
                 </div>
                  <%= link_to  city_pulses_path(City.find_by(name: "Lille").id) do  %>
                 <button class="btn btn--white">Lille</button>
@@ -40,7 +40,7 @@
             <div class="card__side card__side--back card__side--back-2">
               <div class="card__cta">
                 <div class="card__price-box">
-                  <p class="card__price-value">3500</p>
+                  <p class="card__price-value"><%= (City.find_by(name: "Paris").pulses.count)+200 %></p>
                   <p></p>
                 </div>
 
@@ -63,7 +63,7 @@
             <div class="card__side card__side--back card__side--back-3">
               <div class="card__cta">
                 <div class="card__price-box">
-                  <p class="card__price-value">500</p>
+                  <p class="card__price-value"><%= (City.find_by(name: "St Malo").pulses.count)+100 %></p>
                 </div>
                  <%= link_to  city_pulses_path(City.find_by(name: "St Malo").id) do  %>
                 <button class="btn btn--white">St Malo</button>
