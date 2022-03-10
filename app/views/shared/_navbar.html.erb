@@ -4,13 +4,10 @@
       <%= link_to root_path, class: "navbar-brand" do %>
         <%= image_tag "logo.svg" %>
       <% end %>
-
       <% unless params[:city_id].nil? %>
-      <h2 class="title-rad"><%= City.find(params[:city_id]).name %></h2>
+        <h2 class="title-rad"><%= City.find(params[:city_id]).name %></h2>
       <% end %>
-
     </div>
-
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -28,36 +25,20 @@
             </li>
           <% end %>
 
-
-
-
-  <div class='dropdown mt-2'>
-    <a class="dropbtn-city">Change de ville !</a>
-    <div id="myDropdown" class="dropdown-city-content" data-filter-target="categ">
-      <% unless current_user.nil? %>
-        <%= link_to 'Ta Ville', city_pulses_path(current_user.city), class: 'link'  %>
-      <% end %>
-      <%= link_to 'Lille', city_pulses_path(City.find_by(name: "Lille").id), class:'link' %>
-      <%= link_to 'Paris', city_pulses_path(City.find_by(name: "Paris").id), class:'link' %>
-      <%= link_to 'Marseille', city_pulses_path(City.find_by(name: "Marseille").id), class:'link' %>
-      <%= link_to 'Rennes', city_pulses_path(City.find_by(name: "Rennes").id), class:'link' %>
-      <%= link_to 'Bordeaux', city_pulses_path(City.find_by(name: "Bordeaux").id), class:'link' %>
-      <%= link_to 'St Malo', city_pulses_path(City.find_by(name: "St Malo").id), class:'link' %>
-    </div>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
+          <div class='dropdown mt-2'>
+            <a class="dropbtn-city">Change de ville !</a>
+            <div id="myDropdown" class="dropdown-city-content" data-filter-target="categ">
+              <% unless current_user.nil? %>
+                <%= link_to 'Ta Ville', city_pulses_path(current_user.city), class: 'link'  %>
+              <% end %>
+              <%= link_to 'Lille', city_pulses_path(City.find_by(name: "Lille").id), class:'link' %>
+              <%= link_to 'Paris', city_pulses_path(City.find_by(name: "Paris").id), class:'link' %>
+              <%= link_to 'Marseille', city_pulses_path(City.find_by(name: "Marseille").id), class:'link' %>
+              <%= link_to 'Rennes', city_pulses_path(City.find_by(name: "Rennes").id), class:'link' %>
+              <%= link_to 'Bordeaux', city_pulses_path(City.find_by(name: "Bordeaux").id), class:'link' %>
+              <%= link_to 'St Malo', city_pulses_path(City.find_by(name: "St Malo").id), class:'link' %>
+            </div>
+          </div>
 
           <li class="nav-item active">
             <%= link_to "Home", "/", class: "nav-link title-rad" %>
