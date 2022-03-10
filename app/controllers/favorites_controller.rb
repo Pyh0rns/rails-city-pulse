@@ -7,7 +7,9 @@ class FavoritesController < ApplicationController
     @favorite.pulse = @pulse
     @favorite.user = current_user
     @favorite.save
-    flash[:alert] = "User not found."
+    # flash.now[:notice] = "XP + 20"
+    flash[:notice] = "XP + 20"
+
     redirect_to city_pulses_path(@city, anchor: "pulse-#{@pulse.id}")
   end
 

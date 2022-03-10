@@ -38,6 +38,7 @@ gem "geocoder"
 gem 'pundit'
 gem 'cloudinary'
 
+
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
