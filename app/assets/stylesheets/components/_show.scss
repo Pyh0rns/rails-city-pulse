@@ -72,6 +72,7 @@ span {
   display: flex;
   flex-direction: row;
   min-height: 650px;
+  justify-content: space-between;
 }
 .sub-title {
   text-align: end;
@@ -83,6 +84,7 @@ span {
   border-radius: 8px;
   display: flex;
   justify-content: center;
+  min-width: 600px;
 }
 
 .avatar-show {
