@@ -5,39 +5,32 @@
     <% end %>
   </div>
 <div class="container">
-
     <%# 2 div du profil en haut de la page  %>
-    <div class="profile-card d-flex justify-content-between mt-5 p-4">
-
-    <%# 3 div a gauche avec nom grade et ville %>
-      <div class="w-50">
-        <img class="avatar-large-profile" src="<%= current_user.photo_url %>" alt="">
-        <div class="profile-card-left">
-          <h1><%= current_user.nickname %></h1>
-          <h2><strong><i class="fas fa-city city-icone"></i></strong> : <%= current_user.city.name %></h2>
-          <h2><strong><i class="fas fa-graduation-cap city-icone"></i></strong> : <%= current_user.level %></h2>
-          <h2> <strong><i class="fas fa-bullseye city-icone"></i></strong> : <%= current_user.experience %> points</h2>
+  <div class="profile-card d-flex justify-content-between mt-5 p-4">
+    <div class="w-50">
+      <img class="avatar-large-profile" src="<%= current_user.photo_url %>" alt="">
+      <div class="profile-card-left">
+        <h1 class='mb-4'><%= current_user.nickname %></h1>
+        <h2><strong><i class="fas fa-city city-icone"></i></strong> : <%= current_user.city.name %></h2>
+        <h2><strong><i class="fas fa-graduation-cap city-icone"></i></strong> : <%= current_user.level %></h2>
+        <h2> <strong><i class="fas fa-bullseye city-icone"></i></strong> : <%= current_user.experience %> points</h2>
+      </div>
+    </div>
+    <div class=" w-50 description-profile">
+      <div class='ta-bio'>
+          <h2>Ta bio</h2>
+          <p><%= current_user.bio %></p>
+        </div>
+        <div class='thematique-fav'>
+          <h2>Tes thématiques favorites</h2>
+          <div class='thematique-fav-icone'>
+              <% current_user.pulses.each do |pulse|%>
+                <h3><%= sanitize pulse.categories.group_by {|category| category.image}.keys[0] %></h3>
+              <%end%>
+          </div>
         </div>
       </div>
-
-    <%# 4 div a droite avec nom thématiques et bio %>
-      <div class=" w-50 description-profile">
-        <div class='ta-bio'>
-            <h2>Ta bio</h2>
-            <p><%= current_user.bio %></p>
-          </div>
-          <div class='thematique-fav'>
-            <h2>Tes thématiques favorites</h2>
-            <div class='thematique-fav-icone'>
-                <% current_user.pulses.each do |pulse|%>
-                  <h3><%= sanitize pulse.categories.group_by {|category| category.image}.keys[0] %></h3>
-                <%end%>
-            </div>
-          </div>
-      </div>
-    <%# fin div 2 %>
     </div>
-  </div>
 
   <%# 5 div échanges mairie et meilleurs pulses %>
   <div class='d-flex'>
@@ -64,7 +57,7 @@
                       <% end %>
                     </div>
                     <div class="pulse-profile-description">
-                      <h3><%= top.title %> : <%= top.favorites.length + (top.fake_votes.nil? ? 0 : top.fake_votes) %> 💙 </h3>
+                      <h3><%= top.title %> : <strong><%= top.favorites.length + (top.fake_votes.nil? ? 0 : top.fake_votes) %> 💙 </strong> </h3>
                       <p class=''><%= top.solution %></p>
                     </div>
                 </div>
@@ -77,7 +70,7 @@
     <%# --------------------- CHATROOM -------------------- %>
       <div class='profile-card-bottom messages-card-right' data-controller="open-chatroom">
         <div>
-          <h2>Tes derniers échanges avec la Mairie</h2>
+          <h2 class='mb-3'>Tes derniers échanges avec la Mairie</h2>
           <div class="echange-mairie">
             <div>
               <% unless @messages.first.nil? %>
@@ -102,7 +95,7 @@
   </div>
 
     <%# 7 div derniers pulses postés et aimés %>
-    <div class='d-flex'>
+    <div class='d-flex mb-5'>
       <div class="profile-card-bottom">
           <div>
             <h2>Tes derniers Pulses postés</h2>
@@ -165,5 +158,4 @@
           </div>
       </div>
     </div>
-  </div><%# fin div 7 %>
 </div>

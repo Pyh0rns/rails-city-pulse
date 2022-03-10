@@ -84,7 +84,9 @@ display: block;
   border-radius: 8px;
   h2 {
     font-size: 20px;
-    color:#FD1C68;
+    background: -webkit-linear-gradient(207.67deg, #FDAE8F 3.43%, #FD1C68 104.7%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent
   }
   h3 {
     font-size: 16px;
@@ -141,6 +143,14 @@ display: block;
 .pulse-profile-description {
   max-width: 611px;
 }
+
+.pulse-profile-description h3{
+    font-size: 16px;
+    background: -webkit-linear-gradient(207.67deg, #FDAE8F 3.43%, #FD1C68 104.7%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent
+  }
+
 .pulse-icone-coeur {
   padding: 10px;
   background: $button;
