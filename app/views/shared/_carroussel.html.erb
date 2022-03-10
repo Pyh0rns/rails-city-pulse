@@ -12,14 +12,15 @@
             <div class="card__side card__side--front-1">
 
               <img src="https://hellolille.eu/wp-content/uploads/2020/06/CCI_HelloLille_Nablezon-8-1536x1024.jpg" class="d-block w-100" alt="...">
-              <h4 class="card__heading d-flex align-items-center justify-content-center">Lille</h4>
-              <h4 class="card__heading d-flex align-items-center justify-content-center">TOP 1</h4>
+              <div class='d-flex justify-content-center mt-4'>
+                <h4 class="card__heading d-flex align-items-center justify-content-center mx-3">TOP 1</h4>
+              </div>
 
             </div>
             <div class="card__side card__side--back card__side--back-1">
               <div class="card__cta">
                 <div class="card__price-box">
-                  <p class="card__price-value"><%= (City.find_by(name: "Lille").pulses.count)+300 %></p>
+                  <p class="card__price-value"><%= (City.find_by(name: "Lille").pulses.count)+300 %> pulses</p>
                 </div>
                  <%= link_to  city_pulses_path(City.find_by(name: "Lille").id) do  %>
                 <button class="btn btn--white">Lille</button>
@@ -33,14 +34,15 @@
           <div class="card card-home">
             <div class="card__side card__side--front-2">
             <img src="https://media.cntraveler.com/photos/5d8cf7d5db6acf000833e6cc/master/pass/Eiffel-Tower_GettyImages-1060266626.jpg" class="d-block w-100" alt="...">
-            <h4 class="card__heading d-flex align-items-center justify-content-center">Paris</h4>
-            <h4 class="card__heading d-flex align-items-center justify-content-center">TOP 2</h4>
+            <div class='d-flex justify-content-center mt-4'>
+              <h4 class="card__heading d-flex align-items-center justify-content-center mx-3">TOP 2</h4>
+            </div>
 
             </div>
             <div class="card__side card__side--back card__side--back-2">
               <div class="card__cta">
                 <div class="card__price-box">
-                  <p class="card__price-value"><%= (City.find_by(name: "Paris").pulses.count)+200 %></p>
+                  <p class="card__price-value"><%= (City.find_by(name: "Paris").pulses.count)+200 %> pulses</p>
                   <p></p>
                 </div>
 
@@ -56,14 +58,15 @@
           <div class="card card-home">
             <div class="card__side card__side--front-3">
             <img src="https://a.cdn-hotels.com/gdcs/production164/d686/03685140-68ce-11e8-8a0f-0242ac11000c.jpg" class="d-block w-100" alt="...">
-            <h4 class="card__heading d-flex align-items-center justify-content-center">St Malo</h4>
-            <h4 class="card__heading d-flex align-items-center justify-content-center">TOP 3</h4>
+            <div class='d-flex justify-content-center mt-4'>
+              <h4 class="card__heading d-flex align-items-center justify-content-center mx-3">TOP 3</h4>
+            </div>
 
             </div>
             <div class="card__side card__side--back card__side--back-3">
               <div class="card__cta">
                 <div class="card__price-box">
-                  <p class="card__price-value"><%= (City.find_by(name: "St Malo").pulses.count)+100 %></p>
+                  <p class="card__price-value"><%= (City.find_by(name: "St Malo").pulses.count)+100 %> pulses</p>
                 </div>
                  <%= link_to  city_pulses_path(City.find_by(name: "St Malo").id) do  %>
                 <button class="btn btn--white">St Malo</button>
