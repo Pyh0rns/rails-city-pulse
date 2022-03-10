@@ -2,13 +2,13 @@
   <h1> <%= current_user.city.name %> </h1>
   <h2> Votre tableau de Bord </h2>
 </div>
-
+  <div>
+    <%= link_to city_pulses_path(current_user.city), class: "linkto" do %>
+      <p class="profile-link"><i class="fas fa-arrow-left m-3 "> </i> Pulses de ta ville</p>
+    <% end %>
+  </div>
 <%# 1 div container pour toute la page  %>
 <div class="container">
-
-<%= link_to city_pulses_path(current_user.city), class: "linkto" do %>
-  <p class="linkto"><i class="fas fa-arrow-left m-3 "> </i> Pulses de ta ville</p>
-<% end %>
 
 <%# 2 div du recap en haut de la page  %>
   <div class="profile-card d-flex justify-content-between border px-5 py-5 m-5">

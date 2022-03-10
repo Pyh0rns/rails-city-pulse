@@ -1,3 +1,72 @@
+.profile-link{
+  width: 200px;
+  margin-left: 20px;
+  color: inherit;
+  color: #272932;
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.profile-card {
+  position: relative;
+  color: white;
+  background: $button;
+  border-radius: 8px;
+  box-shadow: 7px 13px 9px lightgrey ;
+  h1 {
+    font-size: 32px;
+  }
+  h2 {
+    font-size: 20px;
+  }
+  h3{
+    font-size: 37px;
+    margin-right: 43px;
+    margin-top: 16px;
+    background-color: white;
+    color: #FD1C68;
+    padding: 12px;
+    border-radius: 38px;
+  }
+  p {
+    font-size: 15px;
+    opacity: .7;
+  }
+}
+
+.city-icone{
+  background-color: white;
+  padding: 5px;
+  color:#FD1C68;
+  border-radius: 26px;
+  height: 22px;
+  width: 25px;
+  text-align: center;
+  margin-bottom: 14px;
+}
+.description-profile{
+ display: grid;
+
+}
+.ta-bio{
+  display: block;
+  align-items: baseline;
+}
+
+.thematique-fav {
+display: block;
+}
+
+.thematique-fav-icone{
+  display: flex;
+  justify-content: space-evenly;
+  margin: 10px;
+}
+
+.profile-card-left {
+  margin-left: 120px;
+}
+
 .profile-card-bottom-inside {
   width: 50%;
   border-radius: 10px;
@@ -11,8 +80,11 @@
   border-radius: 8px;
   display: flex;
   justify-content: space-around;
+  margin-bottom: 0px;
+  border-radius: 8px;
   h2 {
     font-size: 20px;
+    color:#FD1C68;
   }
   h3 {
     font-size: 16px;
@@ -23,8 +95,10 @@
   }
 }
 
+
+
 .profile-meilleurs-pulses {
-  max-width: 1168px;
+  max-width: 100%;
   background: #272932;
   color: white;
   border-radius: 9px;
@@ -33,17 +107,35 @@
   padding-bottom: 35px;
   padding-right: 12px;
   height: 78%;
+  box-shadow: 7px 13px 9px lightgrey ;
+}
+
+.icone-profile {
+  display: inline-grid;
+}
+
+.best-icone{
+  margin-bottom: 4px;
+  background: linear-gradient(to right, #FDAE8F, #FD1C68);
+  color: white;
+  font-size: 21px;
+  margin-right: 19px;
+  margin-left: 10px;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .pulses-profile {
   border-radius: 5px;
   background: white;
   color: #272932;
-  padding: 5px;
+  padding-top: 12px;
   margin: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .pulse-profile-description {
@@ -64,23 +156,26 @@
   right: 15px;
   margin-bottom: 10px;
 }
+.messages-card-right{
+  max-width: 500px;
+}
 
 .echange-mairie{
   padding-left: 14px;
-  padding-top: 29px;
+  padding-top: 14px;
   padding-bottom: 63px;
   padding-right: 12px;
   border: solid;
   background: $black;
   color: black;
   margin-left: 4px;
-  margin-top: 6px;
+  margin-top: -9px;
   display: block;
   border-radius: 9px;
   border: none;
   align-items: center;
-  width: 100%;
-  height: auto;
+  max-width: 100%;
+  box-shadow: 7px 13px 9px lightgrey ;
 }
 
 .link-messages-profile{
@@ -92,10 +187,10 @@
 
 .link-messages-profile-h2{
   text-decoration: none;
-  background-color: white;
+  background: linear-gradient(to right, #FDAE8F, #FD1C68);;
   padding: 6px;
   border-radius: 12px;
-  color: #FD1C68;
+  color: white;
 }
 
 .link-messages-profile-h2:hover{
@@ -120,7 +215,7 @@
   width: auto;
   background: $black;
   color: white ;
-  max-height: 260px;
+  max-height: 284px;
   display: flex;
 }
 
@@ -136,29 +231,6 @@
   margin-bottom: 2px;
 }
 .input-profile-message{
-width: 21%;
-position: absolute;
-margin-left: -8px;
-margin-top: -11px;
-}
-
-.profile-card {
-  position: relative;
-  color: white;
-  background-color: $black;
-  border-radius: 8px;
-  h1 {
-    font-size: 32px;
-  }
-  h2 {
-    font-size: 20px;
-  }
-  p {
-    font-size: 14px;
-    opacity: .7;
-  }
-}
-
-.profile-card-left {
-  margin-left: 120px;
+  width: 82%;
+  margin: 0 auto;
 }

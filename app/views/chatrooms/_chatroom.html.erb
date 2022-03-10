@@ -8,11 +8,12 @@
     </div>
     <%= simple_form_for [@chatroom, @message],
       remote: true,
-      html: {data: {chatroom_subscription_target: "form"}, class: "d-block"} do |f| %>
+      html: {data: {chatroom_subscription_target: "form", autocomplete: 'off'}, class: "d-block"} do |f| %>
         <%= f.input :content,
           label: false,
           placeholder: "Message à votre Mairie",
-          wrapper_html: {class: "flex-grow-1 input-profile-message"} %>
+          wrapper_html: {class: "flex-grow-1"},
+          input_html: {class: 'input-profile-message', autocomplete: 'off'} %>
         <%= f.submit "Send", class: "profile d-none" %>
       <%end%>
   </div>
