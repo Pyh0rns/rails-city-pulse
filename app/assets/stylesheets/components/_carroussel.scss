@@ -139,7 +139,7 @@
 
 ////////////////
 
-.row.row-home {
+.row-home {
   display: flex;
   justify-content: center;
 }
@@ -318,31 +318,31 @@
   font-weight: 100;
 }
 
-.row {
-  max-width: 114rem;
-  margin: 0 auto;
-}
+// .row {
+//   max-width: 114rem;
+//   margin: 0 auto;
+// }
 
-.row:not(:last-child) {
-  margin-bottom: 5rem;
-  margin-top: 5rem;
-}
+// .row:not(:last-child) {
+//   margin-bottom: 5rem;
+//   margin-top: 5rem;
+// }
 
-.row::after {
-  content: "";
-  display: table;
-  clear: both;
-}
+// .row::after {
+//   content: "";
+//   display: table;
+//   clear: both;
+// }
 
-.row [class^="col-"] {
-  float: left;
-}
+// .row [class^="col-"] {
+//   float: left;
+// }
 
 // .row [class^="col-"]:not(:last-child) {
 
 // }
 
-.row .col-1-of-3 {
-  width: calc((100% - 2 * 6rem) / 3);
+// .row .col-1-of-3 {
+//   width: calc((100% - 2 * 6rem) / 3);
 
-}
+// }
